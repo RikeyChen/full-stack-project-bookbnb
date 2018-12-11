@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  before_validation :ensure_session_token
+  after_initialize :ensure_session_token
 
   # associations - need to fill out (prob not one-liners)
   # has_many :bookings
