@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const NavBar = () => {
+export const NavBar = (props) => {
   let display;
-  if (!this.props.currentUser.id) {
+  if (props.currentUser.id === undefined) {
     display = (
       <div>
         <nav>
@@ -12,8 +12,8 @@ export const NavBar = () => {
         <nav className="navbar-links">
           <button>Become a host</button>
           <button>Help</button>
-          <CreateUserForm />
-          <CreateSessionForm />
+          <SignUpForm />
+          <LoginForm />
         </nav>
       </div>
     );
@@ -24,7 +24,7 @@ export const NavBar = () => {
           <Link className="navbar-logo-logged-in" onClick />
         </nav>
         <nav className="navbar-links">
-          <button onClick={this.props.logout}>Logout</button>
+          <button onClick={props.logout}>Logout</button>
         </nav>
       </div>
     );
