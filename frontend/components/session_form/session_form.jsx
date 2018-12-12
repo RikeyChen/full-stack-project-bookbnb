@@ -6,7 +6,6 @@ class SessionForm extends React.Component {
     this.blankState = Object.assign({}, this.props.formComponents);
     this.state = this.props.formComponents;
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.renderErrors = this.renderErrors.bind(this);
   }
 
   handleSubmit(e) {
@@ -38,33 +37,76 @@ class SessionForm extends React.Component {
     let formDisplay;
     if (this.props.formType === 'Sign up') {
       formDisplay = (
-        <form className="signup-login-form" onSubmit={this.handleSubmit}>
+        <div>
           {this.renderErrors()}
-          <input type="email" value={this.state.email} onChange={this.update('email')} />
-          <input type="text" value={this.state.firstName} onChange={this.update('firstName')} />
-          <input type="text" value={this.state.lastName} onChange={this.update('lastName')} />
-          <input type="password" value={this.state.password} onChange={this.update('password')} />
-          <input className="signup-login-form-btn" type="submit" value={this.props.formType} />
-          <br />
-          <h5>Already have a Bookbnb account? Log in</h5>
-        </form>
+          <form className="signup-login-form" onSubmit={this.handleSubmit}>
+            <input
+              type="email"
+              value={this.state.email}
+              onChange={this.update('email')}
+              placeholder="Email address"
+            />
+            <input
+              type="text"
+              value={this.state.firstName}
+              onChange={this.update('firstName')}
+              placeholder="First name"
+            />
+            <input
+              type="text"
+              value={this.state.lastName}
+              onChange={this.update('lastName')}
+              placeholder="Last name"
+            />
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.update('password')}
+              placeholder="Password"
+            />
+            <input
+              className="signup-login-form-btn"
+              type="submit"
+              value={this.props.formType}
+            />
+            <br />
+            <h5>Already have a Bookbnb account? Log in</h5>
+          </form>
+        </div>
       );
     } else {
       formDisplay = (
-        <form className="signup-login-form" onSubmit={this.handleSubmit}>
+        <div>
           {this.renderErrors()}
-          <input type="email" value={this.state.email} onChange={this.update('email')} />
-          <input type="password" value={this.state.password} onChange={this.update('password')} />
-          <input className="signup-login-form-btn" type="submit" value={this.props.formType} />
-          <br />
-          <h5>Don't have an account? Sign Up</h5>
-        </form>
+          <form className="signup-login-form" onSubmit={this.handleSubmit}>
+            <input
+              type="email"
+              value={this.state.email}
+              onChange={this.update('email')}
+              placeholer="Email address"
+            />
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.update('password')}
+              placeholder="Password"
+            />
+            <input
+              className="signup-login-form-btn"
+              type="submit"
+              value={this.props.formType}
+            />
+            <br />
+            <h5>Don't have an account? Sign Up</h5>
+          </form>
+        </div>
       );
     }
 
     return (
       <div className="signup-login-form-container">
         {formDisplay}
+
       </div>
     );
   }
