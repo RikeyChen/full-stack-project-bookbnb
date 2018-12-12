@@ -1,19 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SignUpFormContainer from '../session_form/signup_form_container';
+import LoginFormContainer from '../session_form/login_form_container';
 
 export const NavBar = (props) => {
   let display;
-  if (props.currentUser.id === undefined) {
+  if (props.currentUser === undefined) {
     display = (
       <div>
         <nav>
-          <Link className="navbar-logo-logged-out" onClick />
+          <Link to="/" className="navbar-logo-logged-out">
+            LOGO
+          </Link>
         </nav>
         <nav className="navbar-links">
           <button>Become a host</button>
           <button>Help</button>
-          <SignUpForm />
-          <LoginForm />
+          <SignUpFormContainer />
+          <LoginFormContainer />
         </nav>
       </div>
     );
@@ -21,7 +25,9 @@ export const NavBar = (props) => {
     display = (
       <div>
         <nav>
-          <Link className="navbar-logo-logged-in" onClick />
+          <Link to="/" className="navbar-logo-logged-in">
+            LOGO
+          </Link>
         </nav>
         <nav className="navbar-links">
           <button onClick={props.logout}>Logout</button>
@@ -30,7 +36,9 @@ export const NavBar = (props) => {
     );
   }
   return (
-    { display }
+    <div>
+      {display}
+    </div>
   );
 };
 
