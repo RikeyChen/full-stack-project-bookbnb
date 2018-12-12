@@ -37,9 +37,10 @@ class SessionForm extends React.Component {
     let formDisplay;
     if (this.props.formType === 'Sign up') {
       formDisplay = (
-        <div>
+        <div id="signlog-modal" className="modal">
           {this.renderErrors()}
-          <form className="signup-login-form" onSubmit={this.handleSubmit}>
+          <form className="signlog-modal-form" onSubmit={this.handleSubmit}>
+            <span className="close">&times;</span>
             <input
               type="email"
               value={this.state.email}
@@ -76,9 +77,10 @@ class SessionForm extends React.Component {
       );
     } else {
       formDisplay = (
-        <div>
+        <div id="signlog-modal" className="modal">
           {this.renderErrors()}
-          <form className="signup-login-form" onSubmit={this.handleSubmit}>
+          <form className="signlog-modal-form" onSubmit={this.handleSubmit}>
+            <span className="close">&times;</span>
             <input
               type="email"
               value={this.state.email}
@@ -106,7 +108,6 @@ class SessionForm extends React.Component {
     return (
       <div className="signup-login-form-container">
         {formDisplay}
-
       </div>
     );
   }
