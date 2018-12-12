@@ -37,71 +37,63 @@ class SessionForm extends React.Component {
     let formDisplay;
     if (this.props.formType === 'Sign up') {
       formDisplay = (
-        <div id="signlog-modal" className="modal">
-          {this.renderErrors()}
-          <form className="signlog-modal-form" onSubmit={this.handleSubmit}>
-            <span className="close">&times;</span>
-            <input
-              type="email"
-              value={this.state.email}
-              onChange={this.update('email')}
-              placeholder="Email address"
-            />
-            <input
-              type="text"
-              value={this.state.firstName}
-              onChange={this.update('firstName')}
-              placeholder="First name"
-            />
-            <input
-              type="text"
-              value={this.state.lastName}
-              onChange={this.update('lastName')}
-              placeholder="Last name"
-            />
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder="Password"
-            />
-            <input
-              className="signup-login-form-btn"
-              type="submit"
-              value={this.props.formType}
-            />
-            <br />
-            <h5>Already have a Bookbnb account? Log in</h5>
-          </form>
-        </div>
+        <form className="signlog-modal-form" onSubmit={this.handleSubmit}>
+          <input
+            type="email"
+            value={this.state.email}
+            onChange={this.update('email')}
+            placeholder="Email address"
+          />
+          <input
+            type="text"
+            value={this.state.firstName}
+            onChange={this.update('firstName')}
+            placeholder="First name"
+          />
+          <input
+            type="text"
+            value={this.state.lastName}
+            onChange={this.update('lastName')}
+            placeholder="Last name"
+          />
+          <input
+            type="password"
+            value={this.state.password}
+            onChange={this.update('password')}
+            placeholder="Password"
+          />
+          <input
+            className="signup-login-form-btn"
+            type="submit"
+            value={this.props.formType}
+          />
+          <br />
+          <h5>Already have a Bookbnb account? Log in</h5>
+        </form>
       );
     } else {
       formDisplay = (
-        <div id="signlog-modal" className="modal">
-          {this.renderErrors()}
-          <form className="signlog-modal-form" onSubmit={this.handleSubmit}>
-            <span className="close">&times;</span>
-            <input
-              type="email"
-              value={this.state.email}
-              onChange={this.update('email')}
-              placeholer="Email address"
-            />
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder="Password"
-            />
-            <input
-              className="signup-login-form-btn"
-              type="submit"
-              value={this.props.formType}
-            />
-            <br />
-            <h5>Don't have an account? Sign Up</h5>
-          </form>
-        </div>
+        <form className="signlog-modal-form" onSubmit={this.handleSubmit}>
+          <input
+            type="email"
+            value={this.state.email}
+            onChange={this.update('email')}
+            placeholer="Email address"
+          />
+          <input
+            type="password"
+            value={this.state.password}
+            onChange={this.update('password')}
+            placeholder="Password"
+          />
+          <input
+            className="signup-login-form-btn"
+            type="submit"
+            value={this.props.formType}
+          />
+          <br />
+          <h5>Don't have an account? Sign Up</h5>
+        </form>
       );
     }
 

@@ -7,11 +7,15 @@ import {
   HashRouter,
 } from 'react-router-dom';
 import NavBarContainer from './navbar/navbar_container';
+import Modal from './modal/modal';
 
 const App = () => (
   <div>
+    <Modal />
     <header className="navbar">
-      <h1>Welcome to Bookbnb!</h1>
+      <Link to="/">
+        <div className="navbar-logo" />
+      </Link>
       <NavBarContainer />
     </header>
   </div>
