@@ -3,14 +3,17 @@ import React from 'react';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
+    this.blankState = Object.assign({}, this.props.formComponents);
     this.state = this.props.formComponents;
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.renderErrors = this.renderErrors.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+    this.setState(this.blankState);
   }
 
   update(field) {
