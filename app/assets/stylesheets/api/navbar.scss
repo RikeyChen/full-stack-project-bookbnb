@@ -42,6 +42,11 @@
 .navbar-links {
   display: flex;
   width: 346px;
+  cursor: pointer;
+}
+
+navbar-links:hover {
+  border: 2px solid black;
 }
 
 .navbar-links > button {
@@ -59,7 +64,7 @@
 }
 
 .modal-background {
-  display: none;
+  // display: none;
   position: fixed;
   z-index: 1;
   left: 0;
