@@ -53,6 +53,8 @@ class Listing < ApplicationRecord
     :tv,
   presence: true, inclusion: { in: [true, false] }
 
+  has_many_attached :images
+
   belongs_to :host,
     foreign_key: :host_id,
     class_name: :User
