@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 const NavBar = ({
   currentUser, logout, openModal, location,
 }) => {
-  let display;
   let searchBar;
   if (location.pathname === '/listings') {
     searchBar = (<input type="text" placeholder={'Try "San Francisco"'} />);
   } else searchBar = null;
 
+  let display;
   if (currentUser === undefined) {
     display = (
       <div className="navbar-search-links-innerdiv">
         <nav className="navbar-search">
           {searchBar}
         </nav>
-        <nav className="navbar-links">
+        <nav className={location.pathname === '/' ? 'navbar-links-splash' : 'navbar-links'}>
           <button>Become a host</button>
           <button>Help</button>
           <button onClick={() => openModal('Sign up')}>Sign up</button>
@@ -28,7 +28,7 @@ const NavBar = ({
     display = (
       <div className="navbar-search-links-innerdiv">
         <nav className="navbar-search">
-          <input type="text" placeholder={'Try "San Francisco"'} />
+          {searchBar}
         </nav>
         <nav className="navbar-links">
           <button onClick={logout}>Logout</button>
