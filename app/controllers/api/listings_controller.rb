@@ -8,5 +8,4 @@ class Api::ListingsController < ApplicationController
     @listings = List.all
     render 'api/listings/index'
   end
-
 end
