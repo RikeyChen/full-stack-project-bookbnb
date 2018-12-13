@@ -19,7 +19,10 @@ const NavBar = ({ currentUser, logout, openModal }) => {
     );
   } else {
     display = (
-      <div>
+      <div className="navbar-search-links-innerdiv">
+        <nav className="navbar-search">
+          <input type="text" placeholder={'Try "San Francisco"'} />
+        </nav>
         <nav className="navbar-links">
           <button onClick={logout}>Logout</button>
         </nav>

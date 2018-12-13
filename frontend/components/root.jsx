@@ -6,7 +6,7 @@ import App from './app';
 const Root = ({ store, windowHeight }) => (
   <Provider store={store}>
     <HashRouter>
-      <App windowHeight />
+      <App windowHeight={windowHeight} />
     </HashRouter>
   </Provider>
 );

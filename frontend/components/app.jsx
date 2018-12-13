@@ -20,12 +20,12 @@ const App = ({ windowHeight }) => (
       <NavBarContainer />
     </header>
     <Switch>
-      {/* <div id="splash-pic" style={{ height: `${windowHeight}` }} /> */}
-      {/* {console.log(windowHeight)} */}
-      {/* <ProtectedRoute
+      <div id="splash-pic" />
+      {/* <div id="splash-pic" style={{ height: windowHeight }} /> */}
+      {/* <AuthRoute
         exact
-        path="/home"
-        component={<div><img src="splash_outdoor.jpeg" alt="splash" /></div>}
+        path="/listings"
+        component={ListingsIndex}
       /> */}
     </Switch>
   </div>

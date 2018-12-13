@@ -18,16 +18,17 @@
 
 .navbar-logo {
  background-image: image-url("logo.png");
- width: 34px;
+ background-size: contain;
+ background-repeat: no-repeat;
+ width: 68px;
  height: 80px;
- padding-left: 24px;
- padding-right: 24px;
+ margin-left: 15px;
  display: flex;
  align-items: center;
+ justify-content: center;
 }
 
 .navbar-search {
-  // width: 1476px;
   width: 80%;
   height: 80px;
   display: flex;
