@@ -10,7 +10,7 @@ import NavBarContainer from './navbar/navbar_container';
 import Modal from './modal/modal';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-const App = () => (
+const App = ({ windowHeight }) => (
   <div>
     <Modal />
     <header className="navbar">
@@ -20,7 +20,8 @@ const App = () => (
       <NavBarContainer />
     </header>
     <Switch>
-      <div id="splash-pic" />
+      <div id="splash-pic" style={{ height: `${windowHeight}` }} />
+      {/* {console.log(windowHeight)} */}
       {/* <ProtectedRoute
         exact
         path="/home"
