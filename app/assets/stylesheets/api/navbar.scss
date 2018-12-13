@@ -6,10 +6,15 @@
   border: 1px solid #E4E4E4;
 }
 
-.navbar-search-links {
+.navbar-search-links-outterdiv {
+ width: 95%;
+}
+
+.navbar-search-links-innerdiv {
   display: flex;
   justify-content: space-between;
   height: 80px;
+  width: 100%;
 }
 
 .navbar-logo {
@@ -27,7 +32,8 @@
 }
 
 .navbar-search {
-  width: 1476px;
+  // width: 1476px;
+  width: 80%;
   height: 80px;
   display: flex;
   align-items: center;

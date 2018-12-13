@@ -5,7 +5,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
   let display;
   if (currentUser === undefined) {
     display = (
-      <div className="navbar-search-links">
+      <div className="navbar-search-links-innerdiv">
         <nav className="navbar-search">
           <input type="text" placeholder={'Try "San Francisco"'} />
         </nav>
@@ -28,7 +28,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
   }
 
   return (
-    <div>
+    <div className="navbar-search-links-outterdiv">
       {display}
     </div>
   );
