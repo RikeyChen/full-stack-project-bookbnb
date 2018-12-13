@@ -80,23 +80,46 @@ navbar-links:hover {
 }
 
 .signlog-modal-form {
-  background-color: #fefefe;
+  background-color: #FFFFFF;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 500px;
-  height: 300px;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  padding: 32px;
+  font-size: 20px;
+  overflow: hidden;
+}
+
+.signlog-modal-form input {
+  border: 1px solid #EBEBEB;
+  border-radius: 4px;
+  height: 24px;
+  padding: 12px 24px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 100;
+  width: 450px;
+}
+
+button.signup-login-form-btn {
+  background-color: #FF4E63;
+  padding: 24px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  color: #FFFFFF;
+  line-height: 0px;
 }
 
 .close {
-  color: #aaa;
-  // float: right;
-  font-size: 28px;
-  font-weight: bold;
+  width: 16px;
+  height: 16px;
+  color: #808080;
+  font-size: 60px;
+  font-weight: 0;
 }
 
 .close:hover,
@@ -104,4 +127,47 @@ navbar-links:hover {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.signlog-errors {
+  margin-bottom: 25px;
+}
+
+.signlog-errors-error {
+  display: flex;
+  color: #FF593B;
+  font-size: 14px;
+  padding-bottom: 2px;
+}
+
+.signlog-errors span {
+  width: 15px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.otherform-btn {
+  border: none;
+  color: #008688;
+  font-weight: 200;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.otherform-btn:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #008688;
+}
+
+.otherform-btn-section {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
 }

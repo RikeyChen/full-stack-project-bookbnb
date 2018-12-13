@@ -12,8 +12,8 @@ const NavBar = ({ currentUser, logout, openModal }) => {
         <nav className="navbar-links">
           <button>Become a host</button>
           <button>Help</button>
-          <button onClick={() => openModal('Log in')}>Log in</button>
           <button onClick={() => openModal('Sign up')}>Sign up</button>
+          <button onClick={() => openModal('Log in')}>Log in</button>
         </nav>
       </div>
     );

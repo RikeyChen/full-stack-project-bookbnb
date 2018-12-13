@@ -3,17 +3,18 @@ import React from 'react';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.blankState = Object.assign({}, this.props.formComponents);
+    // this.blankState = Object.assign({}, this.props.formComponents);
     this.state = this.props.formComponents;
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.renderErrors = this.renderErrors.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    this.setState(this.blankState);
-    this.props.closeModal();
+    // this.props.closeModal();
+    this.setState({ password: '' });
   }
 
   update(field) {
@@ -24,10 +25,13 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="signlog-errors">
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
+          <li key={`error-${i}`} className="signlog-errors-error">
+            <span>X</span>
+            <div>
+              {error}
+            </div>
           </li>
         ))}
       </ul>
@@ -39,39 +43,53 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'Sign up') {
       formDisplay = (
         <form className="signlog-modal-form" onSubmit={this.handleSubmit}>
-          <span className="close" onClick={this.props.closeModal}>&times;</span>
-          <input
-            type="email"
-            value={this.state.email}
-            onChange={this.update('email')}
-            placeholder="Email address"
-          />
-          <input
-            type="text"
-            value={this.state.firstName}
-            onChange={this.update('firstName')}
-            placeholder="First name"
-          />
-          <input
-            type="text"
-            value={this.state.lastName}
-            onChange={this.update('lastName')}
-            placeholder="Last name"
-          />
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.update('password')}
-            placeholder="Password"
-          />
-          <input
+          <div>
+            <span className="close" onClick={this.props.closeModal}>
+              &times;
+            </span>
+          </div>
+          <br />
+          <div>
+            <input
+              type="email"
+              value={this.state.email}
+              onChange={this.update('email')}
+              placeholder="Email address"
+            />
+            <input
+              type="text"
+              value={this.state.firstName}
+              onChange={this.update('firstName')}
+              placeholder="First name"
+            />
+            <input
+              type="text"
+              value={this.state.lastName}
+              onChange={this.update('lastName')}
+              placeholder="Last name"
+            />
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.update('password')}
+              placeholder="Password"
+            />
+            {this.renderErrors()}
+          </div>
+          <button
             className="signup-login-form-btn"
             type="submit"
-            value={this.props.formType}
-          />
+          >
+            {this.props.formType}
+          </button>
           <br />
-          <h5>
-            Already have a Bookbnb account?
+          <div>
+            <hr />
+          </div>
+          <h5 className="otherform-btn-section">
+            <div>
+              Already have a Bookbnb account?
+            </div>
             {this.props.otherForm}
           </h5>
         </form>
@@ -79,27 +97,41 @@ class SessionForm extends React.Component {
     } else {
       formDisplay = (
         <form className="signlog-modal-form" onSubmit={this.handleSubmit}>
-          <span className="close" onClick={this.props.closeModal}>&times;</span>
-          <input
-            type="email"
-            value={this.state.email}
-            onChange={this.update('email')}
-            placeholer="Email address"
-          />
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.update('password')}
-            placeholder="Password"
-          />
-          <input
+          <div>
+            <span className="close" onClick={this.props.closeModal}>
+              &times;
+            </span>
+          </div>
+          <br />
+          <div>
+            <input
+              type="email"
+              value={this.state.email}
+              onChange={this.update('email')}
+              placeholer="Email address"
+            />
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.update('password')}
+              placeholder="Password"
+            />
+            {this.renderErrors()}
+          </div>
+          <button
             className="signup-login-form-btn"
             type="submit"
-            value={this.props.formType}
-          />
+          >
+            {this.props.formType}
+          </button>
           <br />
+          <div>
+            <hr />
+          </div>
           <h5>
-            Don't have an account?
+            <div className="otherform-btn-section">
+              Don't have an account?
+            </div>
             {this.props.otherForm}
 
           </h5>
