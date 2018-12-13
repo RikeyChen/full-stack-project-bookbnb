@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   height: 80px;
-  background-image: url(splash_outdoor.jpeg);
+  // background-image: image-url("splash_outdoor.jpeg");
   border: 1px solid #E4E4E4;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .navbar-logo {
- background-image: url(logo.png);
+ background-image: image-url("logo.png");
  width: 34px;
  height: 80px;
  padding-left: 24px;
@@ -64,7 +64,6 @@ navbar-links:hover {
 }
 
 .modal-background {
-  // display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -91,7 +90,7 @@ navbar-links:hover {
 
 .close {
   color: #aaa;
-  float: right;
+  // float: right;
   font-size: 28px;
   font-weight: bold;
 }

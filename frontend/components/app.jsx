@@ -14,9 +14,7 @@ const App = () => (
     <Modal />
     <header className="navbar">
       <Link to="/">
-        <div className="navbar-logo">
-          LOGO
-        </div>
+        <div className="navbar-logo" />
       </Link>
       <NavBarContainer />
     </header>

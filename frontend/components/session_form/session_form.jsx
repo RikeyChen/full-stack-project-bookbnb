@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
     this.setState(this.blankState);
+    this.props.closeModal();
   }
 
   update(field) {
@@ -38,6 +39,7 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'Sign up') {
       formDisplay = (
         <form className="signlog-modal-form" onSubmit={this.handleSubmit}>
+          <span className="close" onClick={this.props.closeModal}>&times;</span>
           <input
             type="email"
             value={this.state.email}
@@ -74,6 +76,7 @@ class SessionForm extends React.Component {
     } else {
       formDisplay = (
         <form className="signlog-modal-form" onSubmit={this.handleSubmit}>
+          <span className="close" onClick={this.props.closeModal}>&times;</span>
           <input
             type="email"
             value={this.state.email}
@@ -98,7 +101,7 @@ class SessionForm extends React.Component {
     }
 
     return (
-      <div className="signup-login-form-container">
+      <div id="signup-login-form-container">
         {formDisplay}
       </div>
     );
