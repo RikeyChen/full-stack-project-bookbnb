@@ -23,10 +23,6 @@ const SplashPic = () => (
   <div id="splash-pic" />
 );
 
-const TestListings = () => (
-  <h1>LISTINGS</h1>
-);
-
 const App = () => (
   <div>
     <Modal />
@@ -35,10 +31,9 @@ const App = () => (
       path="/"
       component={Header}
     />
-
     <Switch>
       <AuthRoute exact path="/" component={SplashPic} />
-      <Route path="/listings" component={NavBarContainer} />
+      <Route path="/listings" component={Header} />
     </Switch>
   </div>
 );
