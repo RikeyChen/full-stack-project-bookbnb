@@ -88,8 +88,8 @@ class SessionForm extends React.Component {
           <h5 className="otherform-btn-section">
             <div>
               Already have a Bookbnb account?
+              {this.props.otherForm}
             </div>
-            {this.props.otherForm}
           </h5>
         </form>
       );
@@ -125,7 +125,6 @@ class SessionForm extends React.Component {
           </button>
           <br />
           <div className="demo-div">
-            Try the demo:
             <button
               onClick={() => this.props.processForm({
                 email: 'DemoUser@gmail.com',
@@ -143,9 +142,8 @@ class SessionForm extends React.Component {
           <h5 className="otherform-btn-section">
             <div>
               Don't have an account?
+              {this.props.otherForm}
             </div>
-            {this.props.otherForm}
-
           </h5>
         </form>
       );
