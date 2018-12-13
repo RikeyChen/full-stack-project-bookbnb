@@ -6,7 +6,6 @@ class SessionForm extends React.Component {
     // this.blankState = Object.assign({}, this.props.formComponents);
     this.state = this.props.formComponents;
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.renderErrors = this.renderErrors.bind(this);
   }
 
   handleSubmit(e) {
@@ -125,6 +124,19 @@ class SessionForm extends React.Component {
             {this.props.formType}
           </button>
           <br />
+          <div className="demo-div">
+            Try the demo:
+            <button
+              onClick={() => this.props.processForm({
+                email: 'DemoUser@gmail.com',
+                password: 'password',
+              }).then(this.props.closeModal)
+              }
+              className="otherform-btn"
+            >
+              Demo Login
+            </button>
+          </div>
           <div>
             <hr />
           </div>
