@@ -19,7 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  const windowHeight = window.innerHeight;
-
-  ReactDOM.render(<Root store={store} windowHeight={windowHeight} />, root);
+  ReactDOM.render(<Root store={store} />, root);
 });

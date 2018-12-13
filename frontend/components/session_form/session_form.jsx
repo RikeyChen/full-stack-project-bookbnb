@@ -126,10 +126,13 @@ class SessionForm extends React.Component {
           <br />
           <div className="demo-div">
             <button
-              onClick={() => this.props.processForm({
-                email: 'DemoUser@gmail.com',
-                password: 'password',
-              }).then(this.props.closeModal)
+              onClick={(e) => {
+                e.preventDefault();
+                this.props.processForm({
+                  email: 'DemoUser@gmail.com',
+                  password: 'password',
+                }).then(this.props.closeModal);
+              }
               }
               className="otherform-btn"
             >

@@ -8,20 +8,26 @@ const Auth = ({
   loggedIn,
   exact,
 }) => (
-    <Route path={path} exact={exact} render={props => (
+  <Route
+path={path}
+exact={exact}
+render={props => (
       !loggedIn ? (
         <Component {...props} />
       ) : (
-          <Redirect to="/" />
+          <Redirect to="/listings" />
         )
     )}
     />
-  );
+);
 
 const Protected = ({
   component: Component, path, loggedIn, exact,
 }) => (
-    <Route path={path} exact={exact} render={props => (
+  <Route
+path={path}
+exact={exact}
+render={props => (
       loggedIn ? (
         <Component {...props} />
       ) : (
@@ -29,7 +35,7 @@ const Protected = ({
         )
     )}
     />
-  );
+);
 
 const mapStateToProps = state => (
   { loggedIn: Boolean(state.session.id) }

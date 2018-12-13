@@ -10,25 +10,38 @@ import NavBarContainer from './navbar/navbar_container';
 import Modal from './modal/modal';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-const App = ({ windowHeight }) => (
+const Header = () => (
+  <header className="navbar">
+    <Link to="/">
+      <div className="navbar-logo" />
+    </Link>
+    <NavBarContainer />
+  </header>
+);
+
+const SplashPic = () => (
+  <div id="splash-pic" />
+);
+
+const TestListings = () => (
+  <h1>LISTINGS</h1>
+);
+
+const App = () => (
   <div>
     <Modal />
-    <header className="navbar">
-      <Link to="/">
-        <div className="navbar-logo" />
-      </Link>
-      <NavBarContainer />
-    </header>
+    <Route
+      exact
+      path="/"
+      component={Header}
+    />
+
     <Switch>
-      {/* <div id="splash-pic" /> */}
-      {/* <div id="splash-pic" style={{ height: windowHeight }} /> */}
-      {/* <AuthRoute
-        exact
-        path="/listings"
-        component={ListingsIndex}
-      /> */}
+      <AuthRoute exact path="/" component={SplashPic} />
+      <Route path="/listings" component={NavBarContainer} />
     </Switch>
   </div>
 );
+
 
 export default App;
