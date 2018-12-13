@@ -96,6 +96,14 @@
   width: 150px;
 }
 
+// .signup-login-form-container {
+//   width: 0px;
+// }
+
+.modal-child {
+  width: 0;
+}
+
 .modal-background {
   position: fixed;
   z-index: 1;
@@ -109,9 +117,12 @@
 }
 
 .signlog-modal-form {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10%;
+  margin: auto;
   background-color: #FFFFFF;
-  margin: 15% auto;
-  margin-top: 5%;
   padding: 20px;
   border: 1px solid #888;
   width: 500px;
