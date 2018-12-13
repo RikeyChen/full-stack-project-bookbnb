@@ -70,7 +70,10 @@ class SessionForm extends React.Component {
             value={this.props.formType}
           />
           <br />
-          <h5>Already have a Bookbnb account? Log in</h5>
+          <h5>
+            Already have a Bookbnb account?
+            {this.props.otherForm}
+          </h5>
         </form>
       );
     } else {
@@ -95,7 +98,11 @@ class SessionForm extends React.Component {
             value={this.props.formType}
           />
           <br />
-          <h5>Don't have an account? Sign Up</h5>
+          <h5>
+            Don't have an account?
+            {this.props.otherForm}
+
+          </h5>
         </form>
       );
     }
