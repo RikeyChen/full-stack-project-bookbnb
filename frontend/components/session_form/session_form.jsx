@@ -12,8 +12,9 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
-    // this.props.closeModal();
+    const that = this;
+    this.props.processForm(user)
+      .then(() => that.props.closeModal);
     this.setState({ password: '' });
   }
 
@@ -108,7 +109,7 @@ class SessionForm extends React.Component {
               type="email"
               value={this.state.email}
               onChange={this.update('email')}
-              placeholer="Email address"
+              placeholder="Email address"
             />
             <input
               type="password"
@@ -128,8 +129,8 @@ class SessionForm extends React.Component {
           <div>
             <hr />
           </div>
-          <h5>
-            <div className="otherform-btn-section">
+          <h5 className="otherform-btn-section">
+            <div>
               Don't have an account?
             </div>
             {this.props.otherForm}
