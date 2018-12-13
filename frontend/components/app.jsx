@@ -20,7 +20,7 @@ const App = ({ windowHeight }) => (
       <NavBarContainer />
     </header>
     <Switch>
-      <div id="splash-pic" style={{ height: `${windowHeight}` }} />
+      {/* <div id="splash-pic" style={{ height: `${windowHeight}` }} /> */}
       {/* {console.log(windowHeight)} */}
       {/* <ProtectedRoute
         exact
