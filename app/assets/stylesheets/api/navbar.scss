@@ -18,11 +18,7 @@
 }
 
 .navbar-logo {
- background-image: image-url("logo.png") no-repeat center center fixed;
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
+ background-image: image-url("logo.png");
  width: 34px;
  height: 80px;
  padding-left: 24px;

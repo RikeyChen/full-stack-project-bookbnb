@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
+import { login, clearErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
@@ -16,7 +16,13 @@ const mSp = state => ({
 const mDp = dispatch => ({
   processForm: user => dispatch(login(user)),
   otherForm: (
-    <button onClick={() => dispatch(openModal('Sign up'))} className="otherform-btn">
+    <button
+      onClick={() => {
+        dispatch(openModal('Sign up'));
+        dispatch(clearErrors());
+      }}
+      className="otherform-btn"
+    >
       Sign up
     </button>
   ),
