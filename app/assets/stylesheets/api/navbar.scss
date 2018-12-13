@@ -2,8 +2,7 @@
   display: flex;
   justify-content: space-between;
   height: 80px;
-  // background-image: image-url("splash_outdoor.jpeg");
-  border: 1px solid #E4E4E4;
+  background-color: transparent;
 }
 
 .navbar-search-links-outterdiv {
@@ -48,14 +47,15 @@
 .navbar-links {
   display: flex;
   width: 346px;
+}
+
+.navbar-links > button:hover {
+  border-bottom: 2px solid black;
   cursor: pointer;
 }
 
-navbar-links:hover {
-  border: 2px solid black;
-}
-
 .navbar-links > button {
+  background-color: transparent;
   border: none;
   height: 80px;
   vertical-align: middle;

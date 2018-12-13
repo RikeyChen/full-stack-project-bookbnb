@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import NavBarContainer from './navbar/navbar_container';
 import Modal from './modal/modal';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
@@ -18,6 +19,14 @@ const App = () => (
       </Link>
       <NavBarContainer />
     </header>
+    <Switch>
+      <div id="splash-pic" />
+      {/* <ProtectedRoute
+        exact
+        path="/home"
+        component={<div><img src="splash_outdoor.jpeg" alt="splash" /></div>}
+      /> */}
+    </Switch>
   </div>
 );
 
