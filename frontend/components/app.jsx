@@ -20,7 +20,7 @@ const App = ({ windowHeight }) => (
       <NavBarContainer />
     </header>
     <Switch>
-      <div id="splash-pic" />
+      {/* <div id="splash-pic" /> */}
       {/* <div id="splash-pic" style={{ height: windowHeight }} /> */}
       {/* <AuthRoute
         exact
