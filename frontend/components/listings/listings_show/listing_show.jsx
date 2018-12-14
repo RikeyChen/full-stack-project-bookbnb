@@ -22,11 +22,11 @@ class ListingShow extends React.Component {
     return (
       <div className="listing-show-main">
         <header className="listing-show-pics-container">
-          {/* <img src={this.props.listing.photoUrl[0]} alt="photo1" /> */}
-          {/* <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" /> */}
+          <img src={this.props.listing.photoUrl[0]} alt="photo1" />
+          <img src={this.props.listing.photoUrl[1]} alt="photo2" />
+          <img src={this.props.listing.photoUrl[2]} alt="photo3" />
+          <img src={this.props.listing.photoUrl[3]} alt="photo4" />
+          <img src={this.props.listing.photoUrl[4]} alt="photo5" />
         </header>
         <h1>Listing Detail Comp Goes Here</h1>
       </div>
