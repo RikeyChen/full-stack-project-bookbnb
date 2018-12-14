@@ -3,11 +3,20 @@ import { Link } from 'react-router-dom';
 import { ProtectedRoute } from '../../../util/route_util';
 
 class ListingShow extends React.Component {
-  componentDidMount() {
-    console.log('IM HERE');
+  constructor(props) {
+    super(props);
+  }
 
+  componentDidMount() {
     const listingId = this.props.match.params.listingId;
     this.props.fetchListing(listingId);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.listingId !== prevProps.match.params.listingId) {
+      const nextListingId = this.props.match.params.listingId;
+      this.props.fetchListing(nextListingId);
+    }
   }
 
   render() {
