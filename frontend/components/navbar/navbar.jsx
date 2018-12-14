@@ -31,6 +31,9 @@ const NavBar = ({
           {searchBar}
         </nav>
         <nav className="navbar-links">
+          <button>Become a host</button>
+          <button>Trips</button>
+          <button>Help</button>
           <button onClick={logout}>Logout</button>
         </nav>
       </div>
