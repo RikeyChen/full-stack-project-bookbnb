@@ -27,9 +27,6 @@
 #  updated_at     :datetime         not null
 #
 
-# Listing.new(name: "Explore San Francisco form a Cozy Lofy-Style Studio", host_id: 1, description: "Unwind on the balcony of a 130-year-old building in San Francisco. Enjoy open-plan, loft-style living with neutral decor, open shelving, rustic exposed-beam ceilings. Apartment is on the 4th floor without elevator", price: 139, num_bedrooms: 1, max_guests: 3, num_beds: 1, num_bathrooms: 1, kitchen: true, heating: true, wifi: true, pets: false, parking: false, tv: true, street_address: "1300 Jackson St", city: "San Francisco", zip_code: "94109", country: "United States", lat: 37.794579, lng: 122.416847)
-
-
 class Listing < ApplicationRecord
   validates :name, :description, :price, :num_bedrooms, :max_guests, :num_beds, :num_bathrooms, :street_address, :city, :zip_code, :country, :lat, :lng, presence: true
 

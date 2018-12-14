@@ -20,4 +20,4 @@ json.extract! @listing,
   :lat,
   :lng
 
-json.photoUrls @listing.photos.map { |file| url_for(file) }
+json.photoUrl @listing.images.map { |file| url_for(file) }
