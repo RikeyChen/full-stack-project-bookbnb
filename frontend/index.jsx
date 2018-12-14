@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import { fetchListing, fetchListings } from './actions/listing_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -18,6 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  window.getState = store.getState;
+
+  window.fetchListing = fetchListing;
+  window.fetchListings = fetchListings;
 
   ReactDOM.render(<Root store={store} />, root);
 });

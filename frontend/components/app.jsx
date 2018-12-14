@@ -35,8 +35,8 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/" component={SplashPic} />
       <Route path="/listings" component={Header} />
-      <Route path="/listings/:listingId" component={ListingShowContainer} />
     </Switch>
+    <Route path="/listings/:listingId" component={ListingShowContainer} />
   </div>
 );
 
