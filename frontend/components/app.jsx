@@ -30,11 +30,6 @@ const App = () => (
   <div>
     <Modal />
     {Header}
-    {/* <Route
-      exact
-      path="/"
-      component={Header}
-    /> */}
     <Switch>
       <AuthRoute exact path="/" component={SplashPic} />
       <Route exact path="/listings" component={() => <div>INDEX HERE</div>} />
