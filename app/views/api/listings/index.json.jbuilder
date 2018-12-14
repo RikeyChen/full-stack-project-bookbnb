@@ -1,4 +1,4 @@
-json.array! @listings do |listing|
+@listings.each do |listing|
   json.set! listing.id do
     json.extract! listing,
       :id,
@@ -15,7 +15,7 @@ json.array! @listings do |listing|
       :country,
       :lat,
       :lng
-    json.photoUrl url_for(listing.images)
+    json.photoUrl url_for(listing.images[0])
   end
 end
 

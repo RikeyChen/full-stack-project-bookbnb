@@ -5,7 +5,7 @@ class Api::ListingsController < ApplicationController
   end
 
   def index
-    @listings = List.all
+    @listings = Listing.all
     render 'api/listings/index'
   end
 end
