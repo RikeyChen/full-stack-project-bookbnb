@@ -11,22 +11,34 @@ class ListingShow extends React.Component {
   }
 
   render() {
-    let photoLink;
-    if (this.props.listing) {
-      photoLink = this.props.listing;
-    } else {
-      photoLink = 'CHEESE';
-    }
+    // let photoLink;
+    // if (this.props.listing.photo_url) {
+    //   photoLink = this.props.listing_url;
+    // } else {
+    //   photoLink = 'CHEESE';
+    // }
 
-    console.log(photoLink);
+    // console.log(photoLink);
     return (
       <div className="listing-show-main">
         <header className="listing-show-pics-container">
-          <img src={this.props.listing.photoUrl[0]} alt="photo1" />
-          <img src={this.props.listing.photoUrl[1]} alt="photo2" />
-          <img src={this.props.listing.photoUrl[2]} alt="photo3" />
-          <img src={this.props.listing.photoUrl[3]} alt="photo4" />
-          <img src={this.props.listing.photoUrl[4]} alt="photo5" />
+          <div className="listing-show-pics-left">
+            <img src="/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c6b56683902cd31fb8fbcc81e6484f14875d0159/lst1-1.jpg" alt="photo1" />
+          </div>
+          <div className="listing-show-pics-right">
+            <div className="listing-show-pics-right-1">
+              <img src="/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c6b56683902cd31fb8fbcc81e6484f14875d0159/lst1-1.jpg" alt="photo2" />
+              <img src="/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c6b56683902cd31fb8fbcc81e6484f14875d0159/lst1-1.jpg" alt="photo3" />
+            </div>
+            <div className="listing-show-pics-right-2">
+              <img src="/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c6b56683902cd31fb8fbcc81e6484f14875d0159/lst1-1.jpg" alt="photo4" />
+              <img src="/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c6b56683902cd31fb8fbcc81e6484f14875d0159/lst1-1.jpg" alt="photo5" />
+            </div>
+          </div>
+          {/* <img src={this.props.listing.photo_url[1]} alt="photo2" />
+          <img src={this.props.listing.photo_url[2]} alt="photo3" />
+          <img src={this.props.listing.photo_url[3]} alt="photo4" />
+          <img src={this.props.listing.photo_url[4]} alt="photo5" /> */}
         </header>
         <h1>Listing Detail Comp Goes Here</h1>
       </div>

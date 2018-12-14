@@ -2,7 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.listing-show-pics-container > img {
-  width: 500px;
-  height: 500px;
+.listing-show-pics-container {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  border: 0.5px solid #484848;
+  line-height: 0;
+}
+
+.listing-show-pics-left {
+  width: 50%;
+  height: 50%;
+  border: 0.5px solid #484848;
+}
+
+.listing-show-pics-right {
+  width: 50%;
+  height: 50%;
+  display: flex;
+}
+
+.listing-show-pics-container div {
+  border: 0.5px solid black;
+  margin: 0;
+  padding: 0;
+}
+
+.listing-show-pics-left > img {
+  width: 100%;
+  height: 100%;
+}
+
+.listing-show-pics-right img {
+  width: 100%;
+  height: 100%;
+  border-bottom: 0.5px solid #484848;
+}
+
+.listing-show-pics-right-1 {
+  width: 50%;
+  height: 50%;
+}
+
+.listing-show-pics-right-2 {
+  width: 50%;
+  height: 50%;
 }

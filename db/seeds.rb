@@ -14,8 +14,116 @@
     password: 'password'
     )
 
+  user1 = User.create(
+    email: 'WilmaNLopez@jourrapide.com',
+    first_name: 'Wilma',
+    last_name: 'Lopez',
+    password: 'password'
+    )
+
+  user2 = User.create(
+    email: 'JoDMitchell@teleworm.us',
+    first_name: 'Jo',
+    last_name: 'Mitchell',
+    password: 'password'
+    )
+
+  user3 = User.create(
+    email: 'JoseSCartwright@rhyta.com',
+    first_name: 'Jose ',
+    last_name: 'Cartwright',
+    password: 'password'
+    )
+
+  user4 = User.create(
+    email: 'AlbertAHarrison@rhyta.com',
+    first_name: 'Albert',
+    last_name: 'Harrison',
+    password: 'password'
+    )
+
+  user5 = User.create(
+    email: 'JesseJCroom@jourrapide.com',
+    first_name: 'Jesse',
+    last_name: 'Croom',
+    password: 'password'
+    )
+
+  user6 = User.create(
+    email: 'ClarenceEDavis@jourrapide.com',
+    first_name: 'Davis',
+    last_name: 'Clarence',
+    password: 'password'
+    )
+
+  user7 = User.create(
+    email: 'VictorAWilkins@dayrep.com',
+    first_name: 'Victor',
+    last_name: 'Wilkins',
+    password: 'password'
+    )
+
+  user8 = User.create(
+    email: 'WillieSWeaver@jourrapide.com',
+    first_name: 'Willie',
+    last_name: 'Weaver',
+    password: 'password'
+    )
+
+  user9 = User.create(
+    email: 'LuisNDodson@jourrapide.com',
+    first_name: 'Luis',
+    last_name: 'Dodson',
+    password: 'password'
+    )
+
+  user10 = User.create(
+    email: 'EliciaDFerri@teleworm.us',
+    first_name: 'Elicia',
+    last_name: 'Ferri',
+    password: 'password'
+    )
+
+  user11 = User.create(
+    email: 'KristenPKitson@teleworm.us',
+    first_name: 'Kristen',
+    last_name: 'Kitson',
+    password: 'password'
+    )
+
+  user12 = User.create(
+    email: 'AnnRSeymour@rhyta.com',
+    first_name: 'Ann',
+    last_name: 'Seymour',
+    password: 'password'
+    )
+
+  user13 = User.create(
+    email: 'KeithAPridgen@dayrep.com',
+    first_name: 'Keith',
+    last_name: 'Pridgen',
+    password: 'password'
+    )
+
+  user14 = User.create(
+    email: 'DavidMAlexander@teleworm.us',
+    first_name: 'David',
+    last_name: 'Alexander',
+    password: 'password'
+    )
+
+  user15 = User.create(
+    email: 'EmilyRBang@rhyta.com',
+    first_name: 'Emily',
+    last_name: 'Bang',
+    password: 'password'
+    )
+
+
+
 # Listings
    listing1 = Listing.new(name: "Explore San Francisco form a Cozy Loft-Style Studio", host_id: 4, description: "Unwind on the balcony of a 130-year-old building in San Francisco. Enjoy open-plan, loft-style living with neutral decor, open shelving, rustic exposed-beam ceilings. Apartment is on the 4th floor without elevator", price: 139, num_bedrooms: 1, max_guests: 3, num_beds: 1, num_bathrooms: 1, kitchen: true, heating: true, wifi: true, pets: false, parking: false, tv: true, street_address: "1300 Jackson St", city: "San Francisco", zip_code: "94109", country: "United States", lat: 37.794579, lng: -122.416847)
+
 
    listing2 = Listing.new(name: "Amazing apartment perfect situation - metro & WIFI", host_id: 2, description: "SAFE City Center Apartment: WiFi, SILENT-CALM-NOISELESS, COSY, 1 minute from METRO. Private Owner. 2 minutes from Sagrada Familia.", price: 169, num_bedrooms: 3, max_guests: 6, num_beds: 3, num_bathrooms: 2, kitchen: true, heating: false, wifi: false, pets: true, parking: false, tv: true, street_address: "3897 25th St", city: "San Francisco", zip_code: "94114", country: "United States", lat: 37.750049, lng: -122.426052)
 
