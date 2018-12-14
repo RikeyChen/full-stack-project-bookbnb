@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ProtectedRoute } from '../../../util/route_util';
+import ListingDetail from './listing_detail';
 
 class ListingShow extends React.Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class ListingShow extends React.Component {
             </div>
           </div>
         </header>
-        <h1>Listing Detail Comp Goes Here</h1>
+        <ListingDetail listing={this.props.listing} />
       </div>
     );
   }
