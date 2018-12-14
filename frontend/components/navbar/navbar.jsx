@@ -5,9 +5,11 @@ const NavBar = ({
   currentUser, logout, openModal, location,
 }) => {
   let searchBar;
-  if (location.pathname === '/listings') {
+  if (location.pathname === '/') {
+    searchBar = null;
+  } else {
     searchBar = (<input type="text" placeholder={'Try "San Francisco"'} />);
-  } else searchBar = null;
+  }
 
   let display;
   if (currentUser === undefined) {

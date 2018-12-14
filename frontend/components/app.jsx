@@ -11,7 +11,7 @@ import Modal from './modal/modal';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ListingShowContainer from './listings/listings_show/listing_show_container';
 
-const Header = () => (
+const Header = (
   <header className="navbar">
     <Link to="/">
       <div className="navbar-logo" />
@@ -21,24 +21,26 @@ const Header = () => (
 );
 
 const SplashPic = () => (
-  <div id="splash-pic" />
+  <div>
+    <div id="splash-pic" />
+  </div>
 );
 
 const App = () => (
   <div>
     <Modal />
-    <Route
+    {Header}
+    {/* <Route
       exact
       path="/"
       component={Header}
-    />
+    /> */}
     <Switch>
       <AuthRoute exact path="/" component={SplashPic} />
-      <Route path="/listings" component={Header} />
+      <Route exact path="/listings" component={() => <div>INDEX HERE</div>} />
+      <Route path="/listings/:listingId" component={ListingShowContainer} />
     </Switch>
-    <Route path="/listings/:listingId" component={ListingShowContainer} />
   </div>
 );
-
 
 export default App;
