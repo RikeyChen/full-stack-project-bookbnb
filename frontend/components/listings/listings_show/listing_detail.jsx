@@ -22,22 +22,22 @@ const ListingDetail = ({ listing }) => {
           </div>
           <div className="listing-detail-core-amenities">
             <div id="guestsLogo" />
-            <span>{listing.max_guests}</span>
+            <span className="core-amenities-count">{listing.max_guests}</span>
             <span>
               {listing.max_guests > 1 ? 'guests' : 'guest'}
             </span>
             <div id="bedroomsLogo" />
-            <span>{listing.num_bedrooms}</span>
+            <span className="core-amenities-count">{listing.num_bedrooms}</span>
             <span>
               {listing.num_bedrooms > 1 ? 'bedrooms' : 'bedroom'}
             </span>
             <div id="bedsLogo" />
-            <span>{listing.num_beds}</span>
+            <span className="core-amenities-count">{listing.num_beds}</span>
             <span>
               {listing.num_beds > 1 ? 'beds' : 'bed'}
             </span>
             <div id="bathLogo" />
-            <span>{listing.num_bathrooms}</span>
+            <span className="core-amenities-count">{listing.num_bathrooms}</span>
             bath
           </div>
         </header>
