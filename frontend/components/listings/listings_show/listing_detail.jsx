@@ -42,6 +42,12 @@ const ListingDetail = ({ listing }) => {
           </div>
         </header>
         <div className="listing-detail-description">{listing.description}</div>
+        <div className="listing-detail-info-btn">
+          Read more about the space
+          <i className="arrow down" />
+        </div>
+        <br />
+        <br />
         <div className="listing-detail-contact-btn">
           Contact Host
         </div>
