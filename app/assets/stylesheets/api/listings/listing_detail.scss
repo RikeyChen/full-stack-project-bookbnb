@@ -158,11 +158,11 @@ i {
 
 .listing-detail-amenities-logos {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .listing-detail-amenities-logos > div {
   display: flex;
-  margin-right: 100px;
   width: 50%;
 }
 

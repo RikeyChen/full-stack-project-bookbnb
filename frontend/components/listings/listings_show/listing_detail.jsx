@@ -1,12 +1,60 @@
 import React from 'react';
 
 const ListingDetail = ({ listing }) => {
-  const kitchenLogo = listing.kitchen ? <div id="kitchen-logo" /> : null;
-  const heatingLogo = listing.heating ? <div id="heating-logo" /> : null;
-  const wifiLogo = listing.wifi ? <div id="wifi-logo" /> : null;
-  const petsLogo = listing.pets ? <div id="pets-logo" /> : null;
-  const parkingLogo = listing.parking ? <div id="parking-logo" /> : null;
-  const tvLogo = listing.tv ? <div id="tv-logo" /> : null;
+  const kitchenLogo = (
+    listing.kitchen ? (
+      <div>
+        <div id="kitchen-logo" />
+        <span>Kitchen</span>
+      </div>
+    ) : null
+  );
+
+  const heatingLogo = (
+    listing.heating ? (
+      <div>
+        <div id="heating-logo" />
+        <span>Heating</span>
+      </div>
+    ) : null
+  );
+
+  const wifiLogo = (
+    listing.wifi ? (
+      <div>
+        <div id="wifi-logo" />
+        <span>Wifi</span>
+      </div>
+    ) : null
+  );
+
+  const petsLogo = (
+    listing.pets ? (
+      <div>
+        <div id="pets-logo" />
+        <span>Pets</span>
+      </div>
+    ) : null
+  );
+
+  const parkingLogo = (
+    listing.parking ? (
+      <div>
+        <div id="parking-logo" />
+        <span>Parking</span>
+      </div>
+    ) : null
+  );
+
+  const tvLogo = (
+    listing.tv ? (
+      <div>
+        <div id="tv-logo" />
+        <span>TV</span>
+      </div>
+    ) : null
+  );
+
   return (
     <div className="listing-detail-master">
       <div className="listing-detail-main-section">
@@ -56,30 +104,12 @@ const ListingDetail = ({ listing }) => {
           <h1>Amenities</h1>
           <br />
           <div className="listing-detail-amenities-logos">
-            <div>
-              {kitchenLogo}
-              <span>{listing.kitchen ? 'Kitchen' : null}</span>
-            </div>
-            <div>
-              {heatingLogo}
-              <span>{listing.heating ? 'Heating' : null}</span>
-            </div>
-            <div>
-              {wifiLogo}
-              <span>{listing.wifi ? 'Wifi' : null}</span>
-            </div>
-            <div>
-              {petsLogo}
-              <span>{listing.pets ? 'Pets' : null}</span>
-            </div>
-            <div>
-              {parkingLogo}
-              <span>{listing.parking ? 'Parking' : null}</span>
-            </div>
-            <div>
-              {tvLogo}
-              <span>{listing.tv ? 'Tv' : null}</span>
-            </div>
+            {kitchenLogo}
+            {heatingLogo}
+            {wifiLogo}
+            {petsLogo}
+            {parkingLogo}
+            {tvLogo}
           </div>
         </section>
         <hr />
