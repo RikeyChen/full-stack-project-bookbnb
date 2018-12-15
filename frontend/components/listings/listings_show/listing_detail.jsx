@@ -14,24 +14,30 @@ const ListingDetail = ({ listing }) => (
           </div>
         </div>
         <div className="listing-detail-core-amenities">
-          <span>
-            {listing.max_guests}
-            {listing.max_guests > 1 ? 'guests' : 'guest'}
-          </span>
-          <span>
-            {listing.num_bedrooms}
-            {listing.num_bedrooms > 1 ? 'bedrooms' : 'bedroom'}
-          </span>
-          <span>
-            {listing.num_beds}
-            {listing.num_beds > 1 ? 'beds' : 'bed'}
-          </span>
-          <span>
-            {listing.num_bathrooms}
-            bath
-          </span>
+          <div>G</div>
+          {listing.max_guests}
+          {listing.max_guests > 1 ? 'guests' : 'guest'}
+          <div>BR</div>
+          {listing.num_bedrooms}
+          {listing.num_bedrooms > 1 ? 'bedrooms' : 'bedroom'}
+          <div>BD</div>
+          {listing.num_beds}
+          {listing.num_beds > 1 ? 'beds' : 'bed'}
+          <div>BA</div>
+          {listing.num_bathrooms}
+          bath
         </div>
       </header>
+      <div className="listing-detail-description">{listing.description}</div>
+      <div className="listing-detail-contact-btn">
+        Contact Host
+      </div>
+      <hr />
+      <section className="listing-detail-amenities">
+        <h1>Amenities</h1>
+
+      </section>
+      <hr />
     </div>
     <div className="listing-detail-book-box-spacer">
       <div className="listing-detail-book-box">Booking Box Form Goes inside this Div</div>

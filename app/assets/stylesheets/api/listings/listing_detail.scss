@@ -1,6 +1,6 @@
 .listing-detail-master {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding-left: 24px;
   padding-right: 24px;
   margin-top: 20px;
@@ -11,15 +11,15 @@
 }
 
 .listing-detail-main-section {
-  margin: 24px;
-  padding-right: 15px;
-  width: 100%;
+  margin-top: 24px;
+  padding-right: 8px;
+  width: 56%;
 }
 
 .listing-detail-book-box-spacer {
   position: relative;
   width: 326px;
-  height: 361px;
+  height: 20px;
   padding: 0px 24px;
 }
 
@@ -37,6 +37,13 @@
 
 .listing-detail-header-main {
   display: flex;
+  justify-content: space-between;
+  height: 116px;
+}
+
+.listing-detail-title-city {
+  line-height: 1.3;
+  height: 100%;
 }
 
 .listing-detail-title-city > h1 {
@@ -49,3 +56,28 @@
   background-color: lightblue;
   border: 1px solid black;
 }
+
+.listing-detail-core-amenities {
+  line-height: 1.375em;
+  display: flex;
+  font-size: 16px;
+}
+
+.listing-detail-description {
+  margin: 25px 0px;
+}
+
+.listing-detail-contact-btn {
+  color: #26848A;
+  cursor: pointer;
+}
+
+.listing-detail-contact-btn:hover {
+  text-decoration: underline solid #26848A;
+}
+
+.listing-detail-amenities > h1 {
+  font-weight: bolder;
+  font-family: 'Roboto', sans-serif;
+}
+
