@@ -1,0 +1,51 @@
+.listing-detail-master {
+  display: flex;
+  justify-content: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-top: 20px;
+  width: 1050px;
+  margin: auto;
+  height: 1500px;
+  background-color: pink;
+}
+
+.listing-detail-main-section {
+  margin: 24px;
+  padding-right: 15px;
+  width: 100%;
+}
+
+.listing-detail-book-box-spacer {
+  position: relative;
+  width: 326px;
+  height: 361px;
+  padding: 0px 24px;
+}
+
+.listing-detail-book-box {
+  background-color: lightblue;
+  position: absolute;
+  border: 1px solid #e4e4e4;
+  margin-left: 45px;
+  top: 24px;
+  right: 0px;
+  width: 326px;
+  height: 361px;
+  padding: 0px 24px;
+}
+
+.listing-detail-header-main {
+  display: flex;
+}
+
+.listing-detail-title-city > h1 {
+  font-size: 28px;
+  font-weight: 1000;
+  width: 458px;
+}
+
+.listing-detail-host-pic {
+  background-color: lightblue;
+  border: 1px solid black;
+}

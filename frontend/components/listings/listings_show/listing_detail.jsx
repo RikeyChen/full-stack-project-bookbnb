@@ -33,6 +33,9 @@ const ListingDetail = ({ listing }) => (
         </div>
       </header>
     </div>
+    <div className="listing-detail-book-box-spacer">
+      <div className="listing-detail-book-box">Booking Box Form Goes inside this Div</div>
+    </div>
   </div>
 );
 
