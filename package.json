@@ -17,6 +17,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
   },
@@ -46,5 +47,8 @@
   "bugs": {
     "url": "https://github.com/RikeyChen/full-stack-project-bookbnb/issues"
   },
-  "homepage": "https://github.com/RikeyChen/full-stack-project-bookbnb#readme"
+  "homepage": "https://github.com/RikeyChen/full-stack-project-bookbnb#readme",
+  "devDependencies": {
+    "css-loader": "^2.0.1"
+  }
 }
