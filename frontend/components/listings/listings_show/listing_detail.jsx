@@ -2,6 +2,7 @@ import React from 'react';
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import BookingForm from './booking_form';
 
 class ListingDetail extends React.Component {
   constructor(props) {
@@ -146,8 +147,7 @@ class ListingDetail extends React.Component {
         </div>
         <div className="listing-detail-book-box-spacer">
           <div className="listing-detail-book-box">
-            Booking Box Form Goes inside this Div
-          <BookingForm price={this.props.listing.price} />
+            <BookingForm price={this.props.listing.price} />
           </div>
         </div>
       </div>
