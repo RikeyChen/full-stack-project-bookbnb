@@ -1,12 +1,12 @@
 import React from 'react';
 
 const ListingDetail = ({ listing }) => {
-  const kitchenLogo = listing.kitchen ? 'K' : null;
-  const heatingLogo = listing.heating ? 'H' : null;
-  const wifiLogo = listing.wifi ? 'W' : null;
-  const petsLogo = listing.pets ? 'P' : null;
-  const parkingLogo = listing.parking ? 'P' : null;
-  const tvLogo = listing.tv ? 'T' : null;
+  const kitchenLogo = listing.kitchen ? <div id="kitchen-logo" /> : null;
+  const heatingLogo = listing.heating ? <div id="heating-logo" /> : null;
+  const wifiLogo = listing.wifi ? <div id="wifi-logo" /> : null;
+  const petsLogo = listing.pets ? <div id="pets-logo" /> : null;
+  const parkingLogo = listing.parking ? <div id="parking-logo" /> : null;
+  const tvLogo = listing.tv ? <div id="tv-logo" /> : null;
   return (
     <div className="listing-detail-master">
       <div className="listing-detail-main-section">
@@ -54,30 +54,31 @@ const ListingDetail = ({ listing }) => {
         <hr />
         <section className="listing-detail-amenities">
           <h1>Amenities</h1>
+          <br />
           <div className="listing-detail-amenities-logos">
             <div>
-              <div>{kitchenLogo}</div>
-              {listing.kitchen ? 'Kitchen' : null}
+              {kitchenLogo}
+              <span>{listing.kitchen ? 'Kitchen' : null}</span>
             </div>
             <div>
-              <div>{heatingLogo}</div>
-              {listing.heating ? 'Heating' : null}
+              {heatingLogo}
+              <span>{listing.heating ? 'Heating' : null}</span>
             </div>
             <div>
-              <div>{wifiLogo}</div>
-              {listing.wifi ? 'Wifi' : null}
+              {wifiLogo}
+              <span>{listing.wifi ? 'Wifi' : null}</span>
             </div>
             <div>
-              <div>{petsLogo}</div>
-              {listing.pets ? 'Pets' : null}
+              {petsLogo}
+              <span>{listing.pets ? 'Pets' : null}</span>
             </div>
             <div>
-              <div>{parkingLogo}</div>
-              {listing.parking ? 'Parking' : null}
+              {parkingLogo}
+              <span>{listing.parking ? 'Parking' : null}</span>
             </div>
             <div>
-              <div>{tvLogo}</div>
-              {listing.tv ? 'Tv' : null}
+              {tvLogo}
+              <span>{listing.tv ? 'Tv' : null}</span>
             </div>
           </div>
         </section>
