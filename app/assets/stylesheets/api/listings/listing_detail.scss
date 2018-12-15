@@ -34,10 +34,11 @@
   padding: 0px 24px;
 }
 
-.listing-detail-header-main {
+.listing-detail-header {
   display: flex;
   justify-content: space-between;
-  height: 116px;
+  min-height: 50px;
+  margin-bottom: 50px;
 }
 
 .listing-detail-title-city {
@@ -55,6 +56,8 @@
 .listing-detail-host-pic {
   background-color: lightblue;
   border: 1px solid black;
+  float: right;
+  height: 100px;
 }
 
 .listing-detail-core-amenities {
@@ -112,7 +115,7 @@
 }
 
 .listing-detail-info-btn {
-  color: #26848A;
+  color: #008489;
   cursor: pointer;
   width: 250px;
   font-size: 16px;
@@ -120,7 +123,7 @@
 }
 
 i {
-  border: solid #26848A;
+  border: solid #008489;
   border-width: 0 1px 1px 0;
   display: inline-block;
   padding: 3px;
@@ -133,11 +136,11 @@ i {
 }
 
 .listing-detail-info-btn:hover {
-  text-decoration: underline solid #26848A;
+  text-decoration: underline solid #008489;
 }
 
 .listing-detail-contact-btn {
-  color: #26848A;
+  color: #008489;
   cursor: pointer;
   width: 110px;
   font-size: 16px;
@@ -145,7 +148,7 @@ i {
 }
 
 .listing-detail-contact-btn:hover {
-  text-decoration: underline solid #26848A;
+  text-decoration: underline solid #008489;
 }
 
 .listing-detail-amenities > h1 {

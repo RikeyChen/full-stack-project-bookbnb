@@ -16,29 +16,29 @@ const ListingDetail = ({ listing }) => {
               <h1>{listing.name}</h1>
               <span>{listing.city}</span>
             </div>
-            <div className="listing-detail-host-pic">
-              <img src="" alt="Host Profile" />
+            <div className="listing-detail-core-amenities">
+              <div id="guestsLogo" />
+              <span className="core-amenities-count">{listing.max_guests}</span>
+              <span>
+                {listing.max_guests > 1 ? 'guests' : 'guest'}
+              </span>
+              <div id="bedroomsLogo" />
+              <span className="core-amenities-count">{listing.num_bedrooms}</span>
+              <span>
+                {listing.num_bedrooms > 1 ? 'bedrooms' : 'bedroom'}
+              </span>
+              <div id="bedsLogo" />
+              <span className="core-amenities-count">{listing.num_beds}</span>
+              <span>
+                {listing.num_beds > 1 ? 'beds' : 'bed'}
+              </span>
+              <div id="bathLogo" />
+              <span className="core-amenities-count">{listing.num_bathrooms}</span>
+              bath
             </div>
           </div>
-          <div className="listing-detail-core-amenities">
-            <div id="guestsLogo" />
-            <span className="core-amenities-count">{listing.max_guests}</span>
-            <span>
-              {listing.max_guests > 1 ? 'guests' : 'guest'}
-            </span>
-            <div id="bedroomsLogo" />
-            <span className="core-amenities-count">{listing.num_bedrooms}</span>
-            <span>
-              {listing.num_bedrooms > 1 ? 'bedrooms' : 'bedroom'}
-            </span>
-            <div id="bedsLogo" />
-            <span className="core-amenities-count">{listing.num_beds}</span>
-            <span>
-              {listing.num_beds > 1 ? 'beds' : 'bed'}
-            </span>
-            <div id="bathLogo" />
-            <span className="core-amenities-count">{listing.num_bathrooms}</span>
-            bath
+          <div className="listing-detail-host-pic">
+            <img src="" alt="Host Profile" />
           </div>
         </header>
         <div className="listing-detail-description">{listing.description}</div>
