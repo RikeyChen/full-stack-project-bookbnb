@@ -30,18 +30,18 @@ class ListingShow extends React.Component {
           </div>
           <div className="listing-show-pics-right">
             <div className="listing-show-pics-right-1">
-              <div>
+              <div className="listing-show-pics-photo-div">
                 <img src={this.props.listing.photo_url[1]} alt="photo2" />
               </div>
-              <div>
+              <div className="listing-show-pics-photo-div">
                 <img src={this.props.listing.photo_url[2]} alt="photo3" />
               </div>
             </div>
             <div className="listing-show-pics-right-2">
-              <div>
+              <div className="listing-show-pics-photo-div">
                 <img src={this.props.listing.photo_url[3]} alt="photo4" />
               </div>
-              <div>
+              <div className="listing-show-pics-photo-div">
                 <img src={this.props.listing.photo_url[4]} alt="photo5" />
               </div>
             </div>
