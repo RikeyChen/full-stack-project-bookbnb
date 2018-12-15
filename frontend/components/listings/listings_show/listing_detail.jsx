@@ -113,6 +113,11 @@ const ListingDetail = ({ listing }) => {
           </div>
         </section>
         <hr />
+        <h1>Availability Calendar will go here</h1>
+        <hr />
+        <h1>Google Map will go here</h1>
+        <hr />
+        <h1>Reviews Component will go here</h1>
       </div>
       <div className="listing-detail-book-box-spacer">
         <div className="listing-detail-book-box">Booking Box Form Goes inside this Div</div>
