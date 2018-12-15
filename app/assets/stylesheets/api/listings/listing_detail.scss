@@ -7,7 +7,7 @@
   width: 1050px;
   margin: auto;
   height: 1500px;
-  background-color: pink;
+  // background-color: pink;
 }
 
 .listing-detail-main-section {
@@ -70,6 +70,30 @@
 
 #guestsLogo {
   background-image: image-url("guests.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+}
+
+#bedroomsLogo {
+  background-image: image-url("bedrooms.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+}
+
+#bedsLogo {
+  background-image: image-url("beds.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+}
+
+#bathLogo {
+  background-image: image-url("bath.png");
   background-repeat: no-repeat;
   background-size: contain;
   width: 20px;

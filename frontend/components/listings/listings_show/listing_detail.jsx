@@ -1,10 +1,6 @@
 import React from 'react';
 
 const ListingDetail = ({ listing }) => {
-  // const guestsLogo = (<img src="app/assets/images/guests.png" alt="guests" />);
-  // const bedroomsLogo = (<img src="" alt="" />);
-  // const bedsLogo = (<img src="" alt="" />);
-  // const bathLogo = (<img src="" alt="" />);
   const kitchenLogo = listing.kitchen ? 'K' : null;
   const heatingLogo = listing.heating ? 'H' : null;
   const wifiLogo = listing.wifi ? 'W' : null;
@@ -30,17 +26,17 @@ const ListingDetail = ({ listing }) => {
             <span>
               {listing.max_guests > 1 ? 'guests' : 'guest'}
             </span>
-            <div>BR</div>
+            <div id="bedroomsLogo" />
             <span>{listing.num_bedrooms}</span>
             <span>
               {listing.num_bedrooms > 1 ? 'bedrooms' : 'bedroom'}
             </span>
-            <div>BD</div>
+            <div id="bedsLogo" />
             <span>{listing.num_beds}</span>
             <span>
               {listing.num_beds > 1 ? 'beds' : 'bed'}
             </span>
-            <div>BA</div>
+            <div id="bathLogo" />
             <span>{listing.num_bathrooms}</span>
             bath
           </div>
