@@ -12,14 +12,6 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ListingShowContainer from './listings/listings_show/listing_show_container';
 import ListingsIndex from './listings/listings_index';
 
-const Header = (
-  <header className="navbar">
-    <Link to="/">
-      <div className="navbar-logo" />
-    </Link>
-    <NavBarContainer />
-  </header>
-);
 
 const SplashPic = () => (
   <div>
@@ -27,16 +19,31 @@ const SplashPic = () => (
   </div>
 );
 
-const App = () => (
-  <div>
-    <Modal />
-    {Header}
-    <Switch>
-      <AuthRoute exact path="/" component={SplashPic} />
-      <Route exact path="/listings" component={ListingsIndex} />
-      <Route path="/listings/:listingId" component={ListingShowContainer} />
-    </Switch>
-  </div>
-);
+const App = ({ location }) => {
+  const logo = (
+    <Link to={location.pathname === '/' ? '/listings' : '/'}>
+      <div className="navbar-logo" />
+    </Link>
+  );
+
+  const Header = (
+    <header className={location.pathname === '/' ? 'navbar splash' : 'navbar'}>
+      {logo}
+      <NavBarContainer />
+    </header>
+  );
+
+  return (
+    <div>
+      <Modal />
+      {Header}
+      <Switch>
+        <AuthRoute exact path="/" component={SplashPic} />
+        <Route exact path="/listings" component={ListingsIndex} />
+        <Route path="/listings/:listingId" component={ListingShowContainer} />
+      </Switch>
+    </div>
+  );
+};
 
 export default App;
