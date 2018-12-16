@@ -10,7 +10,7 @@ import NavBarContainer from './navbar/navbar_container';
 import Modal from './modal/modal';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ListingShowContainer from './listings/listings_show/listing_show_container';
-import ListingsIndex from './listings/listings_index';
+import ListingsIndexContainer from './listings/listings_index/listings_index_container';
 
 
 const SplashPic = () => (
@@ -39,7 +39,7 @@ const App = ({ location }) => {
       {Header}
       <Switch>
         <AuthRoute exact path="/" component={SplashPic} />
-        <Route exact path="/listings" component={ListingsIndex} />
+        <Route exact path="/listings" component={ListingsIndexContainer} />
         <Route path="/listings/:listingId" component={ListingShowContainer} />
       </Switch>
     </div>
