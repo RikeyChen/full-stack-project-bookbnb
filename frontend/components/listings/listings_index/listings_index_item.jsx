@@ -4,23 +4,30 @@ const ListingsIndexItem = ({ listings }) => (
   <div>
     {listings.map(listing => (
       <div>
-        <img src="" alt="" />
-        <span>lodging type</span>
-        <h1>Listing name</h1>
+        <img src={listing.photo_url[0]} alt="" />
+        <span>
+          {listing.home_type}
+          <span>.</span>
+          {listing.num_beds}
+          {listing.num_beds > 1 ? 'beds' : 'bed'}
+        </span>
+        <h1>{listing.name}</h1>
         <div>
           <div>$</div>
-          <div>price</div>
+          <div>{listing.price}</div>
           <span>per night</span>
+          <span>.</span>
           <span>Free cancellation</span>
         </div>
-        <div className="booking-form-stars">
+        <div className="listings-index-stars">
           <div className="stars-outer">
             <div className="stars-inner" />
           </div>
-          <div id="booking-form-review-count">300</div>
+          <div id="listings-index-review-count">300</div>
         </div>
       </div>
     ))}
   </div>
 );
 
+export default ListingsIndexItem;
