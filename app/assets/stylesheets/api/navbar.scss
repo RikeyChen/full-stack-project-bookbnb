@@ -1,8 +1,11 @@
 .navbar {
   display: flex;
+  position: sticky;
+  top: 0;
   justify-content: space-between;
   height: 80px;
-  background-color: transparent;
+  background-color: #FFFFFF;
+  z-index: 5;
 }
 
 .navbar-search-links-outterdiv {
