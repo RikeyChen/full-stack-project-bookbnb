@@ -2,6 +2,7 @@ import React from 'react';
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import ListingsIndexItem from './listings_index_item';
 
 class ListingsIndex extends React.Component {
   constructor(props) {
@@ -12,7 +13,19 @@ class ListingsIndex extends React.Component {
       startDate: null,
       endDate: null,
       focusedInput: null,
+      listings: null,
     };
+  }
+
+  componentDidMount() {
+    const { selectListingsByKeyType, fetchListings } = this.props;
+
+    fetchListings()
+      .then(listings => (
+        this.setState({
+          listings: selectListingsByKeyType(listings, 'city', this.state.city),
+        })
+      ));
   }
 
   render() {
@@ -45,6 +58,7 @@ class ListingsIndex extends React.Component {
         <div className="listings-index-map-container">
           <main className="listings-index-main">
             <div>300+ homes</div>
+            <ListingsIndexItem listings={this.state.listings} />
           </main>
           <aside className="listings-index-map">
             Google Map
