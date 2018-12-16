@@ -21,9 +21,6 @@
     password: 'password'
     )
 
-  file = File.open('app/assets/images/barney.jpeg')
-  user1.image.attach(io: file, filename: 'barney.jpeg')
-
   user2 = User.create(
     email: 'JoDMitchell@teleworm.us',
     first_name: 'Jo',
@@ -194,11 +191,19 @@
 
    lst35 = Listing.create(name: "Explore Los Angeles from a Quirky, Hip Bungalow with a Porch", host_id: 8, description: "Leaf through the pages of a good book in a wicker sofa on the porch of this quaint remodled bungalow. Inside, a glass breakfast table, carved wood furnishings, and muted accents mingle beneath a pitched white plank ceiling with exposed beams.", price: 179, num_bedrooms: 2, max_guests: 6, num_beds: 2, num_bathrooms: 2, kitchen: true, heating: true, wifi: true, pets: false, parking: false, tv: true, street_address: "3636 Crestmont Ave", city: "Los Angeles", zip_code: "90026", country: "United States", lat: 34.093162, lng: -118.276224)
 
-   LISTINGS = [lst1, lst2,lst3,lst4,lst5,lst6,lst7,lst8,lst9,lst10,lst11,lst12,lst13,lst14,lst15,lst16,lst17,lst18,lst19,lst20,lst21,lst22,lst23,lst24,lst25,lst26,lst27,lst28,lst29,lst30,lst31,lst32,lst33,lst34,lst35]
+  USERS = [user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12, user13, user14, user15]
 
-    LISTINGS.each.with_index do |lst, idx1|
-        (1..5).each do |idx2|
-            file = File.open("app/assets/images/lst#{idx1 + 1}/lst#{idx1+ 1}-#{idx2}.jpeg")
-            lst.images.attach(io: file, filename: "lst#{idx1 + 1}-#{idx2}.jpeg")
-        end
+  USERS.each.with_index do |user, idx|
+    file = File.open("app/assets/images/users/host#{idx}.jpeg")
+    user.image.attach(io: file, filename: "host#{idx}.jpeg")
+  end
+
+  LISTINGS = [lst1, lst2,lst3,lst4,lst5,lst6,lst7,lst8,lst9,lst10,lst11,lst12,lst13,lst14,lst15,lst16,lst17,lst18,lst19,lst20,lst21,lst22,lst23,lst24,lst25,lst26,lst27,lst28,lst29,lst30,lst31,lst32,lst33,lst34,lst35]
+
+  LISTINGS.each.with_index do |lst, idx1|
+    (1..5).each do |idx2|
+      file = File.open("app/assets/images/lst#{idx1 + 1}/lst#{idx1+ 1}-{idx2}.jpeg")
+      lst.images.attach(io: file, filename: "lst#{idx1 + 1}-#{idx2}.jpeg")
     end
+  end
+

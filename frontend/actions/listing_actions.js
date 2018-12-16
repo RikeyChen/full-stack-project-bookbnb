@@ -8,9 +8,10 @@ export const receiveListings = listings => ({
   listings,
 });
 
-export const receiveListing = listing => ({
+export const receiveListing = ({ listing, user }) => ({
   type: RECEIVE_LISTING,
   listing,
+  user,
 });
 
 export const fetchListings = () => dispatch => (
