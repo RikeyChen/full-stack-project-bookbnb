@@ -53,8 +53,8 @@
 
 .listing-detail-host-pic {
   background-color: lightblue;
-  border: 1px solid black;
-  float: right;
+  border: 1px solid transparent;
+  border-radius: 50%;
   height: 100px;
 }
 

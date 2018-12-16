@@ -15,9 +15,9 @@
     )
 
   user1 = User.create(
-    email: 'WilmaNLopez@jourrapide.com',
-    first_name: 'Wilma',
-    last_name: 'Lopez',
+    email: 'BStinson@jourrapide.com',
+    first_name: 'Barney',
+    last_name: 'Stinson',
     password: 'password'
     )
 

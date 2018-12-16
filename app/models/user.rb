@@ -23,6 +23,7 @@ class User < ApplicationRecord
   # associations - need to fill out (prob not one-liners)
   # has_many :bookings
   # has_many :reviews
+  has_one_attached :image
 
   attr_reader :password
 
