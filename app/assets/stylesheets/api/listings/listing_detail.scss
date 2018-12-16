@@ -51,12 +51,22 @@
   width: 458px;
 }
 
+.listing-detail-host-pic {
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 80px;
+  font-size: 12px;
+}
+
 .listing-detail-host-pic img {
   border: 1px solid transparent;
   object-fit: cover;
   width: 64px;
   border-radius: 50%;
   height: 64px;
+  margin-bottom: 5px;
 }
 
 .listing-detail-core-amenities {
