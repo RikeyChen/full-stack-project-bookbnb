@@ -7,6 +7,7 @@ class ListingsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      city: 'San Francisco',
       price: null,
       startDate: null,
       endDate: null,
@@ -17,7 +18,7 @@ class ListingsIndex extends React.Component {
   render() {
     return (
       <div className="listings-index-master">
-        <aside>
+        <aside className="listings-index-sidebar">
           <span>Dates</span>
           <DateRangePicker
             startDateId="startDate"
@@ -40,6 +41,12 @@ class ListingsIndex extends React.Component {
           <hr />
           <span>Price range</span>
           <div>Price slider goes here</div>
+        </aside>
+        <main className="listings-index-main">
+          <div>300+ homes</div>
+        </main>
+        <aside className="listings-index-map">
+          Google Map
         </aside>
       </div>
     );
