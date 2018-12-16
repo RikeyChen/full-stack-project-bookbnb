@@ -47,7 +47,7 @@ class ListingShow extends React.Component {
             </div>
           </div>
         </header>
-        <ListingDetail listing={this.props.listing} />
+        <ListingDetail listing={this.props.listing} users={this.props.users} />
       </div>
     );
   }

@@ -102,7 +102,8 @@ class ListingDetail extends React.Component {
               </div>
             </div>
             <div className="listing-detail-host-pic">
-              <img src="/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c6b56683902cd31fb8fbcc81e6484f14875d0159/barney.jpeg" alt="Host Profile" />
+              <img src={this.props.users[listing.host_id].photo_url} alt="Host Profile" />
+              <span>{this.props.users[listing.host_id].first_name}</span>
             </div>
           </header>
           <div className="listing-detail-description">{listing.description}</div>

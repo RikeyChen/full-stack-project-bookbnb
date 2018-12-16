@@ -14,9 +14,6 @@
     password: 'password'
     )
 
-  file = File.open("app/assets/images/users/demo.jpeg")
-  demo.image.attach(io: file, filename: "demo.jpeg")
-
   user1 = User.create(
     email: 'BStinson@jourrapide.com',
     first_name: 'Barney',
@@ -26,99 +23,99 @@
 
   user2 = User.create(
     email: 'JoDMitchell@teleworm.us',
-    first_name: 'Jo',
-    last_name: 'Mitchell',
+    first_name: 'Ted',
+    last_name: 'Mosby',
     password: 'password'
     )
 
   user3 = User.create(
     email: 'JoseSCartwright@rhyta.com',
-    first_name: 'Jose',
-    last_name: 'Cartwright',
+    first_name: 'Marshall',
+    last_name: 'Eriksen',
     password: 'password'
     )
 
   user4 = User.create(
     email: 'AlbertAHarrison@rhyta.com',
-    first_name: 'Albert',
-    last_name: 'Harrison',
+    first_name: 'Lily',
+    last_name: 'Aldrin',
     password: 'password'
     )
 
   user5 = User.create(
     email: 'JesseJCroom@jourrapide.com',
-    first_name: 'Jesse',
-    last_name: 'Croom',
+    first_name: 'Robin',
+    last_name: 'Scherbatsky',
     password: 'password'
     )
 
   user6 = User.create(
     email: 'ClarenceEDavis@jourrapide.com',
-    first_name: 'Davis',
-    last_name: 'Clarence',
+    first_name: 'Leslie',
+    last_name: 'Knope',
     password: 'password'
     )
 
   user7 = User.create(
     email: 'VictorAWilkins@dayrep.com',
-    first_name: 'Victor',
-    last_name: 'Wilkins',
+    first_name: 'Andy',
+    last_name: 'Dwyer',
     password: 'password'
     )
 
   user8 = User.create(
     email: 'WillieSWeaver@jourrapide.com',
-    first_name: 'Willie',
-    last_name: 'Weaver',
+    first_name: 'Craig',
+    last_name: 'Middlebrooks',
     password: 'password'
     )
 
   user9 = User.create(
     email: 'LuisNDodson@jourrapide.com',
-    first_name: 'Luis',
-    last_name: 'Dodson',
+    first_name: 'Anne',
+    last_name: 'Perkins',
     password: 'password'
     )
 
   user10 = User.create(
     email: 'EliciaDFerri@teleworm.us',
-    first_name: 'Elicia',
-    last_name: 'Ferri',
+    first_name: 'April',
+    last_name: 'Ludgate',
     password: 'password'
     )
 
   user11 = User.create(
     email: 'KristenPKitson@teleworm.us',
-    first_name: 'Kristen',
-    last_name: 'Kitson',
+    first_name: 'Tom',
+    last_name: 'Haverford',
     password: 'password'
     )
 
   user12 = User.create(
     email: 'AnnRSeymour@rhyta.com',
-    first_name: 'Ann',
-    last_name: 'Seymour',
+    first_name: 'Donna',
+    last_name: 'Meagle',
     password: 'password'
     )
 
   user13 = User.create(
     email: 'KeithAPridgen@dayrep.com',
-    first_name: 'Keith',
-    last_name: 'Pridgen',
+    first_name: 'Je-Garry',
+    last_name: 'Gergich',
     password: 'password'
     )
 
   user14 = User.create(
     email: 'DavidMAlexander@teleworm.us',
-    first_name: 'David',
-    last_name: 'Alexander',
+    first_name: 'Chris',
+    last_name: 'Traegar',
     password: 'password'
     )
 
   user15 = User.create(
     email: 'EmilyRBang@rhyta.com',
-    first_name: 'Emily',
-    last_name: 'Bang',
+    first_name: 'Ben',
+    last_name: 'Wyatt',
     password: 'password'
     )
 
@@ -194,7 +191,7 @@
 
    lst35 = Listing.create(name: "Explore Los Angeles from a Quirky, Hip Bungalow with a Porch", host_id: 8, description: "Leaf through the pages of a good book in a wicker sofa on the porch of this quaint remodled bungalow. Inside, a glass breakfast table, carved wood furnishings, and muted accents mingle beneath a pitched white plank ceiling with exposed beams.", price: 179, num_bedrooms: 2, max_guests: 6, num_beds: 2, num_bathrooms: 2, kitchen: true, heating: true, wifi: true, pets: false, parking: false, tv: true, street_address: "3636 Crestmont Ave", city: "Los Angeles", zip_code: "90026", country: "United States", lat: 34.093162, lng: -118.276224)
 
-  USERS = [user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12, user13, user14, user15]
+  USERS = [demo, user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12, user13, user14, user15]
 
   USERS.each.with_index do |user, idx|
     file = File.open("app/assets/images/users/host#{idx}.jpeg")
@@ -205,8 +202,7 @@
 
   LISTINGS.each.with_index do |lst, idx1|
     (1..5).each do |idx2|
-      file = File.open("app/assets/images/lst#{idx1 + 1}/lst#{idx1+ 1}-{idx2}.jpeg")
+      file = File.open("app/assets/images/lst#{idx1 + 1}/lst#{idx1+ 1}-#{idx2}.jpeg")
       lst.images.attach(io: file, filename: "lst#{idx1 + 1}-#{idx2}.jpeg")
     end
   end
-

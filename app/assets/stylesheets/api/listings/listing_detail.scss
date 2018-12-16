@@ -51,11 +51,12 @@
   width: 458px;
 }
 
-.listing-detail-host-pic {
-  background-color: lightblue;
+.listing-detail-host-pic img {
   border: 1px solid transparent;
+  object-fit: cover;
+  width: 64px;
   border-radius: 50%;
-  height: 100px;
+  height: 64px;
 }
 
 .listing-detail-core-amenities {
