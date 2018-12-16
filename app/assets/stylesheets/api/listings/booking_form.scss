@@ -1,6 +1,27 @@
 .booking-form {
   display: flex;
   flex-direction: column;
+  align-items: space-around;
+  height: 100%;
+}
+
+.booking-form > header{
+  display: flex;
+}
+
+.booking-form header > div {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  font-size: 18px;
+  margin-top: -5px;
+}
+
+.booking-form header > span {
+  margin-left: 5px;
+}
+
+.booking-form-stars {
+  display: flex;
 }
 
 .booking-form span {
@@ -8,8 +29,8 @@
   font-size: 12px;
 }
 
-#guests {
-  padding-top: 10px;
+#guests-label {
+  margin-top: 15px;
 }
 
 #booking-form-btn {

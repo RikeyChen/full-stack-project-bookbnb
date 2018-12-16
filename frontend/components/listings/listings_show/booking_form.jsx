@@ -22,8 +22,10 @@ class BookingForm extends React.Component {
           <div>{price}</div>
           <span>per night</span>
         </header>
-        <div>stars</div>
-        <div>reviews count</div>
+        <div className="booking-form-stars">
+          <div>stars</div>
+          <div>reviews count</div>
+        </div>
         <hr />
         <span>Dates</span>
         <DateRangePicker
