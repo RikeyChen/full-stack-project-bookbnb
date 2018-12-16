@@ -38,18 +38,27 @@ class BookingForm extends React.Component {
           onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
           focusedInput={this.state.focusedInput}
           onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
+          hideKeyboardShortcutsPanel
         />
         <span id="guests-label">Guests</span>
-        <select>
-          <option default disabled>1 guest</option>
+        <button id="booking-form-guests-dropdown">
+          {/* <option default selected disabled>1 guest</option>
           <option value="adults">Adults</option>
           <option value="children">Children Ages 2-12</option>
-          <option value="infants">Infants Under 2</option>
-        </select>
+          <option value="infants">Infants Under 2</option> */}
+          1 guest
+        </button>
         <button id="booking-form-btn">
           Request to Book
         </button>
-        <div>You won't be charged yet</div>
+        <span id="not-charged-text">You won't be charged yet</span>
+        <hr />
+        <div>
+          <strong>This home is on people's minds.</strong>
+          <br />
+          <br />
+          It's been viewed 500+ times in the past week.
+        </div>
       </div>
     );
   }

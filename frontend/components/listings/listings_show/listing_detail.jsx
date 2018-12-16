@@ -139,6 +139,7 @@ class ListingDetail extends React.Component {
             onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
             focusedInput={this.state.focusedInput}
             onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
+            hideKeyboardShortcutsPanel
           />
           <hr />
           <h1>Google Map will go here</h1>
