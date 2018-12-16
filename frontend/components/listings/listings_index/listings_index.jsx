@@ -19,18 +19,17 @@ class ListingsIndex extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchListings } = this.props;
-
-    fetchListings()
-      .then(listings => (
-        this.setState({
-          listings: selectListingsByKeyType(listings, 'city', this.state.city),
-        })
-      ));
+    this.props.fetchListings();
+    // .then(listings => this.setState({
+    //   listings: selectListingsByKeyType(
+    //     listings, 'city', this.state.city,
+    //   ),
+    // }));
   }
 
   render() {
-    if (!this.props.listings.keys) return null;
+    if (this.props.listings.length === 0) return null;
+    console.log(this.props.listings);
 
     return (
       <div className="listings-index-master">
@@ -61,7 +60,9 @@ class ListingsIndex extends React.Component {
         <div className="listings-index-map-container">
           <main className="listings-index-main">
             <div>300+ homes</div>
-            <ListingsIndexItem listings={this.state.listings} />
+            {this.props.listings.map(listing => (
+              <ListingsIndexItem listing={listing} key={listing.id} />
+            ))}
           </main>
           <aside className="listings-index-map">
             Google Map
