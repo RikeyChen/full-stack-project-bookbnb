@@ -21,3 +21,4 @@ json.extract! @listing,
   :lng
 
 json.photo_url @listing.images.map { |file| url_for(file) }
+# json.partial! "api/users/user", user: @user

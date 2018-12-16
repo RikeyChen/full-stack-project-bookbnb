@@ -102,7 +102,7 @@ class ListingDetail extends React.Component {
               </div>
             </div>
             <div className="listing-detail-host-pic">
-              <img src="https://s3-us-west-1.amazonaws.com/bookbnb-dev/barney.jpeg" alt="Host Profile" />
+              <img src="/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c6b56683902cd31fb8fbcc81e6484f14875d0159/barney.jpeg" alt="Host Profile" />
             </div>
           </header>
           <div className="listing-detail-description">{listing.description}</div>
