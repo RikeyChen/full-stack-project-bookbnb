@@ -42,12 +42,14 @@ class ListingsIndex extends React.Component {
           <span>Price range</span>
           <div>Price slider goes here</div>
         </aside>
-        <main className="listings-index-main">
-          <div>300+ homes</div>
-        </main>
-        <aside className="listings-index-map">
-          Google Map
-        </aside>
+        <div className="listings-index-map-container">
+          <main className="listings-index-main">
+            <div>300+ homes</div>
+          </main>
+          <aside className="listings-index-map">
+            Google Map
+          </aside>
+        </div>
       </div>
     );
   }

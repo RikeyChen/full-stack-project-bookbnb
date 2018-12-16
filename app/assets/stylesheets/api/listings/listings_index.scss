@@ -1,0 +1,76 @@
+.listings-index-master {
+  border-top: 1px solid #E4E4E4;
+}
+
+.listings-index-master * {
+  border: 0.5px solid lightblue;
+}
+
+.listings-index-sidebar {
+  width: 288px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+}
+
+.listings-index-map-container {
+  margin-left: 288px;
+  width: calc(100% - 288px);
+}
+
+@media (min-width: 1549px) {
+  .listings-index-main {
+    width: calc(100% - 500px);
+  }
+}
+
+@media (min-width: 1317px) {
+  .listings-index-main {
+    width: 761px;
+  }
+}
+
+@media (max-width: 1316px) {
+  .listings-index-main {
+    width: calc(100vw - 288px);
+  }
+}
+
+.listings-index-main {
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.listings-index-map {
+  position: fixed;
+  background-color: pink;
+  height: 100vh;
+  top: 80px;
+  right: 0;
+}
+
+@media (min-width: 1549px) {
+  .listings-index-map {
+    width: 500px;
+  }
+}
+
+@media (min-width: 1461px) {
+  .listings-index-map {
+    width: calc(100% - 1049px);
+  }
+}
+
+@media (min-width: 1317px) {
+  .listings-index-map {
+    width: calc(100% - 1049px);
+  }
+}
+
+@media (max-width: 1318px) {
+  .listings-index-map {
+    display: none;
+    visibility: hidden;
+  }
+}
