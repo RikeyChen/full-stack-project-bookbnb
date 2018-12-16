@@ -37,8 +37,13 @@ class ListingsIndex extends React.Component {
             <option value="infants">Infants Under 2</option> */}
             1 guest
           </button>
+          <hr />
+          <span>Price range</span>
+          <div>Price slider goes here</div>
         </aside>
       </div>
     );
   }
 }
+
+export default ListingsIndex;

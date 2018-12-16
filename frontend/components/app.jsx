@@ -10,6 +10,7 @@ import NavBarContainer from './navbar/navbar_container';
 import Modal from './modal/modal';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ListingShowContainer from './listings/listings_show/listing_show_container';
+import ListingsIndex from './listings/listings_index';
 
 const Header = (
   <header className="navbar">
@@ -32,7 +33,7 @@ const App = () => (
     {Header}
     <Switch>
       <AuthRoute exact path="/" component={SplashPic} />
-      <Route exact path="/listings" component={() => <div>INDEX HERE</div>} />
+      <Route exact path="/listings" component={ListingsIndex} />
       <Route path="/listings/:listingId" component={ListingShowContainer} />
     </Switch>
   </div>
