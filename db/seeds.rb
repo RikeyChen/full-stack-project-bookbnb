@@ -21,6 +21,9 @@
     password: 'password'
     )
 
+  file = File.open('app/assets/images/barney.jpeg')
+  user1.image.attach(io: file, filename: 'barney.jpeg')
+
   user2 = User.create(
     email: 'JoDMitchell@teleworm.us',
     first_name: 'Jo',
@@ -121,8 +124,6 @@
 
 # Listings
    lst1 = Listing.create(name: "Explore San Francisco from a Cozy Loft-Style Studio", host_id: 4, description: "Unwind on the balcony of a 130-year-old building in San Francisco. Enjoy open-plan, loft-style living with neutral decor, open shelving, rustic exposed-beam ceilings. Apartment is on the 4th floor without elevator", price: 139, num_bedrooms: 1, max_guests: 3, num_beds: 1, num_bathrooms: 1, kitchen: true, heating: true, wifi: true, pets: false, parking: false, tv: true, street_address: "1300 Jackson St", city: "San Francisco", zip_code: "94109", country: "United States", lat: 37.794579, lng: -122.416847)
-
-  #  file1 = EzDownload.open()
 
    lst2 = Listing.create(name: "Amazing apartment perfect situation - metro & WIFI", host_id: 2, description: "SAFE City Center Apartment: WiFi, SILENT-CALM-NOISELESS, COSY, 1 minute from METRO. Private Owner. 2 minutes from Sagrada Familia.", price: 169, num_bedrooms: 3, max_guests: 6, num_beds: 3, num_bathrooms: 2, kitchen: true, heating: false, wifi: false, pets: true, parking: false, tv: true, street_address: "3897 25th St", city: "San Francisco", zip_code: "94114", country: "United States", lat: 37.750049, lng: -122.426052)
 
