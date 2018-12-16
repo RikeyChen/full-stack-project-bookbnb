@@ -28,7 +28,7 @@
 #
 
 class Listing < ApplicationRecord
-  validates :name, :description, :price, :num_bedrooms, :max_guests, :num_beds, :num_bathrooms, :street_address, :city, :zip_code, :country, :lat, :lng, presence: true
+  validates :name, :home_type, :description, :price, :num_bedrooms, :max_guests, :num_beds, :num_bathrooms, :street_address, :city, :zip_code, :country, :lat, :lng, presence: true
 
   validates :kitchen, :heating, :wifi, :pets, :parking, :tv, inclusion: { in: [true, false] }
 
