@@ -14,6 +14,9 @@
     password: 'password'
     )
 
+  file = File.open("app/assets/images/users/demo.jpeg")
+  demo.image.attach(io: file, filename: "demo.jpeg")
+
   user1 = User.create(
     email: 'BStinson@jourrapide.com',
     first_name: 'Barney',
