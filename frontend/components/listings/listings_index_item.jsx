@@ -22,5 +22,5 @@ const ListingsIndexItem = ({ listings }) => (
       </div>
     ))}
   </div>
-)
-  ;
+);
+
