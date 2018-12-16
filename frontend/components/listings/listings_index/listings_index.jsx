@@ -3,6 +3,7 @@ import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import ListingsIndexItem from './listings_index_item';
+import selectListingsByKeyType from '../../../reducers/selectors';
 
 class ListingsIndex extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class ListingsIndex extends React.Component {
   }
 
   componentDidMount() {
-    const { selectListingsByKeyType, fetchListings } = this.props;
+    const { fetchListings } = this.props;
 
     fetchListings()
       .then(listings => (
@@ -29,6 +30,8 @@ class ListingsIndex extends React.Component {
   }
 
   render() {
+    if (!this.props.listings.keys) return null;
+
     return (
       <div className="listings-index-master">
         <aside className="listings-index-sidebar">
