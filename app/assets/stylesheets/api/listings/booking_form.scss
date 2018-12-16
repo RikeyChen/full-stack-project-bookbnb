@@ -24,6 +24,39 @@
   display: flex;
 }
 
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+  font-size: 10px;
+}
+
+.stars-outer::before {
+  // content: "\f006 \f006 \f006 \f006 \f006";
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #D8D8D8;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  font-size: 12px;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #008489;
+}
+
+#booking-form-review-count {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
 .booking-form span {
   margin-bottom: 10px;
   font-size: 12px;

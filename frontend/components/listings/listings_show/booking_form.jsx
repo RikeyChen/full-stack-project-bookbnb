@@ -23,8 +23,10 @@ class BookingForm extends React.Component {
           <span>per night</span>
         </header>
         <div className="booking-form-stars">
-          <div>stars</div>
-          <div>reviews count</div>
+          <div className="stars-outer">
+            <div className="stars-inner" />
+          </div>
+          <div id="booking-form-review-count">300</div>
         </div>
         <hr />
         <span>Dates</span>
