@@ -25,7 +25,7 @@ class BookingForm extends React.Component {
         <div>stars</div>
         <div>reviews count</div>
         <hr />
-        <span>dates</span>
+        <span>Dates</span>
         <DateRangePicker
           startDateId="startDate"
           endDateId="endDate"
@@ -35,6 +35,13 @@ class BookingForm extends React.Component {
           focusedInput={this.state.focusedInput}
           onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
         />
+        <span>Guests</span>
+        <select>
+          <option default disabled>1 guest</option>
+          <option value="adults">Adults</option>
+          <option value="children">Children Ages 2-12</option>
+          <option value="infants">Infants Under 2</option>
+        </select>
       </div>
     );
   }
