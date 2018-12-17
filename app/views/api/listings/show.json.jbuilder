@@ -27,3 +27,11 @@ end
 json.user do
   json.partial! "api/users/user", user: @user
 end
+
+json.bookings do
+  @listing.bookings.each do |booking|
+    json.set! booking.id do
+      json.extract! booking, :id, :unavailable_dates
+    end
+  end
+end
