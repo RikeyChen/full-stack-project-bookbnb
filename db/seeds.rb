@@ -220,21 +220,3 @@
   #     lst.images.attach(io: file, filename: "lst#{idx1 + 1}-#{idx2}.jpeg")
   #   end
   # end
-
-#   {
-#     "Version": "2012-10-17",
-#     "Statement": [
-#         {
-#             "Sid": "Stmt1420751757000",
-#             "Effect": "Allow",
-#             "Principal": {
-#                 "AWS": "arn:aws:iam::830881767783:user/bookbnb-master"
-#             },
-#             "Action": "s3:*",
-#             "Resource": [
-#                 "arn:aws:s3:::bookbnb-dev",
-#                 "arn:aws:s3:::bookbnb-dev/*"
-#             ]
-#         }
-#     ]
-# }
