@@ -40,7 +40,7 @@ class Listing < ApplicationRecord
     class_name: :User
 
   has_many :bookings
-  # has_unavailable dates through bookings? or custom method?
+
   # has an average rating through reviews
 
 end
