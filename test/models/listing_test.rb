@@ -25,6 +25,7 @@
 #  lng            :decimal(, )      not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  home_type      :string
 #
 
 require 'test_helper'

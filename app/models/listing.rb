@@ -25,6 +25,7 @@
 #  lng            :decimal(, )      not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  home_type      :string
 #
 
 class Listing < ApplicationRecord
@@ -38,7 +39,7 @@ class Listing < ApplicationRecord
     foreign_key: :host_id,
     class_name: :User
 
-  # has_many :bookings,
+  has_many :bookings
   # has_unavailable dates through bookings? or custom method?
   # has an average rating through reviews
 

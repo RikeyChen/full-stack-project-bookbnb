@@ -25,6 +25,7 @@
 #  lng            :decimal(, )      not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  home_type      :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
