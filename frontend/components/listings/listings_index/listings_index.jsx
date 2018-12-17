@@ -29,7 +29,6 @@ class ListingsIndex extends React.Component {
 
   render() {
     if (this.props.listings.length === 0) return null;
-    console.log(this.props.listings);
 
     return (
       <div className="listings-index-master">
@@ -59,7 +58,7 @@ class ListingsIndex extends React.Component {
         </aside>
         <div className="listings-index-map-container">
           <main className="listings-index-main">
-            <div>300+ homes</div>
+            <header>300+ homes</header>
             {this.props.listings.map(listing => (
               <ListingsIndexItem listing={listing} key={listing.id} />
             ))}

@@ -16,7 +16,7 @@
       :country,
       :lat,
       :lng
-    json.photoUrl url_for(listing.images[0])
+    json.photo_url url_for(listing.images[0])
   end
 end
 
