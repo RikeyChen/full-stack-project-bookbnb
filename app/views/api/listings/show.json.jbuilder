@@ -30,6 +30,8 @@ end
 
 json.bookings do
   @listing.bookings.each do |booking|
-    json.extract! booking, :id, :unavailable_dates
+    json.set! booking.id do
+      json.extract! booking, :id, :unavailable_dates
+    end
   end
 end
