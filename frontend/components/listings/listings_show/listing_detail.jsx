@@ -149,7 +149,7 @@ class ListingDetail extends React.Component {
         </div>
         <div className="listing-detail-book-box-spacer">
           <div className="listing-detail-book-box">
-            <BookingForm price={this.props.listing.price} />
+            <BookingForm price={this.props.listing.price} bookings={this.props.bookings} />
           </div>
         </div>
       </div>
