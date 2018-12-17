@@ -2,7 +2,7 @@ class Api::BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.guest_id = current_user.id
-    @booking.listing_id = params.id
+    @booking.listing_id = params[:id]
 
     if @booking.save
       render :show
