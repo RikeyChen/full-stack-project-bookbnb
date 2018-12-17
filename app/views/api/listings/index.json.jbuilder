@@ -3,6 +3,7 @@
     json.extract! listing,
       :id,
       :name,
+      :home_type,
       :host_id,
       :description,
       :price,
