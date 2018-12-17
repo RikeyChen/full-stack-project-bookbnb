@@ -13,6 +13,17 @@ class BookingForm extends React.Component {
     };
   }
 
+  // componentDidMount() {
+  //   this.setState({ startDate: this.parseDate(new Date()) });
+  // }
+
+  // parseDate(date) {
+  //   const year = date.getFullYear();
+  //   const month = date.getMonth();
+  //   const day = date.getDate();
+  //   return `${year}-${month + 1}-${day}`;
+  // }
+
   render() {
     const { price } = this.props;
     return (
@@ -31,14 +42,20 @@ class BookingForm extends React.Component {
         <hr />
         <span>Dates</span>
         <DateRangePicker
-          startDateId="startDate"
-          endDateId="endDate"
+          startDateId="booking-form-start-date"
+          endDateId="booking-form-end-date"
+          // minimumNights={1}
           startDate={this.state.startDate}
           endDate={this.state.endDate}
           onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
           focusedInput={this.state.focusedInput}
           onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
           hideKeyboardShortcutsPanel
+          showClearDates
+          reopenPickerOnClearDates
+          isDayBlocked={this.isDayBlocked}
+          autoFocus
+          small
         />
         <span id="guests-label">Guests</span>
         <button id="booking-form-guests-dropdown">
