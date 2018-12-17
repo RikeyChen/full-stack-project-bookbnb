@@ -55,13 +55,13 @@
 
 @media (min-width: 1461px) {
   .listings-index-map {
-    width: calc(100% - 1049px);
+    width: calc(100% - 1080px);
   }
 }
 
 @media (min-width: 1317px) {
   .listings-index-map {
-    width: calc(100% - 1049px);
+    width: calc(100% - 1080px);
   }
 }
 
@@ -74,4 +74,10 @@
 
 .listings-index-main > header {
   margin: 20px 0px;
+}
+
+.listings-index-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

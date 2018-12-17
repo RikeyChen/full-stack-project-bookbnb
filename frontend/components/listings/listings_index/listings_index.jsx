@@ -59,9 +59,11 @@ class ListingsIndex extends React.Component {
         <div className="listings-index-map-container">
           <main className="listings-index-main">
             <header>300+ homes</header>
-            {this.props.listings.map(listing => (
-              <ListingsIndexItem listing={listing} key={listing.id} />
-            ))}
+            <div className="listings-index-items">
+              {this.props.listings.map(listing => (
+                <ListingsIndexItem listing={listing} key={listing.id} />
+              ))}
+            </div>
           </main>
           <aside className="listings-index-map">
             Google Map
