@@ -13,7 +13,7 @@
 #
 
 class Booking < ApplicationRecord
-  validates: :checkin_date, :checkout_date, :num_guests, presence: true
+  validates :checkin_date, :checkout_date, :num_guests, presence: true
   validate :start_must_come_before_end
 
   belongs_to :guest,
