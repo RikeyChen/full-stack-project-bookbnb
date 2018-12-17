@@ -35,6 +35,7 @@ class ListingsIndex extends React.Component {
         <aside className="listings-index-sidebar">
           <span>Dates</span>
           <DateRangePicker
+            id="listings-index-datepicker"
             startDateId="startDate"
             endDateId="endDate"
             startDate={this.state.startDate}

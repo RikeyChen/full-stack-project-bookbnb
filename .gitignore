@@ -31,5 +31,3 @@ bundle.js
 bundle.js.map
 .DS_store
 npm-debug.log
-/app/assets/images/lst*
-/app/assets/images/users/

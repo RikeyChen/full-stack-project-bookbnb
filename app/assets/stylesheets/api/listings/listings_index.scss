@@ -84,3 +84,14 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.listings-index-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#listings-index-datepiicker {
+  width: 50%;
+  margin: auto;
+}
