@@ -8,6 +8,10 @@
   line-height: 1.5;
 }
 
+.listings-index-item-master * {
+  cursor: pointer;
+}
+
 @media (min-width: 744px) {
   .listings-index-item-master {
     width: 50%;
