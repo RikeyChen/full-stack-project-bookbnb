@@ -193,7 +193,7 @@
   USERS = [demo, user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12, user13, user14, user15]
 
   USERS.each.with_index do |user, idx|
-    file = File.open("app/assets/images/users/host#{idx}.jpeg")
+    file = EzDownload.open("https://s3-us-west-1.amazonaws.com/bookbnb-dev/host#{idx}.jpeg")
     user.image.attach(io: file, filename: "host#{idx}.jpeg")
   end
 
@@ -201,7 +201,20 @@
 
   LISTINGS.each.with_index do |lst, idx1|
     (1..5).each do |idx2|
-      file = File.open("app/assets/images/lst#{idx1 + 1}/lst#{idx1+ 1}-#{idx2}.jpeg")
+      file = EzDownload.open("https://s3-us-west-1.amazonaws.com/bookbnb-dev/lst#{idx1 + 1}-#{idx2}.jpeg")
       lst.images.attach(io: file, filename: "lst#{idx1 + 1}-#{idx2}.jpeg")
     end
   end
+
+  # bottom code used for development *************
+  # USERS.each.with_index do |user, idx|
+  #   file = File.open("app/assets/images/users/host#{idx}.jpeg")
+  #   user.image.attach(io: file, filename: "host#{idx}.jpeg")
+  # end
+
+  # LISTINGS.each.with_index do |lst, idx1|
+  #   (1..5).each do |idx2|
+  #     file = File.open("app/assets/images/lst#{idx1 + 1}/lst#{idx1+ 1}-#{idx2}.jpeg")
+  #     lst.images.attach(io: file, filename: "lst#{idx1 + 1}-#{idx2}.jpeg")
+  #   end
+  # end
