@@ -195,28 +195,46 @@
   LISTINGS = [lst1, lst2,lst3,lst4,lst5,lst6,lst7,lst8,lst9,lst10,lst11,lst12,lst13,lst14,lst15,lst16,lst17,lst18,lst19,lst20,lst21,lst22,lst23,lst24,lst25,lst26,lst27,lst28,lst29,lst30,lst31,lst32,lst33,lst34,lst35]
 
   # code used for production seeding - currently not working
+  USERS.each.with_index do |user, idx|
+    file = EzDownload.open("https://s3-us-west-1.amazonaws.com/bookbnb-dev1/users/host#{idx}.jpeg")
+    user.image.attach(io: file, filename: "host#{idx}.jpeg")
+  end
+
+
+  LISTINGS.each.with_index do |lst, idx1|
+    (1..5).each do |idx2|
+      file = EzDownload.open("https://s3-us-west-1.amazonaws.com/bookbnb-dev1/lst#{idx1 + 1}/lst#{idx1 + 1}-#{idx2}.jpeg")
+      lst.images.attach(io: file, filename: "lst#{idx1 + 1}-#{idx2}.jpeg")
+    end
+  end
+
+  # bottom code used for development *************
   # USERS.each.with_index do |user, idx|
-  #   file = EzDownload.open("https://s3-us-west-1.amazonaws.com/bookbnb-dev/host#{idx}.jpeg")
+  #   file = File.open("app/assets/images/users/host#{idx}.jpeg")
   #   user.image.attach(io: file, filename: "host#{idx}.jpeg")
   # end
 
-
   # LISTINGS.each.with_index do |lst, idx1|
   #   (1..5).each do |idx2|
-  #     file = EzDownload.open("https://s3-us-west-1.amazonaws.com/bookbnb-dev/lst#{idx1 + 1}-#{idx2}.jpeg")
+  #     file = File.open("app/assets/images/lst#{idx1 + 1}/lst#{idx1+ 1}-#{idx2}.jpeg")
   #     lst.images.attach(io: file, filename: "lst#{idx1 + 1}-#{idx2}.jpeg")
   #   end
   # end
 
-  # bottom code used for development *************
-  USERS.each.with_index do |user, idx|
-    file = File.open("app/assets/images/users/host#{idx}.jpeg")
-    user.image.attach(io: file, filename: "host#{idx}.jpeg")
-  end
-
-  LISTINGS.each.with_index do |lst, idx1|
-    (1..5).each do |idx2|
-      file = File.open("app/assets/images/lst#{idx1 + 1}/lst#{idx1+ 1}-#{idx2}.jpeg")
-      lst.images.attach(io: file, filename: "lst#{idx1 + 1}-#{idx2}.jpeg")
-    end
-  end
+#   {
+#     "Version": "2012-10-17",
+#     "Statement": [
+#         {
+#             "Sid": "Stmt1420751757000",
+#             "Effect": "Allow",
+#             "Principal": {
+#                 "AWS": "arn:aws:iam::830881767783:user/bookbnb-master"
+#             },
+#             "Action": "s3:*",
+#             "Resource": [
+#                 "arn:aws:s3:::bookbnb-dev",
+#                 "arn:aws:s3:::bookbnb-dev/*"
+#             ]
+#         }
+#     ]
+# }
