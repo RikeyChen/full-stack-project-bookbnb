@@ -13,6 +13,7 @@ const ListingsIndexItem = ({ listing }) => {
         {listing.home_type}
         <span className="dot">&#8226;</span>
         {listing.num_beds}
+        {' '}
         {listing.num_beds > 1 ? 'beds' : 'bed'}
       </span>
       <h1>{listing.name}</h1>
