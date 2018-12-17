@@ -61,7 +61,7 @@ class ListingsIndex extends React.Component {
             <header>300+ homes</header>
             <div className="listings-index-items">
               {this.props.listings.map(listing => (
-                <ListingsIndexItem listing={listing} key={listing.id} location={this.props.location} />
+                <ListingsIndexItem listing={listing} key={listing.id} />
               ))}
             </div>
           </main>
