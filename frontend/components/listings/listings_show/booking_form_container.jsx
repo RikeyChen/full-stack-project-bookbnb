@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import BookingForm from './booking_form';
 import createBooking from '../../../actions/booking_actions';
 
-const mSp = state => ({
+const mSp = (state, ownProps) => ({
+  listing: state.entities.listings[ownProps.match.params.listingId],
   bookings: state.entities.bookings,
 });
 
