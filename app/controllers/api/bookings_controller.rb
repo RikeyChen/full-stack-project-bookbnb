@@ -1,4 +1,6 @@
 class Api::BookingsController < ApplicationController
+  before_action :require_login, only: [:create]
+
   def create
     @booking = Booking.new(booking_params)
     @booking.guest_id = current_user.id

@@ -91,6 +91,22 @@ class BookingForm extends React.Component {
     };
   }
 
+  renderErrors() {
+    if (!this.props.errors.base) return null;
+    return (
+      <ul className="booking-errors">
+        {this.props.errors.base.map((error, i) => (
+          <li key={`error-${i}`} className="booking-errors-error">
+            <span>X</span>
+            <div>
+              {error}
+            </div>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     const { price } = this.props;
     const totalNightsPrice = Math.round(price * this.state.numNights);
@@ -248,6 +264,7 @@ class BookingForm extends React.Component {
           </div>
         </div>
         <div>{pricing}</div>
+        {this.renderErrors()}
         <div />
         <button id="booking-form-btn" type="submit">
           Request to Book

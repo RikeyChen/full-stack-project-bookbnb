@@ -8,6 +8,7 @@ const mSp = (state, ownProps) => ({
   listing: state.entities.listings[ownProps.match.params.listingId],
   bookings: state.entities.bookings,
   price: ownProps.price,
+  errors: state.errors.bookings,
 });
 
 const mDp = dispatch => ({
