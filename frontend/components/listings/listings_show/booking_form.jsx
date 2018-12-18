@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
@@ -17,10 +18,12 @@ class BookingForm extends React.Component {
       numAdults: 0,
       numChildren: 0,
       numInfants: 0,
+      openDropdown: 'hidden',
     };
     // this.isDayBlocked = this.isDayBlocked.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.unavailableDates = this.unavailableDates.bind(this);
+    this.openDropdown = this.openDropdown.bind(this);
   }
 
   // unavailableDates() {
@@ -43,6 +46,12 @@ class BookingForm extends React.Component {
       num_guests: this.state.numGuests,
     });
     this.props.createBooking(this.props.listing.id, newState);
+  }
+
+  openDropdown(e) {
+    e.preventDefault();
+    const css = (this.state.openDropdown === 'hidden') ? 'show' : 'hidden';
+    this.setState({ openDropdown: css });
   }
 
   render() {
@@ -88,14 +97,17 @@ class BookingForm extends React.Component {
         // small
         />
         <span id="guests-label">Guests</span>
-        <div class="booking-form-dropdown">
+        <div className="booking-form-dropdown">
           <button
-            id="booking-form-guests-dropdown-btn"
-            onClick={}
+            className="booking-form-guests-dropdown-btn"
+            onClick={this.openDropdown}
           >
             1 guest
           </button>
-          <div id="booking-form-guests-dropdown">
+          <div
+            className="booking-form-guests-dropdown"
+            id={this.state.openDropdown}
+          >
             <div id="dropdown-adults">
               <div>
                 <span>Adults</span>
@@ -106,15 +118,28 @@ class BookingForm extends React.Component {
                 <button>|+|</button>
               </div>
             </div>
-            <button>
-              <span>Children</span>
-              <span>Ages 2-12</span>
-            </button>
-            <button>
-              <span>Infants</span>
-              <span>Under 2</span>
-            </button>
-
+            <div id="dropdown-children">
+              <div>
+                <span>Children</span>
+                <span>Ages 2-12</span>
+              </div>
+              <div>
+                <button>|-|</button>
+                <span>{this.state.numChildren}</span>
+                <button>|+|</button>
+              </div>
+            </div>
+            <div id="dropdown-infants">
+              <div>
+                <span>Infants</span>
+                <span>Under 2</span>
+              </div>
+              <div>
+                <button>|-|</button>
+                <span>{this.state.numInfants}</span>
+                <button>|+|</button>
+              </div>
+            </div>
           </div>
         </div>
         <button id="booking-form-btn" type="submit">

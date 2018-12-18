@@ -19,5 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
+  window.onclick = function (event) {
+    if (!event.target.matches('.booking-form-guests-dropdown-btn')) {
+      const dropdowns = document.getElementsByClassName('booking-form-guests-dropdown');
+      if (dropdowns[0].id === 'show') {
+        dropdowns[0].id = 'hidden';
+      }
+    }
+  };
+
   ReactDOM.render(<Root store={store} />, root);
 });
