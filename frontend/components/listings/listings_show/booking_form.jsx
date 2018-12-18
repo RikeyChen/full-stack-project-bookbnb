@@ -35,9 +35,11 @@ class BookingForm extends React.Component {
   }
 
   isDayBlocked(day) {
-    return this.unavailableDates().some(date => (
-      moment(date).isSame(day, 'day')
-    ));
+    if (this.props.bookings) {
+      return this.unavailableDates().some(date => (
+        moment(date).isSame(day, 'day')
+      ));
+    } return null;
   }
 
   handleSubmit(e) {
@@ -47,7 +49,18 @@ class BookingForm extends React.Component {
       checkout_date: this.state.endDate._d,
       num_guests: this.state.numGuests,
     });
-    this.props.createBooking(this.props.listing.id, newState);
+    this.props.createBooking(this.props.listing.id, newState)
+      .then(this.setState({
+        startDate: null,
+        endDate: null,
+        focusedInput: null,
+        numGuests: 1,
+        numNights: null,
+        numAdults: 1,
+        numChildren: 0,
+        numInfants: 0,
+        openDropdown: 'hidden',
+      }));
   }
 
   openDropdown(e) {
