@@ -2,6 +2,8 @@ import React from 'react';
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import momentPropTypes from 'react-moment-proptypes';
+import moment from 'moment';
 import BookingFormContainer from './booking_form_container';
 
 class ListingDetail extends React.Component {
@@ -12,10 +14,16 @@ class ListingDetail extends React.Component {
       endDate: null,
       focusedInput: null,
     };
+
+    // this.isDayBlocked = this.isDayBlocked.bind(this);
+    // this.unavailableDates = this.unavailableDates.bind(this);
   }
+
 
   render() {
     const { listing } = this.props;
+
+    if (!this.props.bookings) return null;
 
     const kitchenLogo = (
       listing.kitchen ? (
@@ -70,6 +78,23 @@ class ListingDetail extends React.Component {
         </div>
       ) : null
     );
+
+
+    const unavailableDates = () => {
+      let unavDates = [];
+      for (let i = 0; i < this.props.bookings.length; i++) {
+        unavDates = unavDates.concat(this.props.bookings[i].unavailable_dates);
+      }
+      return unavDates;
+    };
+
+    const isDayBlocked = (day) => {
+      if (this.props.bookings) {
+        return unavailableDates().some(date => (
+          moment(date).isSame(day, 'day')
+        ));
+      } return true;
+    };
 
     return (
       <div className="listing-detail-master">
