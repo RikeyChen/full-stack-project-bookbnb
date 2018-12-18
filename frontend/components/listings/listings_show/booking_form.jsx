@@ -16,14 +16,19 @@ class BookingForm extends React.Component {
     };
     this.isDayBlocked = this.isDayBlocked.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.unavailableDates = this.unavailableDates.bind(this);
+  }
+
+  unavailableDates() {
+    const unavDates = [];
+    for (let i = 0; i < this.props.bookings.length; i++) {
+      unavDates.concat(this.props.bookings[i].unavailable_dates);
+    }
+    return unavDates;
   }
 
   isDayBlocked(day) {
-    const unavailableDates = [];
-    if (this.props.bookings.length > 0) {
-      this.props.bookings.forEach(booking => unavailableDates.concat(booking.unavailable_dates.map(date => new Date(date))));
-    }
-    return unavailableDates.includes(day);
+    this.unavailableDates.some(date => moment(date).isSame(day));
   }
 
   handleSubmit(e) {
@@ -38,6 +43,12 @@ class BookingForm extends React.Component {
 
   render() {
     const { price } = this.props;
+    if (this.props.bookings.length) {
+      console.log('BOOKINGS:', this.props.bookings);
+
+      console.log(this.unavailableDates());
+      // debugger;
+    }
 
     return (
       <form className="booking-form" onSubmit={this.handleSubmit}>
