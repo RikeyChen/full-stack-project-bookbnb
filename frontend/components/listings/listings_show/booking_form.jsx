@@ -13,23 +13,24 @@ class BookingForm extends React.Component {
       endDate: null,
       focusedInput: null,
       numGuests: 1,
+      numDays: null,
     };
-    this.isDayBlocked = this.isDayBlocked.bind(this);
+    // this.isDayBlocked = this.isDayBlocked.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.unavailableDates = this.unavailableDates.bind(this);
+    // this.unavailableDates = this.unavailableDates.bind(this);
   }
 
-  unavailableDates() {
-    const unavDates = [];
-    for (let i = 0; i < this.props.bookings.length; i++) {
-      unavDates.concat(this.props.bookings[i].unavailable_dates);
-    }
-    return unavDates;
-  }
+  // unavailableDates() {
+  //   const unavDates = [];
+  //   for (let i = 0; i < this.props.bookings.length; i++) {
+  //     unavDates.concat(this.props.bookings[i].unavailable_dates);
+  //   }
+  //   return unavDates;
+  // }
 
-  isDayBlocked(day) {
-    this.unavailableDates.some(date => moment(date).isSame(day));
-  }
+  // isDayBlocked(day) {
+  //   this.unavailableDates.some(date => moment(date).isSame(day));
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -43,12 +44,12 @@ class BookingForm extends React.Component {
 
   render() {
     const { price } = this.props;
-    if (this.props.bookings.length) {
-      console.log('BOOKINGS:', this.props.bookings);
+    // if (this.props.bookings.length) {
+    //   console.log('BOOKINGS:', this.props.bookings);
 
-      console.log(this.unavailableDates());
-      // debugger;
-    }
+    //   console.log(this.unavailableDates());
+    //   // debugger;
+    // }
 
     return (
       <form className="booking-form" onSubmit={this.handleSubmit}>
@@ -71,14 +72,17 @@ class BookingForm extends React.Component {
           minimumNights={1}
           startDate={this.state.startDate}
           endDate={this.state.endDate}
-          onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
+          onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate, numDays: (endDate - startDate) }); }}
           focusedInput={this.state.focusedInput}
           onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
           hideKeyboardShortcutsPanel
           showClearDates
           reopenPickerOnClearDates
-          isDayBlocked={this.isDayBlocked}
-          small
+          startDatePlaceholderText="Check in"
+          endDatePlaceholderText="Check out"
+          // isDayBlocked={this.isDayBlocked}
+          arrowIcon
+        // small
         />
         <span id="guests-label">Guests</span>
         <button id="booking-form-guests-dropdown">
