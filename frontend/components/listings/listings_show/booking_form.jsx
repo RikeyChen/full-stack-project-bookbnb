@@ -91,12 +91,12 @@ class BookingForm extends React.Component {
             <span>{`$${price} x ${this.state.numNights} nights`}</span>
             <span>{`$${totalNightsPrice}`}</span>
           </div>
-          <hr />
+          <hr className="pricing-hr" />
           <div className="pricing">
             <span>Service fee</span>
-            <span>{`${totalServiceFee}`}</span>
+            <span>{`$${totalServiceFee}`}</span>
           </div>
-          <hr />
+          <hr className="pricing-hr" />
           <div className="pricing">
             <span>Total</span>
             <span>{`$${totalPrice}`}</span>
