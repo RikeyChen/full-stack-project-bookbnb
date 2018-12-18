@@ -20,23 +20,25 @@ class BookingForm extends React.Component {
       numInfants: 0,
       openDropdown: 'hidden',
     };
-    // this.isDayBlocked = this.isDayBlocked.bind(this);
+    this.isDayBlocked = this.isDayBlocked.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.unavailableDates = this.unavailableDates.bind(this);
+    this.unavailableDates = this.unavailableDates.bind(this);
     this.openDropdown = this.openDropdown.bind(this);
   }
 
-  // unavailableDates() {
-  //   const unavDates = [];
-  //   for (let i = 0; i < this.props.bookings.length; i++) {
-  //     unavDates.concat(this.props.bookings[i].unavailable_dates);
-  //   }
-  //   return unavDates;
-  // }
+  unavailableDates() {
+    let unavDates = [];
+    for (let i = 0; i < this.props.bookings.length; i++) {
+      unavDates = unavDates.concat(this.props.bookings[i].unavailable_dates);
+    }
+    return unavDates;
+  }
 
-  // isDayBlocked(day) {
-  //   this.unavailableDates.some(date => moment(date).isSame(day));
-  // }
+  isDayBlocked(day) {
+    return this.unavailableDates().some(date => (
+      moment(date).isSame(day, 'day')
+    ));
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -92,7 +94,7 @@ class BookingForm extends React.Component {
           reopenPickerOnClearDates
           startDatePlaceholderText="Check in"
           endDatePlaceholderText="Check out"
-          // isDayBlocked={this.isDayBlocked}
+          isDayBlocked={this.isDayBlocked}
           arrowIcon
         // small
         />
@@ -108,36 +110,38 @@ class BookingForm extends React.Component {
             className="booking-form-guests-dropdown"
             id={this.state.openDropdown}
           >
-            <div id="dropdown-adults">
-              <div>
-                <span>Adults</span>
+            <div>
+              <div id="dropdown-adults">
+                <div>
+                  <span>Adults</span>
+                </div>
+                <div className="calc">
+                  <div>-</div>
+                  <span>{this.state.numAdults}</span>
+                  <div>+</div>
+                </div>
               </div>
-              <div>
-                <button>|-|</button>
-                <span>{this.state.numAdults}</span>
-                <button>|+|</button>
+              <div id="dropdown-children">
+                <div className="children-text">
+                  <span>Children</span>
+                  <span>Ages 2-12</span>
+                </div>
+                <div className="calc">
+                  <div>-</div>
+                  <span>{this.state.numChildren}</span>
+                  <div>+</div>
+                </div>
               </div>
-            </div>
-            <div id="dropdown-children">
-              <div>
-                <span>Children</span>
-                <span>Ages 2-12</span>
-              </div>
-              <div>
-                <button>|-|</button>
-                <span>{this.state.numChildren}</span>
-                <button>|+|</button>
-              </div>
-            </div>
-            <div id="dropdown-infants">
-              <div>
-                <span>Infants</span>
-                <span>Under 2</span>
-              </div>
-              <div>
-                <button>|-|</button>
-                <span>{this.state.numInfants}</span>
-                <button>|+|</button>
+              <div id="dropdown-infants">
+                <div className="infants-text">
+                  <span>Infants</span>
+                  <span>Under 2</span>
+                </div>
+                <div className="calc">
+                  <div>-</div>
+                  <span>{this.state.numInfants}</span>
+                  <div>+</div>
+                </div>
               </div>
             </div>
           </div>
