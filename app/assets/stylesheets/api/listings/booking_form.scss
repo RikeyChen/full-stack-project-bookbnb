@@ -129,6 +129,7 @@
   cursor: pointer;
   font-weight: 100;
   font-family: 'Montserrat', sans-serif;
+  margin-bottom: 15px;
 }
 
 .booking-form-guests-dropdown-btn:focus {
@@ -241,3 +242,22 @@
 }
 
 #show {display: block;}
+
+.disabledbutton {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.pricing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pricing span {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.pricing-hr {
+  margin: 5px, 0px;
+}
