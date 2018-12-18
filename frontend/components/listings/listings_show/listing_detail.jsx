@@ -140,7 +140,7 @@ class ListingDetail extends React.Component {
             onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
             focusedInput={this.state.focusedInput}
             onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
-            numberOfMonths="2"
+            numberOfMonths={2}
             hideKeyboardShortcutsPanel
           />
           <hr />
