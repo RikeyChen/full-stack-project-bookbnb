@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = ({
-  currentUser, logout, openModal, location, clearErrors,
+  currentUser, logout, openModal, location, clearSessionErrors,
 }) => {
   let searchBar;
   if (location.pathname === '/') {
@@ -23,14 +23,14 @@ const NavBar = ({
           <button>Help</button>
           <button onClick={() => {
             openModal('Sign up');
-            clearErrors();
+            clearSessionErrors();
           }}
           >
             Sign up
           </button>
           <button onClick={() => {
             openModal('Log in');
-            clearErrors();
+            clearSessionErrors();
           }}
           >
             Log in

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login, clearErrors } from '../../actions/session_actions';
+import { login, clearSessionErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
@@ -19,7 +19,7 @@ const mDp = dispatch => ({
     <button
       onClick={() => {
         dispatch(openModal('Sign up'));
-        dispatch(clearErrors());
+        dispatch(clearSessionErrors());
       }}
       className="otherform-btn"
     >
