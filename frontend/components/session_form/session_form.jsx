@@ -12,8 +12,10 @@ class SessionForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.processForm(user)
       .then(
-        this.props.closeModal,
-        this.props.clearErrors,
+        () => {
+          this.props.closeModal();
+          this.props.clearErrors();
+        },
       );
     this.setState({ password: '' });
   }
@@ -134,7 +136,12 @@ class SessionForm extends React.Component {
                 this.props.processForm({
                   email: 'DemoUser@gmail.com',
                   password: 'password',
-                }).then(this.props.closeModal);
+                }).then(
+                  () => {
+                    this.props.closeModal();
+                    this.props.clearErrors();
+                  },
+                );
               }
               }
               className="otherform-btn"
