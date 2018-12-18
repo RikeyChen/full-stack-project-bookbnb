@@ -78,6 +78,7 @@
   border-radius: 4px;
   color: #FFFFFF;
   line-height: 0px;
+  margin-top: 20px
 }
 
 #not-charged-text {
@@ -124,7 +125,6 @@
   padding-left: 16px;
   height: 40px;
   width: 100%;
-  margin-bottom: 20px;
   text-align: left;
   cursor: pointer;
   font-weight: 100;
@@ -143,16 +143,101 @@
 }
 
 .booking-form-guests-dropdown {
+  width: 100%;
+  height: 300px;
+  padding: 0px 16px;
+  margin-bottom: 16px;
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #FFFFFF;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.booking-form-guests-dropdown > div:first-child {
+  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 0px;
+}
+
+#dropdown-adults, #dropdown-children, #dropdown-infants {
+  display: flex;
+  justify-content: space-between;
+}
+
+#dropdown-adults, #dropdown-children, #dropdown-infants > div:first-child{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+}
+
+#dropdown-adults > div:first-child {
+  padding: 15px 0px
+}
+
+#dropdown-children > div:first-child {
+  padding: 15px 0px
+}
+
+#dropdown-infants > div:first-child {
+  padding: 15px 0px;
+}
+
+.children-text, .infants-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.children-text > span:first-of-type {
+  font-weight: bolder;
+}
+
+.infants-text > span:first-of-type {
+  font-weight: bolder;
+}
+
+.children-text > span:last-of-type {
+  font-size: 14px;
+}
+
+.infants-text > span:last-of-type {
+  font-size: 14px;
+}
+
+.calc span {
+  font-size: 16px;
+  margin: 0px;
+}
+
+.calc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 110px;
+}
+
+.calc > div {
+  border: 1px solid #007B7C;
+  border-radius: 50%;
+  height: 2em;
+  width: 35px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .booking-form-guests-dropdown button {
   cursor: pointer;
+}
+
+.booking-form-guests-dropdown span, div {
+  font-size: 16px;
 }
 
 #show {display: block;}
