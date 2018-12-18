@@ -3,7 +3,6 @@ import React from 'react';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    // this.blankState = Object.assign({}, this.props.formComponents);
     this.state = this.props.formComponents;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -12,7 +11,10 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user)
-      .then(this.props.closeModal);
+      .then(
+        this.props.closeModal,
+        this.props.clearErrors,
+      );
     this.setState({ password: '' });
   }
 

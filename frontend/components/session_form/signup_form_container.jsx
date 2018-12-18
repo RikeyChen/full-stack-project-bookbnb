@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { signup, clearSessionErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { clearErrors } from '../../actions/booking_actions';
 
 const mSp = state => ({
   formComponents: {
@@ -29,6 +30,7 @@ const mDp = dispatch => ({
     </button>
   ),
   closeModal: () => dispatch(closeModal()),
+  clearErrors: () => dispatch(clearErrors()),
 });
 
 export default connect(mSp, mDp)(SessionForm);
