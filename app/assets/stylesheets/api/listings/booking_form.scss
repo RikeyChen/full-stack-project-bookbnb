@@ -116,7 +116,7 @@
   margin-left: 20px;
 }
 
-#booking-form-guests-dropdown {
+#booking-form-guests-dropdown-btn {
   box-sizing: border-box;
   font-size: 16px;
   border: 1px solid #dbdbdb;
@@ -131,7 +131,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-#booking-form-guests-dropdown:hover, #booking-form-guests-dropdown:hover:focus {
+.booking-form-guests-dropdown:hover, .booking-form-guests-dropdown:hover:focus {
   background-color: #2980B9;
 }
 
@@ -140,7 +140,7 @@
   display: inline-block;
 }
 
-#booking-form-guests-dropdown {
+.booking-form-guests-dropdown {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -152,3 +152,5 @@
 #booking-form-guests-dropdown button {
   cursor: pointer;
 }
+
+.show {display: block;}
