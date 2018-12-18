@@ -133,8 +133,6 @@ class ListingDetail extends React.Component {
           <h1><strong>Availability</strong></h1>
           <br />
           <DayPickerRangeController
-            startDateId="startDate"
-            endDateId="endDate"
             startDate={this.state.startDate}
             endDate={this.state.endDate}
             onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
@@ -142,6 +140,7 @@ class ListingDetail extends React.Component {
             onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
             numberOfMonths={2}
             hideKeyboardShortcutsPanel
+            isDayBlocked={isDayBlocked}
           />
           <hr />
           <h1>Google Map will go here</h1>
