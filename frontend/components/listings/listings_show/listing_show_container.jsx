@@ -6,6 +6,7 @@ import ListingShow from './listing_show';
 const mSp = (state, ownProps) => ({
   listing: state.entities.listings[ownProps.match.params.listingId],
   users: state.entities.users,
+  bookings: state.entities.bookings,
 });
 
 const mDp = dispatch => ({
