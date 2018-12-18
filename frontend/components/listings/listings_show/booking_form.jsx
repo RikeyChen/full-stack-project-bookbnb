@@ -56,14 +56,31 @@ class BookingForm extends React.Component {
     this.setState({ openDropdown: css });
   }
 
+  changeNumGuests(type) {
+    return (e) => {
+      if (type === 'adult' && e.target.innerText === '-') {
+        this.setState({ numAdults: (this.state.numAdults - 1) });
+        this.setState({ numGuests: (this.state.numGuests - 1) });
+      } else if (type === 'adult' && e.target.innerText === '+') {
+        this.setState({ numAdults: (this.state.numAdults + 1) });
+        this.setState({ numGuests: (this.state.numGuests + 1) });
+      } else if (type === 'child' && e.target.innerText === '-') {
+        this.setState({ numChildren: (this.state.numChildren - 1) });
+        this.setState({ numGuests: (this.state.numGuests - 1) });
+      } else if (type === 'child' && e.target.innerText === '+') {
+        this.setState({ numChildren: (this.state.numChildren + 1) });
+        this.setState({ numGuests: (this.state.numGuests + 1) });
+      } else if (type === 'infant' && e.target.innerText === '-') {
+        this.setState({ numInfants: (this.state.numInfants - 1) });
+        this.setState({ numGuests: (this.state.numGuests - 1) });
+      } else if (type === 'infant' && e.target.innerText === '+') {
+        this.setState({ numInfants: (this.state.numInfants + 1) });
+      }
+    };
+  }
+
   render() {
     const { price } = this.props;
-    // if (this.props.bookings.length) {
-    //   console.log('BOOKINGS:', this.props.bookings);
-
-    //   console.log(this.unavailableDates());
-    //   // debugger;
-    // }
 
     return (
       <form className="booking-form" onSubmit={this.handleSubmit}>
@@ -104,7 +121,12 @@ class BookingForm extends React.Component {
             className="booking-form-guests-dropdown-btn"
             onClick={this.openDropdown}
           >
-            1 guest
+            {this.state.numGuests}
+            {' '}
+            {this.state.numGuests > 1 ? 'guests' : 'guest'}
+            {this.state.numInfants > 0 ? `, ${this.state.numInfants}` : null}
+            {' '}
+            {this.state.numInfants > 0 ? (this.state.numInfants === 1 ? 'infant' : 'infants') : null}
           </button>
           <div
             className="booking-form-guests-dropdown"
@@ -116,9 +138,9 @@ class BookingForm extends React.Component {
                   <span>Adults</span>
                 </div>
                 <div className="calc">
-                  <div>-</div>
+                  <div onClick={this.changeNumGuests('adult')}>-</div>
                   <span>{this.state.numAdults}</span>
-                  <div>+</div>
+                  <div onClick={this.changeNumGuests('adult')}>+</div>
                 </div>
               </div>
               <div id="dropdown-children">
@@ -127,9 +149,9 @@ class BookingForm extends React.Component {
                   <span>Ages 2-12</span>
                 </div>
                 <div className="calc">
-                  <div>-</div>
+                  <div onClick={this.changeNumGuests('child')}>-</div>
                   <span>{this.state.numChildren}</span>
-                  <div>+</div>
+                  <div onClick={this.changeNumGuests('child')}>+</div>
                 </div>
               </div>
               <div id="dropdown-infants">
@@ -138,9 +160,9 @@ class BookingForm extends React.Component {
                   <span>Under 2</span>
                 </div>
                 <div className="calc">
-                  <div>-</div>
+                  <div onClick={this.changeNumGuests('infant')}>-</div>
                   <span>{this.state.numInfants}</span>
-                  <div>+</div>
+                  <div onClick={this.changeNumGuests('infant')}>+</div>
                 </div>
               </div>
             </div>
