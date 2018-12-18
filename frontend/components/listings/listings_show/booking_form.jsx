@@ -18,25 +18,19 @@ class BookingForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  parseDate(date) {
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const day = date.getDate();
-    return `${year}-${month + 1}-${day}`;
-  }
-
   isDayBlocked(day) {
     const unavailableDates = [];
-    this.props.bookings.forEach(booking => unavailableDates.concat(booking.unavailable_dates.map(date => new Date(date))));
-    const badDates = [moment(), moment().add(unavailableDates)];
-    return badDates.filter(d => d.isSame(day, 'day')).length > 0;
+    if (this.props.bookings.length > 0) {
+      this.props.bookings.forEach(booking => unavailableDates.concat(booking.unavailable_dates.map(date => new Date(date))));
+    }
+    return unavailableDates.includes(day);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const newState = Object.assign({}, {
-      checkin_date: this.state.startDate,
-      checkout_date: this.state.endDate,
+      checkin_date: this.state.startDate._d,
+      checkout_date: this.state.endDate._d,
       num_guests: this.state.numGuests,
     });
     this.props.createBooking(this.props.listing.id, newState);
@@ -61,7 +55,6 @@ class BookingForm extends React.Component {
         <hr />
         <span>Dates</span>
         <DateRangePicker
-          id="booking-form-date-picker"
           startDateId="booking-form-start-date"
           endDateId="booking-form-end-date"
           minimumNights={1}
