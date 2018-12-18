@@ -47,17 +47,14 @@
   right: 0;
 }
 
+
 @media (min-width: 1549px) {
   .listings-index-map {
     width: 500px;
   }
 }
 
-@media (min-width: 1461px) {
-  .listings-index-map {
-    width: calc(100% - 1080px);
-  }
-}
+
 
 @media (min-width: 1317px) {
   .listings-index-map {
@@ -69,6 +66,18 @@
   .listings-index-map {
     display: none;
     visibility: hidden;
+  }
+}
+
+@media (min-width: 1461px) {
+  .listings-index-map {
+    width: calc(100% - 1080px);
+  }
+}
+
+@media (min-width: 1766px) {
+  .listings-index-map {
+    width: calc(100% - 1266px);
   }
 }
 
