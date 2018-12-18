@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import BookingForm from './booking_form';
-import createBooking from '../../../actions/booking_actions';
+import { createBooking } from '../../../actions/booking_actions';
 
 const mSp = (state, ownProps) => ({
   listing: state.entities.listings[ownProps.match.params.listingId],

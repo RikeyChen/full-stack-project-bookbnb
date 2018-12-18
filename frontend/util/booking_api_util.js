@@ -1,4 +1,4 @@
-const createBooking = (listingId, booking) => (
+export const createBooking = (listingId, booking) => (
   $.ajax({
     method: 'POST',
     url: `api/listings/${listingId}/bookings`,
@@ -6,4 +6,4 @@ const createBooking = (listingId, booking) => (
   })
 );
 
-export default createBooking;
+export const test = 'test';

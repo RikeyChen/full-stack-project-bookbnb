@@ -2,6 +2,8 @@ import React from 'react';
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import momentPropTypes from 'react-moment-proptypes';
+import moment from 'moment';
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -10,24 +12,41 @@ class BookingForm extends React.Component {
       startDate: null,
       endDate: null,
       focusedInput: null,
+      numGuests: 1,
     };
+    this.isDayBlocked = this.isDayBlocked.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.setState({ startDate: this.parseDate(new Date()) });
-  // }
+  parseDate(date) {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    return `${year}-${month + 1}-${day}`;
+  }
 
-  // parseDate(date) {
-  //   const year = date.getFullYear();
-  //   const month = date.getMonth();
-  //   const day = date.getDate();
-  //   return `${year}-${month + 1}-${day}`;
-  // }
+  isDayBlocked(day) {
+    const unavailableDates = [];
+    this.props.bookings.forEach(booking => unavailableDates.concat(booking.unavailable_dates.map(date => new Date(date))));
+    const badDates = [moment(), moment().add(unavailableDates)];
+    return badDates.filter(d => d.isSame(day, 'day')).length > 0;
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const newState = Object.assign({}, {
+      checkin_date: this.state.startDate,
+      checkout_date: this.state.endDate,
+      num_guests: this.state.numGuests,
+    });
+    this.props.createBooking(this.props.listing.id, newState);
+  }
 
   render() {
     const { price } = this.props;
+
     return (
-      <div className="booking-form">
+      <form className="booking-form" onSubmit={this.handleSubmit}>
         <header>
           <div>$</div>
           <div>{price}</div>
@@ -42,9 +61,10 @@ class BookingForm extends React.Component {
         <hr />
         <span>Dates</span>
         <DateRangePicker
+          id="booking-form-date-picker"
           startDateId="booking-form-start-date"
           endDateId="booking-form-end-date"
-          // minimumNights={1}
+          minimumNights={1}
           startDate={this.state.startDate}
           endDate={this.state.endDate}
           onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
@@ -54,7 +74,6 @@ class BookingForm extends React.Component {
           showClearDates
           reopenPickerOnClearDates
           isDayBlocked={this.isDayBlocked}
-          autoFocus
           small
         />
         <span id="guests-label">Guests</span>
@@ -65,7 +84,7 @@ class BookingForm extends React.Component {
           <option value="infants">Infants Under 2</option> */}
           1 guest
         </button>
-        <button id="booking-form-btn">
+        <button id="booking-form-btn" type="submit">
           Request to Book
         </button>
         <span id="not-charged-text">You won't be charged yet</span>
@@ -76,7 +95,7 @@ class BookingForm extends React.Component {
           <br />
           It's been viewed 500+ times in the past week.
         </div>
-      </div>
+      </form>
     );
   }
 }
