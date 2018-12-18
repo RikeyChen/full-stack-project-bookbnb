@@ -129,7 +129,6 @@
   cursor: pointer;
   font-weight: 100;
   font-family: 'Montserrat', sans-serif;
-  margin-bottom: 15px;
   color: #75757E;
 }
 
@@ -261,4 +260,8 @@
 
 .pricing-hr {
   margin: 5px, 0px;
+}
+
+.pricing:first-of-type {
+  margin-top: 15px;
 }
