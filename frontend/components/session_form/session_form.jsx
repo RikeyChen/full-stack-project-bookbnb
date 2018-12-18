@@ -23,9 +23,10 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
+    if (!this.props.errors.base) return null;
     return (
       <ul className="signlog-errors">
-        {this.props.errors.map((error, i) => (
+        {this.props.errors.base.map((error, i) => (
           <li key={`error-${i}`} className="signlog-errors-error">
             <span>X</span>
             <div>
