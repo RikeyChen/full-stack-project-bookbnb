@@ -14,6 +14,9 @@ class BookingForm extends React.Component {
       focusedInput: null,
       numGuests: 1,
       numDays: null,
+      numAdults: 0,
+      numChildren: 0,
+      numInfants: 0,
     };
     // this.isDayBlocked = this.isDayBlocked.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -85,13 +88,35 @@ class BookingForm extends React.Component {
         // small
         />
         <span id="guests-label">Guests</span>
-        <button id="booking-form-guests-dropdown">
-          {/* <option default selected disabled>1 guest</option>
-          <option value="adults">Adults</option>
-          <option value="children">Children Ages 2-12</option>
-          <option value="infants">Infants Under 2</option> */}
-          1 guest
-        </button>
+        <div class="booking-form-dropdown">
+          <button
+            id="booking-form-guests-dropdown-btn"
+            onClick={}
+          >
+            1 guest
+          </button>
+          <div id="booking-form-guests-dropdown">
+            <div id="dropdown-adults">
+              <div>
+                <span>Adults</span>
+              </div>
+              <div>
+                <button>|-|</button>
+                <span>{this.state.numAdults}</span>
+                <button>|+|</button>
+              </div>
+            </div>
+            <button>
+              <span>Children</span>
+              <span>Ages 2-12</span>
+            </button>
+            <button>
+              <span>Infants</span>
+              <span>Under 2</span>
+            </button>
+
+          </div>
+        </div>
         <button id="booking-form-btn" type="submit">
           Request to Book
         </button>
