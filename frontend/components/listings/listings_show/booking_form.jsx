@@ -14,8 +14,8 @@ class BookingForm extends React.Component {
       endDate: null,
       focusedInput: null,
       numGuests: 1,
-      numDays: null,
-      numAdults: 0,
+      numNights: null,
+      numAdults: 1,
       numChildren: 0,
       numInfants: 0,
       openDropdown: 'hidden',
@@ -72,7 +72,6 @@ class BookingForm extends React.Component {
         this.setState({ numGuests: (this.state.numGuests + 1) });
       } else if (type === 'infant' && e.target.innerText === '-') {
         this.setState({ numInfants: (this.state.numInfants - 1) });
-        this.setState({ numGuests: (this.state.numGuests - 1) });
       } else if (type === 'infant' && e.target.innerText === '+') {
         this.setState({ numInfants: (this.state.numInfants + 1) });
       }
@@ -81,6 +80,64 @@ class BookingForm extends React.Component {
 
   render() {
     const { price } = this.props;
+    const totalNightsPrice = Math.round(price * this.state.numNights);
+    const totalServiceFee = Math.round(24 * this.state.numNights);
+    const totalPrice = totalNightsPrice + totalServiceFee;
+
+    const pricing = this.state.numNights > 0
+      ? (
+        <div>
+          <div className="pricing">
+            <span>{`$${price} x ${this.state.numNights} nights`}</span>
+            <span>{`$${totalNightsPrice}`}</span>
+          </div>
+          <div className="pricing">
+            <span>Service fee</span>
+            <span>{`${totalServiceFee}`}</span>
+          </div>
+          <div className="pricing">
+            <span>Total</span>
+            <span>{`$${totalPrice}`}</span>
+          </div>
+        </div>)
+      : null;
+
+    const adultClassPlus = (
+      this.state.numGuests === this.props.listing.max_guests || this.state.numAdults === this.props.listing.max_guests
+        ? 'disabledbutton'
+        : ''
+    );
+
+    const adultClassMinus = (
+      this.state.numGuests === 1 || this.state.numAdults === 1
+        ? 'disabledbutton'
+        : ''
+    );
+
+    const childClassPlus = (
+      this.state.numGuests === this.props.listing.max_guests
+        || this.state.numChildren === this.props.listing.max_guests
+        ? 'disabledbutton'
+        : ''
+    );
+
+    const childClassMinus = (
+      this.state.numGuests === 1 || this.state.numChildren === 0
+        ? 'disabledbutton'
+        : ''
+    );
+
+    const infantClassPlus = (
+      this.state.numInfants === 5
+        ? 'disabledbutton'
+        : ''
+    );
+
+    const infantClassMinus = (
+      this.state.numInfants === 0
+        ? 'disabledbutton'
+        : ''
+    );
 
     return (
       <form className="booking-form" onSubmit={this.handleSubmit}>
@@ -103,7 +160,14 @@ class BookingForm extends React.Component {
           minimumNights={1}
           startDate={this.state.startDate}
           endDate={this.state.endDate}
-          onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate, numDays: (endDate - startDate) }); }}
+          onDatesChange={({ startDate, endDate }) => {
+            this.setState({
+              startDate,
+              endDate,
+              numNights: (
+                startDate && endDate ? endDate.diff(startDate, 'days') : null),
+            });
+          }}
           focusedInput={this.state.focusedInput}
           onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
           hideKeyboardShortcutsPanel
@@ -138,9 +202,9 @@ class BookingForm extends React.Component {
                   <span>Adults</span>
                 </div>
                 <div className="calc">
-                  <div onClick={this.changeNumGuests('adult')}>-</div>
+                  <div className={adultClassMinus} onClick={this.changeNumGuests('adult')}>-</div>
                   <span>{this.state.numAdults}</span>
-                  <div onClick={this.changeNumGuests('adult')}>+</div>
+                  <div className={adultClassPlus} onClick={this.changeNumGuests('adult')}>+</div>
                 </div>
               </div>
               <div id="dropdown-children">
@@ -149,9 +213,9 @@ class BookingForm extends React.Component {
                   <span>Ages 2-12</span>
                 </div>
                 <div className="calc">
-                  <div onClick={this.changeNumGuests('child')}>-</div>
+                  <div className={childClassMinus} onClick={this.changeNumGuests('child')}>-</div>
                   <span>{this.state.numChildren}</span>
-                  <div onClick={this.changeNumGuests('child')}>+</div>
+                  <div className={childClassPlus} onClick={this.changeNumGuests('child')}>+</div>
                 </div>
               </div>
               <div id="dropdown-infants">
@@ -160,14 +224,16 @@ class BookingForm extends React.Component {
                   <span>Under 2</span>
                 </div>
                 <div className="calc">
-                  <div onClick={this.changeNumGuests('infant')}>-</div>
+                  <div className={infantClassMinus} onClick={this.changeNumGuests('infant')}>-</div>
                   <span>{this.state.numInfants}</span>
-                  <div onClick={this.changeNumGuests('infant')}>+</div>
+                  <div className={infantClassPlus} onClick={this.changeNumGuests('infant')}>+</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div>{pricing}</div>
+        <div />
         <button id="booking-form-btn" type="submit">
           Request to Book
         </button>
