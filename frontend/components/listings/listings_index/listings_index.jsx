@@ -4,6 +4,7 @@ import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'rea
 import 'react-dates/lib/css/_datepicker.css';
 import ListingsIndexItem from './listings_index_item';
 import selectListingsByKeyType from '../../../reducers/selectors';
+import ListingsMap from './listings_map';
 
 class ListingsIndex extends React.Component {
   constructor(props) {
@@ -67,7 +68,7 @@ class ListingsIndex extends React.Component {
             </div>
           </main>
           <aside className="listings-index-map">
-            Google Map
+            <ListingsMap />
           </aside>
         </div>
       </div>
