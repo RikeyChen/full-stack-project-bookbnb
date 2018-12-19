@@ -14,16 +14,11 @@ class ListingDetail extends React.Component {
       endDate: null,
       focusedInput: null,
     };
-
-    // this.isDayBlocked = this.isDayBlocked.bind(this);
-    // this.unavailableDates = this.unavailableDates.bind(this);
   }
 
 
   render() {
     const { listing } = this.props;
-
-    if (!this.props.bookings) return null;
 
     const kitchenLogo = (
       listing.kitchen ? (
