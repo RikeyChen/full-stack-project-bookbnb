@@ -50,17 +50,20 @@ class BookingForm extends React.Component {
       num_guests: this.state.numGuests,
     });
     this.props.createBooking(this.props.listing.id, newState)
-      .then(this.setState({
-        startDate: null,
-        endDate: null,
-        focusedInput: null,
-        numGuests: 1,
-        numNights: null,
-        numAdults: 1,
-        numChildren: 0,
-        numInfants: 0,
-        openDropdown: 'hidden',
-      }));
+      .then(() => {
+        this.props.clearErrors();
+        this.setState({
+          startDate: null,
+          endDate: null,
+          focusedInput: null,
+          numGuests: 1,
+          numNights: null,
+          numAdults: 1,
+          numChildren: 0,
+          numInfants: 0,
+          openDropdown: 'hidden',
+        });
+      });
   }
 
   openDropdown(e) {
@@ -92,10 +95,10 @@ class BookingForm extends React.Component {
   }
 
   renderErrors() {
-    if (!this.props.errors.base) return null;
+    if (!this.props.errors.length) return null;
     return (
       <ul className="booking-errors">
-        {this.props.errors.base.map((error, i) => (
+        {this.props.errors.map((error, i) => (
           <li key={`error-${i}`} className="booking-errors-error">
             <span>X</span>
             <div>
