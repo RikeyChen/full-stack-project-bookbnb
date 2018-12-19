@@ -1,7 +1,8 @@
 export default class MarkerManager {
-  constructor(map) {
+  constructor(map, handleClick) {
     this.map = map;
     this.markers = {};
+    this.handleClick = handleClick;
   }
 
   updateMarkers(listings) {
@@ -13,7 +14,7 @@ export default class MarkerManager {
       .forEach(newListing => this.createMarkerFromListing(newListing, this.handleClick));
 
     Object.keys(this.markers)
-      .filter(listingId => !listingObj[listingId])
+      .filter(listingId => !listingsObj[listingId])
       .forEach(listingId => this.removeMarker(this.markers[listingId]));
   }
 

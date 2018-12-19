@@ -3,7 +3,6 @@ import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import ListingsIndexItem from './listings_index_item';
-import selectListingsByKeyType from '../../../reducers/selectors';
 import ListingsMap from '../listings_map/listings_map';
 
 class ListingsIndex extends React.Component {
@@ -15,22 +14,10 @@ class ListingsIndex extends React.Component {
       startDate: null,
       endDate: null,
       focusedInput: null,
-      listings: null,
     };
   }
 
-  componentDidMount() {
-    this.props.fetchListings();
-    // .then(listings => this.setState({
-    //   listings: selectListingsByKeyType(
-    //     listings, 'city', this.state.city,
-    //   ),
-    // }));
-  }
-
   render() {
-    if (this.props.listings.length === 0) return null;
-
     return (
       <div className="listings-index-master">
         <aside className="listings-index-sidebar">
@@ -68,7 +55,7 @@ class ListingsIndex extends React.Component {
             </div>
           </main>
           <aside className="listings-index-map">
-            <ListingsMap updateFilter={this.props.updateFilter} />
+            <ListingsMap updateFilter={this.props.updateFilter} listings={this.props.listings} />
           </aside>
         </div>
       </div>
