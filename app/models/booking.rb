@@ -15,6 +15,7 @@
 class Booking < ApplicationRecord
   validates :checkin_date, :checkout_date, :num_guests, presence: true
   validate :start_must_come_before_end
+  validate :does_not_overlap_current_bookings
 
   belongs_to :guest,
     foreign_key: :guest_id,
@@ -40,5 +41,13 @@ class Booking < ApplicationRecord
     unav_dates = []
     (checkin_date .. checkout_date).each { |date| unav_dates << date }
     unav_dates
+  end
+
+  def does_not_overlap_current_bookings
+      bookings = Booking
+        .where.not(id: self.id)
+        .where(listing_id: listing_id)
+        .where.not('checkin_date > :checkout_date OR checkout_date < :checkin_date', checkin_date: checkin_date, checkout_date: checkout_date)
+      errors[:checkout_date] << 'must not overlap unavailable dates' if bookings.length > 0
   end
 end
