@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class ListingsMap extends React.component {
   componentDidMount() {
@@ -11,7 +12,7 @@ class ListingsMap extends React.component {
 
   render() {
     return (
-      <div ref={map => this.mapNode = map} />
+      <div ref={map => this.mapNode = map} id="map-container" />
     );
   }
 }
