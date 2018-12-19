@@ -56,12 +56,12 @@ class ListingsMap extends React.Component {
     this.props.history.push(`listings/${listing.id}`);
   }
 
-  handleClick(coords) {
-    this.props.history.push({
-      pathname: 'listings/new',
-      search: `lat=${coords.lat}&lng=${coords.lng}`,
-    });
-  }
+  // handleClick(coords) {
+  //   this.props.history.push({
+  //     pathname: 'listings/new',
+  //     search: `lat=${coords.lat}&lng=${coords.lng}`,
+  //   });
+  // }
 
   render() {
     return (
