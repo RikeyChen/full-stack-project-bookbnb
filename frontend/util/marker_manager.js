@@ -16,4 +16,16 @@ export default class MarkerManager {
       .filter(listingId => !listingObj[listingId])
       .forEach(listingId => this.removeMarker(this.markers[listingId]));
   }
+
+  createMarkerFromListing(listing) {
+    const position = new google.maps.LatLng(listing.lat, listing.lng);
+    const marker = new google.maps.Marker({
+      position,
+      map: this.map,
+      listingId: listing.id,
+    });
+
+    marker.addListener('click', () => this.handleClick(listing));
+    this.markers[marker.listingId] = marker;
+  }
 }
