@@ -28,4 +28,9 @@ export default class MarkerManager {
     marker.addListener('click', () => this.handleClick(listing));
     this.markers[marker.listingId] = marker;
   }
+
+  removeMarker(marker) {
+    this.markers[marker.listingId].setMap(null);
+    delete this.markers[marker.listingId];
+  }
 }
