@@ -10,7 +10,7 @@ export default class MarkerManager {
 
     listings
       .filter(listing => !this.markers[listing.id])
-      .forEach(newListings => this.createMarkerFromListing(newListing, this.handleClick));
+      .forEach(newListing => this.createMarkerFromListing(newListing, this.handleClick));
 
     Object.keys(this.markers)
       .filter(listingId => !listingObj[listingId])
