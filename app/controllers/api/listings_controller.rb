@@ -7,7 +7,7 @@ class Api::ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.all
+    @listings = Listing.in_bounds(params[:bounds])
     render 'api/listings/index'
   end
 end
