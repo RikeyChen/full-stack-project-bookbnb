@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { clearErrors } from '../../actions/booking_actions';
 
 const NavBar = ({
-  currentUser, logout, openModal, location, clearSessionErrors,
+  currentUser, logout, openModal, location, clearSessionErrors, clearErrors,
 }) => {
   let searchBar;
   if (location.pathname === '/') {
@@ -48,7 +49,14 @@ const NavBar = ({
           <button>Become a host</button>
           <button>Trips</button>
           <button>Help</button>
-          <button onClick={logout}>Logout</button>
+          <button onClick={() => {
+            logout();
+            clearErrors();
+          }}
+          >
+            Logout
+
+          </button>
         </nav>
       </div>
     );
