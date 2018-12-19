@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
 import MarkerManager from '../../../util/marker_manager';
 
+const getCoordsObj = latLng => ({
+  lat: latLng.lat(),
+  lng: latLng.lng(),
+});
+
 const mapOptions = {
   center: { lat: 37.7758, lng: -122.435 },
   zoom: 13,
