@@ -68,7 +68,7 @@ class ListingsIndex extends React.Component {
             </div>
           </main>
           <aside className="listings-index-map">
-            <ListingsMap updateBounds={this.props.updateBounds} />
+            <ListingsMap updateFilter={this.props.updateFilter} />
           </aside>
         </div>
       </div>
