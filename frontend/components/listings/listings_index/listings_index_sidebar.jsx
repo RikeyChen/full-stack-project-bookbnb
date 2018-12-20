@@ -20,6 +20,11 @@ class ListingsIndexSidebar extends React.Component {
     this.openDropdown = this.openDropdown.bind(this);
   }
 
+  // handleApply(e) {
+  //   e.preventDefault();
+  //   this.updateFilter()
+  // }
+
   changeNumGuests(type) {
     return (e) => {
       if (type === 'adult' && e.target.innerText === '-') {
