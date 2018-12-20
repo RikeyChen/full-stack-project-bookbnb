@@ -2,13 +2,12 @@ import React from 'react';
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import { Link } from 'react-router-dom';
 
 class SplashPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      minPrice: null,
-      maxPrice: null,
       startDate: null,
       endDate: null,
       focusedInput: null,
@@ -19,6 +18,78 @@ class SplashPage extends React.Component {
       numInfants: 0,
     };
     this.openDropdown = this.openDropdown.bind(this);
+    this.setInput = this.setInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    const input = document.getElementById('splash-search-bar');
+    const autocomplete = new google.maps.places.Autocomplete(input);
+    google.maps.event.addDomListener(window, 'load', autocomplete);
+    let address;
+    autocomplete.addListener('place_changed', () => {
+      if (!autocomplete.getPlace().formatted_address) {
+        address = autocomplete.getPlace().name;
+        this.setState({
+          input: address,
+        });
+        this.handleSubmit();
+      } else {
+        address = autocomplete.getPlace().formatted_address;
+        this.setState({
+          input: address,
+        });
+        this.handleSubmit();
+      }
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.search !== this.props.location.search) {
+      const input = document.getElementById('splash-search-bar');
+      const autocomplete = new google.maps.places.Autocomplete(input);
+      google.maps.event.addDomListener(window, 'load', autocomplete);
+      let address;
+      autocomplete.addListener('place_changed', () => {
+        if (!autocomplete.getPlace().formatted_address) {
+          address = autocomplete.getPlace().name;
+          this.setState({
+            input: address,
+          });
+          this.handleSubmit();
+        } else {
+          address = autocomplete.getPlace().formatted_address;
+          this.setState({
+            input: address,
+          });
+          this.handleSubmit();
+        }
+      });
+    }
+  }
+
+  handleSubmit(e) {
+    const geocoder = new google.maps.Geocoder();
+
+    geocoder.geocode({ address: this.state.input }, (results, status) => {
+      if (status === google.maps.GeocoderStatus.OK) {
+        const lat = results[0].geometry.location.lat();
+        const lng = results[0].geometry.location.lng();
+        this.props.history.push(`/listings?lat=${lat}&lng=${lng}`);
+      } else {
+        this.props.history.push('/listings?lat=34.019956&lng=-118.824270');
+      }
+    });
+
+    if (e) {
+      e.preventDefault();
+    }
+  }
+
+  setInput(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value,
+    });
   }
 
   changeNumGuests(type) {
@@ -159,9 +230,9 @@ class SplashPage extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="splash-search-btn">
-                <button>Search</button>
-              </div>
+              <Link to="/listings" className="splash-search-btn">
+                <button onClick={this.handleSubmit}>Search</button>
+              </Link>
             </div>
           </div>
         </div>
