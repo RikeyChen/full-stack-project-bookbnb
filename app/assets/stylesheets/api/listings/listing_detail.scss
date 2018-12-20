@@ -238,7 +238,18 @@ i {
   margin-top: -5px;
 }
 
+.DayPicker {
+  margin-left: -15px;
+}
+
 #listing-map-container {
   width: 100%;
   height: 500px;
+}
+
+.map-header {
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 10px;
 }

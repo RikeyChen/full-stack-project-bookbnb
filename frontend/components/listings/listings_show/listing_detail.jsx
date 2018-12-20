@@ -174,6 +174,8 @@ class ListingDetail extends React.Component {
             hideKeyboardShortcutsPanel
             isDayBlocked={isDayBlocked}
           />
+          <hr />
+          <h1 className="map-header">The Neighborhood</h1>
           <div ref={map => this.mapNode = map} id="listing-map-container" />
         </div>
         <div className="listing-detail-book-box-spacer">
