@@ -11,10 +11,67 @@ class ListingsIndexSidebar extends React.Component {
       startDate: null,
       endDate: null,
       focusedInput: null,
+      openDropdown: 'hidden',
+      numGuests: 1,
+      numAdults: 1,
+      numChildren: 0,
+      numInfants: 0,
+    };
+    this.openDropdown = this.openDropdown.bind(this);
+  }
+
+  changeNumGuests(type) {
+    return (e) => {
+      if (type === 'adult' && e.target.innerText === '-') {
+        this.setState({ numAdults: (this.state.numAdults - 1) });
+        this.setState({ numGuests: (this.state.numGuests - 1) });
+      } else if (type === 'adult' && e.target.innerText === '+') {
+        this.setState({ numAdults: (this.state.numAdults + 1) });
+        this.setState({ numGuests: (this.state.numGuests + 1) });
+      } else if (type === 'child' && e.target.innerText === '-') {
+        this.setState({ numChildren: (this.state.numChildren - 1) });
+        this.setState({ numGuests: (this.state.numGuests - 1) });
+      } else if (type === 'child' && e.target.innerText === '+') {
+        this.setState({ numChildren: (this.state.numChildren + 1) });
+        this.setState({ numGuests: (this.state.numGuests + 1) });
+      } else if (type === 'infant' && e.target.innerText === '-') {
+        this.setState({ numInfants: (this.state.numInfants - 1) });
+      } else if (type === 'infant' && e.target.innerText === '+') {
+        this.setState({ numInfants: (this.state.numInfants + 1) });
+      }
     };
   }
 
+  openDropdown(e) {
+    e.preventDefault();
+    const css = (this.state.openDropdown === 'hidden') ? 'show' : 'hidden';
+    this.setState({ openDropdown: css });
+  }
+
   render() {
+    const adultClassMinus = (
+      this.state.numGuests === 1 || this.state.numAdults === 1
+        ? 'disabledbutton'
+        : ''
+    );
+
+    const childClassMinus = (
+      this.state.numGuests === 1 || this.state.numChildren === 0
+        ? 'disabledbutton'
+        : ''
+    );
+
+    const infantClassPlus = (
+      this.state.numInfants === 5
+        ? 'disabledbutton'
+        : ''
+    );
+
+    const infantClassMinus = (
+      this.state.numInfants === 0
+        ? 'disabledbutton'
+        : ''
+    );
     return (
       <aside className="listings-index-sidebar">
         <div className="sidebar-dates">
@@ -36,13 +93,58 @@ class ListingsIndexSidebar extends React.Component {
           />
         </div>
         <span>Guests</span>
-        <button id="booking-form-guests-dropdown">
-          {/* <option default selected disabled>1 guest</option>
-            <option value="adults">Adults</option>
-            <option value="children">Children Ages 2-12</option>
-            <option value="infants">Infants Under 2</option> */}
-          1 guest
-        </button>
+        <div className="index-dropdown">
+          <button className="index-guests-dropdown-btn" onClick={this.openDropdown}>
+            {this.state.numGuests}
+            {' '}
+            {this.state.numGuests > 1 ? 'guests' : 'guest'}
+            {this.state.numInfants > 0 ? `, ${this.state.numInfants}` : null}
+            {' '}
+            {this.state.numInfants > 0 ? (this.state.numInfants === 1 ? 'infant' : 'infants') : null}
+          </button>
+          <div
+            className="index-guests-dropdown"
+            id={this.state.openDropdown}
+          >
+            <div>
+              <div id="index-adults">
+                <div>
+                  <span>Adults</span>
+                </div>
+                <div className="calc">
+                  <div className={adultClassMinus} onClick={this.changeNumGuests('adult')}>-</div>
+                  <span>{this.state.numAdults}</span>
+                  <div onClick={this.changeNumGuests('adult')}>+</div>
+                </div>
+              </div>
+              <div id="index-children">
+                <div className="children-text">
+                  <span>Children</span>
+                  <span>Ages 2-12</span>
+                </div>
+                <div className="calc">
+                  <div className={childClassMinus} onClick={this.changeNumGuests('child')}>-</div>
+                  <span>{this.state.numChildren}</span>
+                  <div onClick={this.changeNumGuests('child')}>+</div>
+                </div>
+              </div>
+              <div id="index-infants">
+                <div className="infants-text">
+                  <span>Infants</span>
+                  <span>Under 2</span>
+                </div>
+                <div className="calc">
+                  <div className={infantClassMinus} onClick={this.changeNumGuests('infant')}>-</div>
+                  <span>{this.state.numInfants}</span>
+                  <div className={infantClassPlus} onClick={this.changeNumGuests('infant')}>+</div>
+                </div>
+              </div>
+              <div className="apply-button">
+                <button>Apply</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <hr />
         <span>Price range</span>
         <div>Price slider goes here</div>

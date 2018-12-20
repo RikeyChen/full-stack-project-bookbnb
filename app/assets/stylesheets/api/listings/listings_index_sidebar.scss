@@ -1,4 +1,3 @@
-// sidebar styling
 .sidebar-dates {
   margin-bottom: 10px;
   width: 100%;
@@ -25,13 +24,13 @@
   margin: 0 5px 0 5px !important;
 }
 
-.booking-form-guests-dropdown-btn {
+.index-guests-dropdown-btn {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 15px;
   border: 1px solid #dbdbdb;
-  padding: 8px;
+  padding: 4px;
   padding-left: 16px;
-  height: 40px;
+  height: 32px;
   width: 100%;
   text-align: left;
   cursor: pointer;
@@ -40,18 +39,18 @@
   color: #75757E;
 }
 
-.booking-form-guests-dropdown-btn:focus {
+.index-guests-dropdown-btn:focus {
   outline: none;
   border-color: #9ecaed;
   box-shadow: 0 0 10px #9ecaed;
 }
 
-.booking-form-dropdown {
+.index-dropdown {
   position: relative;
   display: inline-block;
 }
 
-.booking-form-guests-dropdown {
+.index-guests-dropdown {
   width: 100%;
   height: 300px;
   padding: 0px 16px;
@@ -66,33 +65,33 @@
   font-size: 16px;
 }
 
-.booking-form-guests-dropdown > div:first-child {
+.index-guests-dropdown > div:first-child {
   height: 100%;
   box-sizing: border-box;
   width: 100%;
   padding: 16px 0px;
 }
 
-#dropdown-adults, #dropdown-children, #dropdown-infants {
+#index-adults, #index-children, #index-infants {
   display: flex;
   justify-content: space-between;
 }
 
-#dropdown-adults, #dropdown-children, #dropdown-infants > div:first-child{
+#index-adults, #index-children, #index-infants > div:first-child{
   display: flex;
   justify-content: space-between;
   padding: 10px 0px;
 }
 
-#dropdown-adults > div:first-child {
+#index-adults > div:first-child {
   padding: 15px 0px
 }
 
-#dropdown-children > div:first-child {
+#index-children > div:first-child {
   padding: 5px 0px
 }
 
-#dropdown-infants > div:first-child {
+#index-infants > div:first-child {
   padding: 15px 0px;
 }
 
@@ -141,12 +140,12 @@
   align-items: center;
 }
 
-.booking-form-guests-dropdown button {
+.index-guests-dropdown button {
   cursor: pointer;
 }
 
-.booking-form-guests-dropdown span, div {
-  font-size: 16px;
+.index-guests-dropdown span, div {
+  font-size: 15px;
 }
 
 #show {display: block;}
@@ -154,4 +153,21 @@
 .disabledbutton {
   pointer-events: none;
   opacity: 0.4;
+}
+
+.apply-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 35px;
+}
+
+.apply-button > button {
+  font-size: 14px;
+  border: none;
+  color: #007B7C;
+}
+
+.apply-button >button:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
