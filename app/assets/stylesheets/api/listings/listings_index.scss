@@ -2,13 +2,6 @@
   border-top: 1px solid #E4E4E4;
 }
 
-.listings-index-sidebar {
-  width: 288px;
-  position: fixed;
-  top: 80px;
-  left: 0;
-}
-
 .listings-index-map-container {
   margin-left: 288px;
   width: calc(100% - 288px);
@@ -100,6 +93,12 @@
 }
 
 .listings-index-sidebar {
+  width: 288px;
+  position: fixed;
+  padding: 24px;
+  top: 80px;
+  left: 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
