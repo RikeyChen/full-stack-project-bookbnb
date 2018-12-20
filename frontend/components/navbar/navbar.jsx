@@ -72,6 +72,8 @@ class NavBar extends React.Component {
     if (e) {
       e.preventDefault();
     }
+
+    this.setState({ input: '' });
   }
 
   setInput(field) {
