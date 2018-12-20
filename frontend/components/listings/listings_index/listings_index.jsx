@@ -5,16 +5,23 @@ import ListingsIndexSidebar from './listings_index_sidebar';
 
 class ListingsIndex extends React.Component {
   render() {
+    let homeCount = 0;
+    const items = (
+      this.props.listings.map((listing) => {
+        homeCount += 1;
+        return (
+          <ListingsIndexItem listing={listing} key={listing.id} />
+        );
+      })
+    );
     return (
       <div className="listings-index-master">
         <ListingsIndexSidebar />
         <div className="listings-index-map-container">
           <main className="listings-index-main">
-            <header>300+ homes</header>
+            <header>{`${homeCount} homes in this area`}</header>
             <div className="listings-index-items">
-              {this.props.listings.map(listing => (
-                <ListingsIndexItem listing={listing} key={listing.id} />
-              ))}
+              {items}
             </div>
           </main>
           <aside className="listings-index-map">
