@@ -54,7 +54,6 @@ class ListingsMap extends React.Component {
       const targetListing = this.props.listings[targetListingKey];
       this.MarkerManager.updateMarkers([targetListing]);
     }
-    console.log(prevProps);
 
     if (prevProps.location.search !== this.props.location.search) {
       if (this.props.location.search === '') {
