@@ -11,6 +11,7 @@ const getCoordsObj = latLng => ({
 const mapOptions = {
   center: { lat: 37.7758, lng: -122.435 },
   zoom: 13,
+  gestureHandling: 'greedy',
 };
 
 class ListingsMap extends React.Component {
