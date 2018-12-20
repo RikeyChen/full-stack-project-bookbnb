@@ -158,7 +158,7 @@ class ListingsIndexSidebar extends React.Component {
           </div>
         </div>
         <hr />
-        <span>Price range</span>
+        <span className="price-range">Price range</span>
         <br />
         <div className="slidecontainer">
           <Range
