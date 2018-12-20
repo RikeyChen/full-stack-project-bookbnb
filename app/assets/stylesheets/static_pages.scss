@@ -31,6 +31,221 @@
   padding: 32px;
   padding-bottom: 24px;
   width: 377px;
-  height: 419px;
+  height: 370px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.splash-dates {
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+.splash-search span h1 {
+  margin-bottom: 5px;
+  font-weight: 800;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.splash-search h1 {
+  font-size: 28px;
+}
+
+.splash-search > * {
+  margin-bottom: 15px;
+}
+
+#splash-search-bar {
+  font-weight: 100;
+  font-size: 15px;
+  height: 22px;
+  padding: 4px 4px 4px 16px;
+  border: 1px solid #DBDBDB;
+}
+
+.DateRangePicker {
+  width: 100%;
+  margin-top: 5px;
+}
+
+#splashStartDate {
+  margin: 0px 9px;
+}
+
+#splashEndDate {
+  margin: 0px 9px;
+  margin-left: 75px;
+  border-left: 1px solid #dbdbdb;
+}
+
+.DateRangePickerInput_clearDates__small {
+  margin: 0 5px 0 5px !important;
+}
+
+.splash-search-dropdown-btn {
+  box-sizing: border-box;
+  font-size: 15px;
+  border: 1px solid #dbdbdb;
+  padding: 4px;
+  padding-left: 16px;
+  height: 42px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-weight: 100;
+  font-family: 'Montserrat', sans-serif;
+  color: #75757E;
+}
+
+.splash-search-dropdown-btn:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+
+.splash-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.splash-search-dropdown {
+  width: 100%;
+  height: 250px;
+  padding: 0px 16px;
+  margin-bottom: 16px;
+  display: none;
+  position: absolute;
+  background-color: #FFFFFF;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.splash-search-dropdown > div:first-child {
+  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 0px;
+}
+
+#splash-adults, #splash-children, #splash-infants {
+  display: flex;
+  justify-content: space-between;
+}
+
+#splash-adults, #splash-children, #splash-infants > div:first-child{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+}
+
+#splash-adults > div:first-child {
+  padding: 15px 0px
+}
+
+#splash-children > div:first-child {
+  padding: 5px 0px
+}
+
+#splash-infants > div:first-child {
+  padding: 15px 0px;
+}
+
+.children-text, .infants-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.children-text > span:first-of-type {
+  font-weight: bolder;
+}
+
+.infants-text > span:first-of-type {
+  font-weight: bolder;
+}
+
+.children-text > span:last-of-type {
+  font-size: 14px;
+}
+
+.infants-text > span:last-of-type {
+  font-size: 14px;
+}
+
+.calc span {
+  font-size: 16px;
+  margin: 0px;
+}
+
+.calc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 110px;
+}
+
+.calc > div {
+  border: 1px solid #007B7C;
+  border-radius: 50%;
+  height: 2em;
+  width: 35px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-search-dropdown button {
+  cursor: pointer;
+}
+
+.splash-search-dropdown span, div {
+  font-size: 15px;
+}
+
+#show {display: block;}
+
+.disabledbutton {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.splash-search-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.splash-search-section span {
+  margin-bottom: 5px;
+}
+
+.splash-dates-text > span {
+  margin-right: 100px;
+}
+
+.splash-search-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.splash-search-btn > button {
+  padding: 10px 22px;
+  border: 2px solid transparent;
+  background-color: #FF4E63;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 52px;
+  height: 28px;
+  box-sizing: content-box;
+}
+
+.splash-search input {
+  padding: 10px !important;
 }
