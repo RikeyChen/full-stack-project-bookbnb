@@ -40,7 +40,6 @@
 
 .listings-index-map {
   position: fixed;
-  background-color: pink;
   height: 100vh;
   top: 80px;
   right: 0;
@@ -109,4 +108,9 @@
 #listings-index-datepiicker {
   width: 50%;
   margin: auto;
+}
+
+#map-container {
+  width: 100%;
+  height: 100%;
 }
