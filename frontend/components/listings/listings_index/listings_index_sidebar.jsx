@@ -152,7 +152,9 @@ class ListingsIndexSidebar extends React.Component {
         </div>
         <hr />
         <span>Price range</span>
-        <div>Price slider goes here</div>
+        <div className="slidecontainer">
+          <input type="range" min="1" max="1000" value="50" className="slider" id="myRange" />
+        </div>
       </aside>
     );
   }
