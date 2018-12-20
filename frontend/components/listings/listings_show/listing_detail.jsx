@@ -23,10 +23,22 @@ class ListingDetail extends React.Component {
         lat: parseFloat(this.props.listing.lat),
         lng: parseFloat(this.props.listing.lng),
       },
-      zoom: 13,
+      zoom: 15,
+      gestureHandling: 'greedy',
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+
+    const cityCircle = new google.maps.Circle({
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      map: this.map,
+      center: mapOptions.center,
+      radius: Math.sqrt(9) * 100,
+    });
   }
 
   render() {
