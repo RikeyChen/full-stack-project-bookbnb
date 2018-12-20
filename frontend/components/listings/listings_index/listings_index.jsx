@@ -23,7 +23,6 @@ class ListingsIndex extends React.Component {
         <aside className="listings-index-sidebar">
           <span>Dates</span>
           <DateRangePicker
-            id="listings-index-datepicker"
             startDateId="startDate"
             endDateId="endDate"
             startDate={this.state.startDate}
@@ -32,6 +31,12 @@ class ListingsIndex extends React.Component {
             focusedInput={this.state.focusedInput}
             onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
             hideKeyboardShortcutsPanel
+            small
+            arrowIcon
+            showClearDates
+            reopenPickerOnClearDates
+            startDatePlaceholderText="Check in"
+            endDatePlaceholderText="Check out"
           />
           <span>Guests</span>
           <button id="booking-form-guests-dropdown">
