@@ -10,51 +10,6 @@ class NavBar extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // handleSubmit() {
-  //   const geocoder = new google.maps.Geocoder();
-  //   geocoder.geocode({ address: `${this.state.city}, us` }, (results, status) => (status == google.map.GeocoderStatus.OK
-  //     ? this.updateFilter(
-  //       'bounds',
-  //       {
-  //         northEast: { lat: results.geometry.bounds.ma.l, lng: results.geometry.bounds.fa.l },
-  //         southWest: { lat: results.geometry.bounds.ma.j, lng: results.geometry.bounds.fa.j },
-  //       },
-  //     ) : (
-  //       console.log('NO')
-  //     )));
-  // }
-  // componentDidMount() {
-  //   const map = new google.maps.Map(document.getElementById('map-container'));
-  //   const input = document.getElementById('searchbar');
-  //   const autocomplete = new google.maps.places.Autocomplete(input);
-
-  //   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-  //   // debugger;
-  //   autocomplete.bindTo('bounds', map);
-  //   autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
-
-  //   autocomplete.addListener('place_changed', () => {
-  //     const place = autocomplete.getPlace();
-  //     if (!place.geometry) {
-  //       // User entered the name of a Place that was not suggested and
-  //       // pressed the Enter key, or the Place Details request failed.
-  //       window.alert(`No details available for input: '${place.name}'`);
-  //       return;
-  //     }
-
-  //     // If the place has a geometry, then present it on a map.
-  //     if (place.geometry.viewport) {
-  //       console.log('IN VIEWPORT');
-  //       debugger;
-  //       map.fitBounds(place.geometry.viewport);
-  //       map.setCenter(place.geometry.location);
-  //       map.setZoom(17); // Why 17? Because it looks good.
-  //     } else {
-  //       console.log('NOT IN VIEWPORT');
-  //     }
-  //   });
-  // }
-
   componentDidMount() {
     const input = document.getElementById('searchbar');
     const autocomplete = new google.maps.places.Autocomplete(input);
@@ -112,7 +67,6 @@ class NavBar extends React.Component {
       searchBar = null;
     } else {
       searchBar = (<input id="searchbar" type="text" placeholder={this.state.city} value={this.state.city} onSubmit={this.handleSubmit} onChange={this.setInput('input')} />);
-      // searchBar = (<input id="searchbar" type="text" placeholder={this.state.city} value={this.state.city} onSubmit={this.handleSubmit} />);
     }
 
     let display;
