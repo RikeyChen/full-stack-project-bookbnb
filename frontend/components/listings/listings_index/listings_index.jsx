@@ -9,7 +9,6 @@ class ListingsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: 'San Francisco',
       price: null,
       startDate: null,
       endDate: null,
@@ -21,23 +20,24 @@ class ListingsIndex extends React.Component {
     return (
       <div className="listings-index-master">
         <aside className="listings-index-sidebar">
-          <span>Dates</span>
-          <DateRangePicker
-            startDateId="startDate"
-            endDateId="endDate"
-            startDate={this.state.startDate}
-            endDate={this.state.endDate}
-            onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
-            focusedInput={this.state.focusedInput}
-            onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
-            hideKeyboardShortcutsPanel
-            small
-            arrowIcon
-            showClearDates
-            reopenPickerOnClearDates
-            startDatePlaceholderText="Check in"
-            endDatePlaceholderText="Check out"
-          />
+          <div className="sidebar-dates">
+            <span>Dates</span>
+            <DateRangePicker
+              startDateId="startDate"
+              endDateId="endDate"
+              startDate={this.state.startDate}
+              endDate={this.state.endDate}
+              onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
+              focusedInput={this.state.focusedInput}
+              onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
+              hideKeyboardShortcutsPanel
+              small
+              showClearDates
+              reopenPickerOnClearDates
+              startDatePlaceholderText="Check in"
+              endDatePlaceholderText="Check out"
+            />
+          </div>
           <span>Guests</span>
           <button id="booking-form-guests-dropdown">
             {/* <option default selected disabled>1 guest</option>
