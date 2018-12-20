@@ -93,6 +93,7 @@
 }
 
 .listings-index-sidebar {
+  height: 100%;
   width: 288px;
   position: fixed;
   padding: 24px;
@@ -102,7 +103,7 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  border-right: 1px solid #EBEBEB;
 }
 
 #listings-index-datepiicker {
