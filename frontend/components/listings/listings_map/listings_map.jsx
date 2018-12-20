@@ -14,6 +14,16 @@ const mapOptions = {
 };
 
 class ListingsMap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      center: {
+        lat: mapOptions.center.lat,
+        lng: mapOptions.center.lng,
+      },
+    };
+  }
+
   componentDidMount() {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
@@ -23,16 +33,26 @@ class ListingsMap extends React.Component {
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.listings);
     }
+    this.props.history.push(`/listings?lat=${this.state.center.lat}&lng=${this.state.center.lng}`);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     if (this.props.listing) {
       const targetListingKey = Object.keys(this.props.listings)[0];
       const targetListing = this.props.listings[targetListingKey];
       this.MarkerManager.updateMarkers([targetListing]);
-    } else {
-      this.MarkerManager.updateMarkers(this.props.listings);
     }
+
+    if (prevProps.location.search !== this.props.location.search) {
+      this.search = this.props.location.search;
+      this.newURL = new URLSearchParams(this.search);
+      const newLat = parseFloat(this.newURL.get('lat'));
+      const newLng = parseFloat(this.newURL.get('lng'));
+      const center = { lat: newLat, lng: newLng };
+      this.setState({ center });
+      this.map.setCenter(center);
+    }
+    this.MarkerManager.updateMarkers(this.props.listings);
   }
 
   registerListeners() {
