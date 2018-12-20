@@ -32,6 +32,30 @@ class NavBar extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.search !== this.props.location.search) {
+      const input = document.getElementById('searchbar');
+      const autocomplete = new google.maps.places.Autocomplete(input);
+      google.maps.event.addDomListener(window, 'load', autocomplete);
+      let address;
+      autocomplete.addListener('place_changed', () => {
+        if (!autocomplete.getPlace().formatted_address) {
+          address = autocomplete.getPlace().name;
+          this.setState({
+            input: address,
+          });
+          this.handleSubmit();
+        } else {
+          address = autocomplete.getPlace().formatted_address;
+          this.setState({
+            input: address,
+          });
+          this.handleSubmit();
+        }
+      });
+    }
+  }
+
   handleSubmit(e) {
     const geocoder = new google.maps.Geocoder();
 
@@ -66,7 +90,7 @@ class NavBar extends React.Component {
     if (location.pathname === '/') {
       searchBar = null;
     } else {
-      searchBar = (<input id="searchbar" type="text" placeholder={this.state.city} value={this.state.city} onSubmit={this.handleSubmit} onChange={this.setInput('input')} />);
+      searchBar = (<input id="searchbar" type="text" placeholder="Try San Francisco" value={this.state.input} onSubmit={this.handleSubmit} onChange={this.setInput('input')} />);
     }
 
     let display;
