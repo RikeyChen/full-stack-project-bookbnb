@@ -246,6 +246,10 @@
   box-sizing: content-box;
 }
 
+.splash-search-btn > button:hover {
+  cursor: pointer;
+}
+
 .splash-search input {
   padding: 10px !important;
 }
