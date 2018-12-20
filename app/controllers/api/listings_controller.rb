@@ -10,7 +10,6 @@ class Api::ListingsController < ApplicationController
     @listings =
       @listings
         .where("max_guests >= ?", guests)
-        .where("price >= ?", min_price)
         .where("price <= ?", max_price)
 
     render 'api/listings/index'
@@ -22,10 +21,6 @@ class Api::ListingsController < ApplicationController
 
   def guests
     params[:guests] || 1
-  end
-
-  def min_price
-    params[:min_price] || 1
   end
 
   def max_price
