@@ -8,6 +8,7 @@
     "babel-loader": "^8.0.4",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
+    "rc-slider": "^8.6.4",
     "react": "^16.6.3",
     "react-dates": "^18.3.1",
     "react-dom": "^16.6.3",

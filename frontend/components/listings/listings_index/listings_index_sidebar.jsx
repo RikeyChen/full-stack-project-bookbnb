@@ -2,12 +2,15 @@ import React from 'react';
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import Slider, { Range } from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 class ListingsIndexSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      price: null,
+      minPrice: null,
+      maxPrice: null,
       startDate: null,
       endDate: null,
       focusedInput: null,
@@ -24,6 +27,13 @@ class ListingsIndexSidebar extends React.Component {
   //   e.preventDefault();
   //   this.updateFilter()
   // }
+
+  handleSlide(e) {
+    this.setState({
+      minPrice: e.target.min,
+      maxPrice: e.target.max,
+    });
+  }
 
   changeNumGuests(type) {
     return (e) => {
@@ -144,16 +154,23 @@ class ListingsIndexSidebar extends React.Component {
                   <div className={infantClassPlus} onClick={this.changeNumGuests('infant')}>+</div>
                 </div>
               </div>
-              <div className="apply-button">
-                <button>Apply</button>
-              </div>
             </div>
           </div>
         </div>
         <hr />
         <span>Price range</span>
         <div className="slidecontainer">
-          <input type="range" min="1" max="1000" value="50" className="slider" id="myRange" />
+          <Range
+            onChange={this.handleSlide}
+            min={1}
+            max={1000}
+            className="slider"
+            id="myRange"
+            allowCross
+          />
+        </div>
+        <div className="apply-button">
+          <button>Apply Filters</button>
         </div>
       </aside>
     );
