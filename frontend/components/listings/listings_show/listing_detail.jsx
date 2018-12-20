@@ -5,6 +5,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import momentPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
 import BookingFormContainer from './booking_form_container';
+import ListingsMap from '../listings_map/listings_map';
 
 class ListingDetail extends React.Component {
   constructor(props) {
@@ -16,6 +17,17 @@ class ListingDetail extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const mapOptions = {
+      center: {
+        lat: parseFloat(this.props.listing.lat),
+        lng: parseFloat(this.props.listing.lng),
+      },
+      zoom: 13,
+    };
+
+    this.map = new google.maps.Map(this.mapNode, mapOptions);
+  }
 
   render() {
     const { listing } = this.props;
@@ -162,10 +174,7 @@ class ListingDetail extends React.Component {
             hideKeyboardShortcutsPanel
             isDayBlocked={isDayBlocked}
           />
-          <hr />
-          <h1>Google Map will go here</h1>
-          <hr />
-          <h1>Reviews Component will go here</h1>
+          <div ref={map => this.mapNode = map} id="listing-map-container" />
         </div>
         <div className="listing-detail-book-box-spacer">
           <div className="listing-detail-book-box">
