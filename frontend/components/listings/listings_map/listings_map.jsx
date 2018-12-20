@@ -32,14 +32,19 @@ class ListingsMap extends React.Component {
     } else {
       this.registerListeners();
     }
-
     this.search = this.props.location.search;
     this.newURL = new URLSearchParams(this.search);
     const newLat = parseFloat(this.newURL.get('lat'));
     const newLng = parseFloat(this.newURL.get('lng'));
     const center = { lat: newLat, lng: newLng };
-    this.setState({ center });
-    this.map.setCenter(center);
+
+    if (this.props.location.search === '') {
+      this.props.history.push(`/listings?lat=${this.state.center.lat}&lng=${this.state.center.lng}`);
+    } else {
+      this.setState({ center });
+      this.map.setCenter(center);
+    }
+
     this.MarkerManager.updateMarkers(this.props.listings);
   }
 
@@ -49,8 +54,13 @@ class ListingsMap extends React.Component {
       const targetListing = this.props.listings[targetListingKey];
       this.MarkerManager.updateMarkers([targetListing]);
     }
+    console.log(prevProps);
 
     if (prevProps.location.search !== this.props.location.search) {
+      if (this.props.location.search === '') {
+        this.props.history.push(`/listings?lat=${this.state.center.lat}&lng=${this.state.center.lng}`);
+      }
+
       this.search = this.props.location.search;
       this.newURL = new URLSearchParams(this.search);
       const newLat = parseFloat(this.newURL.get('lat'));

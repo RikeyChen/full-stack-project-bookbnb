@@ -77,7 +77,7 @@ class SplashPage extends React.Component {
         const lng = results[0].geometry.location.lng();
         this.props.history.push(`/listings?lat=${lat}&lng=${lng}`);
       } else {
-        this.props.history.push('/listings?lat=34.019956&lng=-118.824270');
+        this.props.history.push('/listings?lat=37.7758&lng=-122.435');
       }
     });
 
