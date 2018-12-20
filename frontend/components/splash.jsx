@@ -230,7 +230,7 @@ class SplashPage extends React.Component {
                   </div>
                 </div>
               </div>
-              <Link to="/listings" className="splash-search-btn">
+              <Link to="/" className="splash-search-btn">
                 <button onClick={this.handleSubmit}>Search</button>
               </Link>
             </div>

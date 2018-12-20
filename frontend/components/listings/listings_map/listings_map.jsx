@@ -31,9 +31,16 @@ class ListingsMap extends React.Component {
       this.props.fetchListing(this.props.listingId);
     } else {
       this.registerListeners();
-      this.MarkerManager.updateMarkers(this.props.listings);
     }
-    this.props.history.push(`/listings?lat=${this.state.center.lat}&lng=${this.state.center.lng}`);
+
+    this.search = this.props.location.search;
+    this.newURL = new URLSearchParams(this.search);
+    const newLat = parseFloat(this.newURL.get('lat'));
+    const newLng = parseFloat(this.newURL.get('lng'));
+    const center = { lat: newLat, lng: newLng };
+    this.setState({ center });
+    this.map.setCenter(center);
+    this.MarkerManager.updateMarkers(this.props.listings);
   }
 
   componentDidUpdate(prevProps) {
