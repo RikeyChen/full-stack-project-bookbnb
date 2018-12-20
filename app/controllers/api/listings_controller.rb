@@ -21,14 +21,14 @@ class Api::ListingsController < ApplicationController
   end
 
   def guests
-    params[:guests]
+    params[:guests] || 1
   end
 
   def min_price
-    params[:min_price]
+    params[:min_price] || 1
   end
 
   def max_price
-    params[:max_price]
+    params[:max_price] || 1000
   end
 end
