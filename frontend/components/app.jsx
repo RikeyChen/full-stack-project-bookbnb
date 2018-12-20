@@ -15,7 +15,13 @@ import ListingsIndexContainer from './listings/listings_index/listings_index_con
 
 const SplashPic = () => (
   <div>
-    <div id="splash-pic" />
+    <div id="splash-pic">
+      <div className="splash-search-container">
+        <div className="splash-search">
+          SEARCH
+        </div>
+      </div>
+    </div>
   </div>
 );
 
