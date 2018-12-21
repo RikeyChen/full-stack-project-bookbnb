@@ -7,18 +7,20 @@ class Api::ListingsController < ApplicationController
 
   def index
     @listings = bounds ? Listing.in_bounds(bounds) : Listing.all
-    if start_date && end_date
-      listings = @listings.dup
-      listings.each do |listing|
-        listing.bookings.each do |booking|
-          if booking.unavailable_dates.include?(start_date) || booking.unavailable_dates.include?(end_date)
-             @listings.delete(listing)
-          end
-        end
-      end
-    else
-      @listings = @listings
-    end
+    # if start_date && end_date
+    #   @listings = @listings.select do |listing|
+    #     !unavailable_dates(listing).include?(start_date) ||
+    #     !unavailable_dates(listing).include?(end_date)
+    #   end
+    # end
+
+    # if start_date && end_date
+    #   sql =
+    #   "SELECT * from listings
+    #   WHERE"
+    #   @listings = @listings
+    #     .where.not('checkin_date IN ')
+    # end
 
     @listings =
       @listings
@@ -40,11 +42,20 @@ class Api::ListingsController < ApplicationController
     params[:max_price] || 1000
   end
 
-  def start_date
-    Date.parse(params[:dates][:start_date]) if params[:dates]
-  end
+  # def start_date
+  #   Date.parse(params[:dates][:start_date]) if params[:dates]
+  # end
 
-  def end_date
-    Date.parse(params[:dates][:end_date]) if params[:dates]
-  end
+  # def end_date
+  #   Date.parse(params[:dates][:end_date]) if params[:dates]
+  # end
+
+  # def unavailable_dates(listing)
+  #   dates = []
+  #   listing.bookings.each do |booking|
+  #     dates += booking.unavailable_dates
+  #   end
+  #   dates
+  # end
+
 end

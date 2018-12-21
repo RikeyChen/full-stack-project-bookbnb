@@ -5,6 +5,7 @@ const defaultFilters = Object.freeze({
   bounds: {},
   guests: {},
   max_price: {},
+  // dates: {},
 });
 
 const filtersReducer = (oldState = defaultFilters, action) => {
