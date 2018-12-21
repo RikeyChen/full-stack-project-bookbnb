@@ -7,9 +7,15 @@ class Api::ListingsController < ApplicationController
 
   def index
     @listings = bounds ? Listing.in_bounds(bounds) : Listing.all
-
     if start_date && end_date
-      @listings = @listings.select { |listing| !listing.unavailable_dates.includes(start_date) && !listing.unavailable_dates.includes(end_date) }
+      listings = @listings.dup
+      listings.each do |listing|
+        listing.bookings.each do |booking|
+          if booking.unavailable_dates.include?(start_date) || booking.unavailable_dates.include?(end_date)
+             @listings.delete(listing)
+          end
+        end
+      end
     else
       @listings = @listings
     end
@@ -35,10 +41,10 @@ class Api::ListingsController < ApplicationController
   end
 
   def start_date
-    params[:dates][:start_date] if params[:dates]
+    Date.parse(params[:dates][:start_date]) if params[:dates]
   end
 
   def end_date
-    params[:dates][:end_date] if params[:dates]
+    Date.parse(params[:dates][:end_date]) if params[:dates]
   end
 end

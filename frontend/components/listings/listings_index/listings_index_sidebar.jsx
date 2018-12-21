@@ -23,7 +23,12 @@ class ListingsIndexSidebar extends React.Component {
     this.handleApplyGuests = this.handleApplyGuests.bind(this);
     this.handleSlide = this.handleSlide.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
   }
+
+  // componentDidMount() {
+  //   if this.props.
+  // }
 
   handleApplyGuests(e) {
     e.preventDefault();
@@ -32,10 +37,12 @@ class ListingsIndexSidebar extends React.Component {
 
   handleClose(e) {
     e.preventDefault;
-    this.props.updateFilter('dates', {
-      start_date: this.state.startDate,
-      end_date: this.state.endDate,
-    });
+    setTimeout(() => (
+      this.props.updateFilter('dates', {
+        start_date: this.state.startDate.toDate(),
+        end_date: this.state.endDate.toDate(),
+      })
+    ), 0);
   }
 
   handleSlide(e) {
@@ -44,6 +51,11 @@ class ListingsIndexSidebar extends React.Component {
     });
     this.props.updateFilter('max_price', this.state.maxPrice);
   }
+
+  handleDateChange({ startDate, endDate }) {
+    this.setState({ startDate, endDate });
+  }
+
 
   changeNumGuests(type) {
     return (e) => {
@@ -106,7 +118,8 @@ class ListingsIndexSidebar extends React.Component {
             endDateId="endDate"
             startDate={this.state.startDate}
             endDate={this.state.endDate}
-            onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
+            // onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
+            onDatesChange={this.handleDateChange}
             focusedInput={this.state.focusedInput}
             onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
             hideKeyboardShortcutsPanel
