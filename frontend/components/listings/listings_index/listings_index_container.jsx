@@ -5,6 +5,7 @@ import { updateFilter } from '../../../actions/filter_actions';
 
 const mSp = state => ({
   listings: Object.values(state.entities.listings),
+  maxPrice: state.ui.filters.max_price,
 });
 
 const mDp = dispatch => ({

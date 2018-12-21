@@ -8,9 +8,9 @@ import 'rc-slider/assets/index.css';
 class ListingsIndexSidebar extends React.Component {
   constructor(props) {
     super(props);
+    const { maxPrice } = this.props;
     this.state = {
-      minPrice: null,
-      maxPrice: null,
+      maxPrice: 1000,
       startDate: null,
       endDate: null,
       focusedInput: null,
@@ -21,18 +21,23 @@ class ListingsIndexSidebar extends React.Component {
       numInfants: 0,
     };
     this.openDropdown = this.openDropdown.bind(this);
+    this.handleApplyGuests = this.handleApplyGuests.bind(this);
+    this.handleSlide = this.handleSlide.bind(this);
   }
 
-  // handleApply(e) {
-  //   e.preventDefault();
-  //   this.updateFilter()
-  // }
+  handleApplyGuests(e) {
+    e.preventDefault();
+    this.props.updateFilter('guests', this.state.numGuests);
+  }
 
   handleSlide(e) {
+    console.log('VALUE:', e.target.value);
+    console.log('maxPrice:', this.state.maxPrice);
+    // e.preventDefault();
     this.setState({
-      minPrice: e.target.min,
-      maxPrice: e.target.max,
+      maxPrice: e.target.value,
     });
+    this.props.updateFilter('max_price', this.state.maxPrice);
   }
 
   changeNumGuests(type) {
@@ -154,6 +159,9 @@ class ListingsIndexSidebar extends React.Component {
                   <div className={infantClassPlus} onClick={this.changeNumGuests('infant')}>+</div>
                 </div>
               </div>
+              <div className="apply-button">
+                <button onClick={this.handleApplyGuests}>Apply</button>
+              </div>
             </div>
           </div>
         </div>
@@ -161,17 +169,16 @@ class ListingsIndexSidebar extends React.Component {
         <span className="price-range">Price range</span>
         <br />
         <div className="slidecontainer">
-          <Range
+          <input
             onChange={this.handleSlide}
             min={1}
             max={1000}
             className="slider"
-            id="myRange"
-            allowCross
+            type="range"
+            id="mySlider"
+            value={this.state.maxPrice}
+            step={1}
           />
-        </div>
-        <div className="apply-button">
-          <button>Apply Filters</button>
         </div>
       </aside>
     );
