@@ -81,7 +81,7 @@ class SplashPage extends React.Component {
       }
     });
 
-
+    this.props.updateFilter('guests', this.state.numGuests);
 
     if (e) {
       e.preventDefault();
