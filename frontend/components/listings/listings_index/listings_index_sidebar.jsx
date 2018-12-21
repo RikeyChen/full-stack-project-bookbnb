@@ -45,7 +45,8 @@ class ListingsIndexSidebar extends React.Component {
     this.setState({
       maxPrice: e.target.value,
     });
-    this.props.updateFilter('max_price', this.state.maxPrice);
+
+    this.props.updateFilter2('max_price', parseInt(this.state.maxPrice));
   }
 
   handleDateChange({ startDate, endDate }) {
@@ -114,7 +115,6 @@ class ListingsIndexSidebar extends React.Component {
             endDateId="endDate"
             startDate={this.state.startDate}
             endDate={this.state.endDate}
-            // onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
             onDatesChange={this.handleDateChange}
             focusedInput={this.state.focusedInput}
             onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}

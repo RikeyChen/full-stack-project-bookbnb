@@ -33,6 +33,7 @@ const mSp = (state) => {
     });
     listings = listings.filter(el => el != null);
   }
+  listings = listings.filter(el => el.price <= state.ui.filters.max_price);
 
   return (
     ({
