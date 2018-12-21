@@ -3,9 +3,9 @@ import { UPDATE_FILTER } from '../actions/filter_actions';
 
 const defaultFilters = Object.freeze({
   bounds: {},
-  guests: {},
-  max_price: {},
-  // dates: {},
+  guests: 1,
+  max_price: 1000,
+  dates: {},
 });
 
 const filtersReducer = (oldState = defaultFilters, action) => {

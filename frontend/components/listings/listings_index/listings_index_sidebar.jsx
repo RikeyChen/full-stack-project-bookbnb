@@ -23,22 +23,23 @@ class ListingsIndexSidebar extends React.Component {
     this.handleApplyGuests = this.handleApplyGuests.bind(this);
     this.handleSlide = this.handleSlide.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handleApplyGuests(e) {
     e.preventDefault();
-    this.props.updateFilter('guests', this.state.numGuests);
+    this.props.updateFilter2('guests', this.state.numGuests);
   }
 
-  // handleClose(e) {
-  //   e.preventDefault;
-  //   setTimeout(() => (
-  //     this.props.updateFilter('dates', {
-  //       start_date: this.state.startDate.toDate(),
-  //       end_date: this.state.endDate.toDate(),
-  //     })
-  //   ), 0);
-  // }
+  handleClose(e) {
+    e.preventDefault;
+    setTimeout(() => (
+      this.props.updateFilter2('dates', {
+        start_date: this.state.startDate.toDate(),
+        end_date: this.state.endDate.toDate(),
+      })
+    ), 0);
+  }
 
   handleSlide(e) {
     this.setState({
@@ -123,7 +124,7 @@ class ListingsIndexSidebar extends React.Component {
             reopenPickerOnClearDates
             startDatePlaceholderText="Check in"
             endDatePlaceholderText="Check out"
-          // onClose={this.handleClose}
+            onClose={this.handleClose}
           />
         </div>
         <span>Guests</span>

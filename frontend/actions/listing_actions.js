@@ -1,5 +1,5 @@
 import * as ListingApiUtil from '../util/listing_api_util';
-import { receiveBookings } from './booking_actions';
+import { receiveBookings, receiveIndexBookings } from './booking_actions';
 
 export const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
 export const RECEIVE_LISTING = 'RECEIVE_LISTING';
@@ -17,7 +17,10 @@ export const receiveListing = ({ listing, user }) => ({
 
 export const fetchListings = filters => dispatch => (
   ListingApiUtil.fetchListings(filters)
-    .then(listings => dispatch(receiveListings(listings)))
+    .then(payload => (
+      dispatch(receiveListings(payload.listings)),
+      dispatch(receiveIndexBookings(payload.bookings))
+    ))
 );
 export const fetchListing = listingId => dispatch => (
   ListingApiUtil.fetchListing(listingId)

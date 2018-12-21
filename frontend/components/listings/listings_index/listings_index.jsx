@@ -16,7 +16,7 @@ class ListingsIndex extends React.Component {
     );
     return (
       <div className="listings-index-master">
-        <ListingsIndexSidebar updateFilter={this.props.updateFilter} maxPrice={this.props.maxPrice} />
+        <ListingsIndexSidebar updateFilter={this.props.updateFilter} updateFilter2={this.props.updateFilter2} maxPrice={this.props.maxPrice} />
         <div className="listings-index-map-container">
           <main className="listings-index-main">
             <header>{`${homeCount} homes in this area`}</header>
