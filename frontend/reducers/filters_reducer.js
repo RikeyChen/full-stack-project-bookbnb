@@ -4,7 +4,6 @@ import { UPDATE_FILTER } from '../actions/filter_actions';
 const defaultFilters = Object.freeze({
   bounds: {},
   guests: {},
-  min_price: {},
   max_price: {},
 });
 
