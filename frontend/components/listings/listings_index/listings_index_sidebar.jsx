@@ -22,13 +22,8 @@ class ListingsIndexSidebar extends React.Component {
     this.openDropdown = this.openDropdown.bind(this);
     this.handleApplyGuests = this.handleApplyGuests.bind(this);
     this.handleSlide = this.handleSlide.bind(this);
-    // this.handleClose = this.handleClose.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
   }
-
-  // componentDidMount() {
-  //   if this.props.
-  // }
 
   handleApplyGuests(e) {
     e.preventDefault();
