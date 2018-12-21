@@ -8,7 +8,6 @@ import 'rc-slider/assets/index.css';
 class ListingsIndexSidebar extends React.Component {
   constructor(props) {
     super(props);
-    const { maxPrice } = this.props;
     this.state = {
       maxPrice: 1000,
       startDate: null,
@@ -23,6 +22,7 @@ class ListingsIndexSidebar extends React.Component {
     this.openDropdown = this.openDropdown.bind(this);
     this.handleApplyGuests = this.handleApplyGuests.bind(this);
     this.handleSlide = this.handleSlide.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handleApplyGuests(e) {
@@ -30,10 +30,15 @@ class ListingsIndexSidebar extends React.Component {
     this.props.updateFilter('guests', this.state.numGuests);
   }
 
+  handleClose(e) {
+    e.preventDefault;
+    this.props.updateFilter('dates', {
+      start_date: this.state.startDate,
+      end_date: this.state.endDate,
+    });
+  }
+
   handleSlide(e) {
-    console.log('VALUE:', e.target.value);
-    console.log('maxPrice:', this.state.maxPrice);
-    // e.preventDefault();
     this.setState({
       maxPrice: e.target.value,
     });
@@ -110,6 +115,7 @@ class ListingsIndexSidebar extends React.Component {
             reopenPickerOnClearDates
             startDatePlaceholderText="Check in"
             endDatePlaceholderText="Check out"
+            onClose={this.handleClose}
           />
         </div>
         <span>Guests</span>
