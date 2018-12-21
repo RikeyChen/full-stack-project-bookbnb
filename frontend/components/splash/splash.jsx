@@ -81,6 +81,8 @@ class SplashPage extends React.Component {
       }
     });
 
+
+
     if (e) {
       e.preventDefault();
     }

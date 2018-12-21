@@ -11,31 +11,7 @@ import Modal from './modal/modal';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ListingShowContainer from './listings/listings_show/listing_show_container';
 import ListingsIndexContainer from './listings/listings_index/listings_index_container';
-import SplashPage from './splash';
-
-
-// const SplashPage = () => (
-//   <div>
-//     <div id="splash-pic">
-//       <div className="splash-search-container">
-//         <div className="splash-search">
-//           <h1>Find a place anywhere.</h1>
-//         </div>
-//         <div>
-//           <div>
-//             <span>WHERE</span>
-//             <input type="text" id="splash-search-bar" />
-//           </div>
-//         </div>
-//         <div>
-//           <span>Check in</span>
-//           <span>Check out</span>
-//           DATE
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// );
+import SplashContainer from './splash/splash_container';
 
 const App = ({ location }) => {
   const logo = (
@@ -56,7 +32,7 @@ const App = ({ location }) => {
       <Modal />
       {Header}
       <Switch>
-        <AuthRoute exact path="/" component={SplashPage} />
+        <AuthRoute exact path="/" component={SplashContainer} />
         <Route exact path="/listings" component={ListingsIndexContainer} />
         <Route path="/listings/:listingId" component={ListingShowContainer} />
       </Switch>
