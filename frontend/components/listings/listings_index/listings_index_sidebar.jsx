@@ -12,6 +12,8 @@ class ListingsIndexSidebar extends React.Component {
       maxPrice: 1000,
       startDate: null,
       endDate: null,
+      unsavedStartDate: null,
+      unsavedEndDate: null,
       focusedInput: null,
       openDropdown: 'hidden',
       numGuests: 1,
@@ -23,22 +25,14 @@ class ListingsIndexSidebar extends React.Component {
     this.handleApplyGuests = this.handleApplyGuests.bind(this);
     this.handleSlide = this.handleSlide.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    // this.handleClose = this.handleClose.bind(this);
+    this.onFocusChange = this.onFocusChange.bind(this);
+    this.applyChanges = this.applyChanges.bind(this);
   }
 
   handleApplyGuests(e) {
     e.preventDefault();
     this.props.updateFilter2('guests', this.state.numGuests);
-  }
-
-  handleClose(e) {
-    e.preventDefault;
-    setTimeout(() => (
-      this.props.updateFilter2('dates', {
-        start_date: this.state.startDate.toDate(),
-        end_date: this.state.endDate.toDate(),
-      })
-    ), 0);
   }
 
   handleSlide(e) {
@@ -53,6 +47,25 @@ class ListingsIndexSidebar extends React.Component {
     this.setState({ startDate, endDate });
   }
 
+  onFocusChange(focusedInput) {
+    if (focusedInput) {
+      this.setState({ focusedInput });
+    }
+  }
+
+  applyChanges() {
+    this.setState({
+      startDate: this.state.unsavedStartDate,
+      unsavedStartDate: null,
+      endDate: this.state.unsavedEndDate,
+      unsavedEndDate: null,
+    });
+
+    this.props.updateFilter2('dates', {
+      start_date: this.state.startDate.toDate(),
+      end_date: this.state.endDate.toDate(),
+    });
+  }
 
   changeNumGuests(type) {
     return (e) => {
@@ -113,18 +126,22 @@ class ListingsIndexSidebar extends React.Component {
           <DateRangePicker
             startDateId="startDate"
             endDateId="endDate"
-            startDate={this.state.startDate}
-            endDate={this.state.endDate}
+            startDate={this.state.unsavedStartDate || this.state.startDate}
+            endDate={this.state.unsavedEndDate || this.state.endDate}
             onDatesChange={this.handleDateChange}
             focusedInput={this.state.focusedInput}
-            onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
+            onFocusChange={this.onFocusChange}
+            // onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
             hideKeyboardShortcutsPanel
             small
             showClearDates
             reopenPickerOnClearDates
             startDatePlaceholderText="Check in"
             endDatePlaceholderText="Check out"
-            onClose={this.handleClose}
+            // onClose={this.handleClose}
+            renderCalendarInfo={() => (
+              <button type="button" onClick={this.applyChanges}>Apply</button>
+            )}
           />
         </div>
         <span>Guests</span>
