@@ -42,13 +42,13 @@ class SplashPage extends React.Component {
         this.setState({
           input: address,
         });
-        this.handleSubmit();
+        // this.handleSubmit();
       } else {
         address = autocomplete.getPlace().formatted_address;
         this.setState({
           input: address,
         });
-        this.handleSubmit();
+        // this.handleSubmit();
       }
     });
   }
@@ -65,13 +65,13 @@ class SplashPage extends React.Component {
           this.setState({
             input: address,
           });
-          this.handleSubmit();
+          // this.handleSubmit();
         } else {
           address = autocomplete.getPlace().formatted_address;
           this.setState({
             input: address,
           });
-          this.handleSubmit();
+          // this.handleSubmit();
         }
       });
     }
@@ -96,13 +96,7 @@ class SplashPage extends React.Component {
       }
     });
 
-    this.props.updateFilter('guests', this.state.numGuests);
-    // setTimeout(() => (
-    //   this.props.updateFilter('dates', {
-    //     start_date: this.state.startDate.toDate(),
-    //     end_date: this.state.endDate.toDate(),
-    //   })
-    // ), 2000);
+    this.props.updateFilter2('guests', this.state.numGuests);
 
     if (e) {
       e.preventDefault();
