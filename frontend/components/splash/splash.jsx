@@ -20,6 +20,15 @@ class SplashPage extends React.Component {
     this.openDropdown = this.openDropdown.bind(this);
     this.setInput = this.setInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  componentWillMount() {
+    document.addEventListener('mousedown', this.handleClickOutside, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside, false);
   }
 
   componentDidMount() {
@@ -65,6 +74,12 @@ class SplashPage extends React.Component {
           this.handleSubmit();
         }
       });
+    }
+  }
+
+  handleClickOutside(e) {
+    if (!this.node.contains(e.target)) {
+      this.setState({ openDropdown: 'hidden' });
     }
   }
 
@@ -188,7 +203,7 @@ class SplashPage extends React.Component {
               </div>
               <div className="splash-search-section">
                 <span>GUESTS</span>
-                <div className="splash-dropdown">
+                <div className="splash-dropdown" ref={node => this.node = node}>
                   <button className="splash-search-dropdown-btn" onClick={this.openDropdown}>
                     {this.state.numGuests}
                     {' '}
