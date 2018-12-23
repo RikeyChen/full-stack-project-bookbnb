@@ -42,13 +42,11 @@ class SplashPage extends React.Component {
         this.setState({
           input: address,
         });
-        // this.handleSubmit();
       } else {
         address = autocomplete.getPlace().formatted_address;
         this.setState({
           input: address,
         });
-        // this.handleSubmit();
       }
     });
   }
@@ -65,13 +63,11 @@ class SplashPage extends React.Component {
           this.setState({
             input: address,
           });
-          // this.handleSubmit();
         } else {
           address = autocomplete.getPlace().formatted_address;
           this.setState({
             input: address,
           });
-          // this.handleSubmit();
         }
       });
     }
