@@ -253,9 +253,11 @@ class SplashPage extends React.Component {
                   </div>
                 </div>
               </div>
-              <Link to="/" className="splash-search-btn">
-                <button onClick={this.handleSubmit}>Search</button>
-              </Link>
+              <div className="splash-search-btn">
+                <Link to="/">
+                  <button onClick={this.handleSubmit}>Search</button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
