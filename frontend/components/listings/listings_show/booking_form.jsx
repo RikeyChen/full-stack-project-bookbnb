@@ -24,6 +24,21 @@ class BookingForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.unavailableDates = this.unavailableDates.bind(this);
     this.openDropdown = this.openDropdown.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  componentWillMount() {
+    document.addEventListener('mousedown', this.handleClickOutside, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside, false);
+  }
+
+  handleClickOutside(e) {
+    if (!this.node.contains(e.target)) {
+      this.setState({ openDropdown: 'hidden' });
+    }
   }
 
   unavailableDates() {
@@ -214,7 +229,7 @@ class BookingForm extends React.Component {
         // small
         />
         <span id="guests-label">Guests</span>
-        <div className="booking-form-dropdown">
+        <div className="booking-form-dropdown" ref={node => this.node = node}>
           <button
             className="booking-form-guests-dropdown-btn"
             onClick={this.openDropdown}
