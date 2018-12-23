@@ -23,7 +23,11 @@ const mSp = (state) => {
     return `${yyyy}-${mm}-${dd}`;
   };
 
-  if (datesFilter) {
+  if (datesFilter && listings) {
+    console.log('LISTINGS:', listings);
+    console.log('DATESFILTER:', datesFilter);
+    console.log('STATE:', state.entities);
+
     listings.forEach((listing, idx) => {
       if (state.entities.bookings[listing.id]) {
         if (state.entities.bookings[listing.id].unavailable_dates.includes(parseDate(datesFilter.start_date)) || state.entities.bookings[listing.id].unavailable_dates.includes(parseDate(datesFilter.end_date))) {

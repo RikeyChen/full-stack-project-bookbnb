@@ -8,11 +8,11 @@ const bookingsReducer = (oldState = {}, action) => {
     case RECEIVE_BOOKINGS:
       if (action.bookings) {
         return Object.values(action.bookings);
-      } return null;
+      } return [];
     case RECEIVE_INDEX_BOOKINGS:
       if (action.bookings) {
         return action.bookings;
-      } return null;
+      } return {};
     case RECEIVE_BOOKING:
       return merge([], oldState, [action.booking]);
     default:
