@@ -138,7 +138,7 @@ class ListingsIndexSidebar extends React.Component {
             startDatePlaceholderText="Check in"
             endDatePlaceholderText="Check out"
             renderCalendarInfo={() => (
-              <button type="button" onClick={this.applyChanges}>Apply</button>
+              <button className="dates-apply-btn" type="button" onClick={this.applyChanges}>Apply</button>
             )}
           />
         </div>
