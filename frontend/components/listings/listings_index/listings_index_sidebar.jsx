@@ -77,10 +77,12 @@ class ListingsIndexSidebar extends React.Component {
       focusedInput: null,
     });
 
-    this.props.updateFilter2('dates', {
-      start_date: this.state.startDate.toDate(),
-      end_date: this.state.endDate.toDate(),
-    });
+    if (this.state.startDate && this.state.endDate) {
+      this.props.updateFilter2('dates', {
+        start_date: this.state.startDate.toDate(),
+        end_date: this.state.endDate.toDate(),
+      });
+    }
   }
 
   changeNumGuests(type) {

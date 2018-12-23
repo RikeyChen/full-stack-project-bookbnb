@@ -94,6 +94,13 @@ class SplashPage extends React.Component {
 
     this.props.updateFilter2('guests', this.state.numGuests);
 
+    if (this.state.startDate && this.state.endDate) {
+      this.props.updateFilter2('dates', {
+        start_date: this.state.startDate.toDate(),
+        end_date: this.state.endDate.toDate(),
+      });
+    }
+
     if (e) {
       e.preventDefault();
     }
