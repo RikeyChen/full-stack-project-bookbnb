@@ -50,6 +50,8 @@ class ListingsMap extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log("I'M HERE");
+
     if (this.props.listing) {
       const targetListingKey = Object.keys(this.props.listings)[0];
       const targetListing = this.props.listings[targetListingKey];
@@ -83,22 +85,11 @@ class ListingsMap extends React.Component {
       };
       this.props.updateFilter('bounds', bounds);
     });
-    google.maps.event.addListener(this.map, 'click', (event) => {
-      const coords = getCoordsObj(event.latLng);
-      this.handleClick(coords);
-    });
   }
 
   handleMarkerClick(listing) {
     this.props.history.push(`listings/${listing.id}`);
   }
-
-  // handleClick(coords) {
-  //   this.props.history.push({
-  //     pathname: 'listings/new',
-  //     search: `lat=${coords.lat}&lng=${coords.lng}`,
-  //   });
-  // }
 
   render() {
     return (
