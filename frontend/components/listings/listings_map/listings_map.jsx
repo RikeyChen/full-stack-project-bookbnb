@@ -50,8 +50,6 @@ class ListingsMap extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log("I'M HERE");
-
     if (this.props.listing) {
       const targetListingKey = Object.keys(this.props.listings)[0];
       const targetListing = this.props.listings[targetListingKey];
