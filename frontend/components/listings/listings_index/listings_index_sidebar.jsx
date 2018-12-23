@@ -43,13 +43,13 @@ class ListingsIndexSidebar extends React.Component {
   }
 
   handleDateChange({ startDate, endDate }) {
-    this.setState({ startDate, endDate });
+    this.setState({ startDate, endDate, focusedInput: 'endDate' });
   }
 
   onFocusChange(focusedInput) {
     if (focusedInput) {
       this.setState({ focusedInput });
-    }
+    } else this.setState({ focusedInput });
   }
 
   applyChanges() {
