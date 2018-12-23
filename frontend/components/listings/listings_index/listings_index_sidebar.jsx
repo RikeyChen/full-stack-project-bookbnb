@@ -27,11 +27,27 @@ class ListingsIndexSidebar extends React.Component {
     this.handleDateChange = this.handleDateChange.bind(this);
     this.onFocusChange = this.onFocusChange.bind(this);
     this.applyChanges = this.applyChanges.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  componentWillMount() {
+    document.addEventListener('mousedown', this.handleClickOutside, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside, false);
+  }
+
+  handleClickOutside(e) {
+    if (!this.node.contains(e.target)) {
+      this.setState({ openDropdown: 'hidden' });
+    }
   }
 
   handleApplyGuests(e) {
     e.preventDefault();
     this.props.updateFilter2('guests', this.state.numGuests);
+    this.openDropdown(e);
   }
 
   handleSlide(e) {
@@ -145,7 +161,7 @@ class ListingsIndexSidebar extends React.Component {
           />
         </div>
         <span>Guests</span>
-        <div className="index-dropdown">
+        <div className="index-dropdown" ref={node => this.node = node}>
           <button className="index-guests-dropdown-btn" onClick={this.openDropdown}>
             {this.state.numGuests}
             {' '}
