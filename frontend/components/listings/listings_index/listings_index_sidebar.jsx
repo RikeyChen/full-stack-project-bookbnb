@@ -25,7 +25,6 @@ class ListingsIndexSidebar extends React.Component {
     this.handleApplyGuests = this.handleApplyGuests.bind(this);
     this.handleSlide = this.handleSlide.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
-    // this.handleClose = this.handleClose.bind(this);
     this.onFocusChange = this.onFocusChange.bind(this);
     this.applyChanges = this.applyChanges.bind(this);
   }
@@ -59,6 +58,7 @@ class ListingsIndexSidebar extends React.Component {
       unsavedStartDate: null,
       endDate: this.state.unsavedEndDate,
       unsavedEndDate: null,
+      focusedInput: null,
     });
 
     this.props.updateFilter2('dates', {
@@ -131,14 +131,12 @@ class ListingsIndexSidebar extends React.Component {
             onDatesChange={this.handleDateChange}
             focusedInput={this.state.focusedInput}
             onFocusChange={this.onFocusChange}
-            // onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
             hideKeyboardShortcutsPanel
             small
             showClearDates
             reopenPickerOnClearDates
             startDatePlaceholderText="Check in"
             endDatePlaceholderText="Check out"
-            // onClose={this.handleClose}
             renderCalendarInfo={() => (
               <button type="button" onClick={this.applyChanges}>Apply</button>
             )}
