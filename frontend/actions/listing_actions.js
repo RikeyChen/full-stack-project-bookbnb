@@ -3,9 +3,15 @@ import { receiveBookings, receiveIndexBookings } from './booking_actions';
 
 export const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
 export const RECEIVE_LISTING = 'RECEIVE_LISTING';
+export const RECEIVE_TRIP_LISTINGS = 'RECEIVE_TRIP_LISTINGS';
 
 export const receiveListings = listings => ({
   type: RECEIVE_LISTINGS,
+  listings,
+});
+
+export const receiveTripListings = listings => ({
+  type: RECEIVE_TRIP_LISTINGS,
   listings,
 });
 
