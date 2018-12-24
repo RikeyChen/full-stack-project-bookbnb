@@ -28,6 +28,10 @@ class User < ApplicationRecord
   # has_many :reviews
   has_one_attached :image
 
+  has_many :getaways,
+    through: :bookings,
+    source: :listing
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)
