@@ -10,7 +10,7 @@ export const receiveListings = listings => ({
   listings,
 });
 
-export const receiveTripListings = listings => ({
+export const receiveTripsListings = listings => ({
   type: RECEIVE_TRIP_LISTINGS,
   listings,
 });
