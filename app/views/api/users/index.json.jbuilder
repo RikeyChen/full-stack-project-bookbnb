@@ -1,4 +1,4 @@
-json.users do
+json.user do
   json.extract! @user, :id, :email, :first_name
 
   if @user.image.attached?
