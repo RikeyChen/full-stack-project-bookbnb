@@ -39,7 +39,7 @@ class Listing < ApplicationRecord
     foreign_key: :host_id,
     class_name: :User
 
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   # has an average rating through reviews
 
