@@ -1,4 +1,4 @@
-import * as BookingApiUtil from '../util/booking_api_util';
+import createBookingUtil from '../util/booking_api_util';
 
 export const RECEIVE_BOOKINGS = 'RECEIVE_BOOKINGS';
 export const RECEIVE_INDEX_BOOKINGS = 'RECEIVE_INDEX_BOOKINGS';
@@ -31,7 +31,7 @@ export const clearErrors = () => ({
 });
 
 export const createBooking = (listingId, booking) => dispatch => (
-  BookingApiUtil.createBooking(listingId, booking)
+  createBookingUtil(listingId, booking)
     .then(
       booking => dispatch(receiveBooking(booking)),
       errors => dispatch(receiveErrors(errors.responseJSON)),
