@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(current_user.id)
     @bookings = @user.bookings
     @getaways = @user.getaways
-    render 'api/users/show'
+    render 'api/users/index'
   end
 
   def create
