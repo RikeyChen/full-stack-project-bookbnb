@@ -2,14 +2,18 @@ import React from 'react';
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
-import Slider, { Range } from 'rc-slider';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+
+const createSliderWithTooltip = Slider.createSliderWithTooltip;
+const RangeWithTooltip = createSliderWithTooltip(Slider.Range);
 
 class ListingsIndexSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      maxPrice: 1000,
+      minPrice: this.props.minPrice,
+      maxPrice: this.props.maxPrice,
       startDate: null,
       endDate: null,
       unsavedStartDate: null,
@@ -53,9 +57,11 @@ class ListingsIndexSidebar extends React.Component {
 
   handleSlide(e) {
     this.setState({
-      maxPrice: e.target.value,
+      minPrice: e[0],
+      maxPrice: e[1],
     });
 
+    this.props.updateFilter2('min_price', parseInt(this.state.minPrice));
     this.props.updateFilter2('max_price', parseInt(this.state.maxPrice));
   }
 
@@ -138,6 +144,7 @@ class ListingsIndexSidebar extends React.Component {
         ? 'disabledbutton'
         : ''
     );
+
     return (
       <aside className="listings-index-sidebar">
         <div className="sidebar-dates">
@@ -220,7 +227,18 @@ class ListingsIndexSidebar extends React.Component {
         <span className="price-range">Price range</span>
         <br />
         <div className="slidecontainer">
-          <input
+          <RangeWithTooltip
+            min={1}
+            max={1000}
+            onChange={this.handleSlide}
+            defaultValue={[this.state.minPrice, this.state.maxPrice]}
+            value={[this.state.minPrice, this.state.maxPrice]}
+            tipFormatter={value => `${value}`}
+            tipProps={{ overlayClassName: 'price' }}
+            step={1}
+            allowCross={false}
+          />
+          {/* <input
             onChange={this.handleSlide}
             min={1}
             max={1000}
@@ -229,7 +247,7 @@ class ListingsIndexSidebar extends React.Component {
             id="mySlider"
             value={this.state.maxPrice}
             step={1}
-          />
+          /> */}
         </div>
       </aside>
     );

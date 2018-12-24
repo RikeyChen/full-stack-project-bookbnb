@@ -7,6 +7,7 @@ const defaultFilters = Object.freeze({
     southWest: { lat: 37.72374705944836, lng: -122.46461158752442 },
   },
   guests: 1,
+  min_price: 1,
   max_price: 1000,
   dates: {},
 });
