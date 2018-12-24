@@ -238,16 +238,6 @@ class ListingsIndexSidebar extends React.Component {
             step={1}
             allowCross={false}
           />
-          {/* <input
-            onChange={this.handleSlide}
-            min={1}
-            max={1000}
-            className="slider"
-            type="range"
-            id="mySlider"
-            value={this.state.maxPrice}
-            step={1}
-          /> */}
         </div>
       </aside>
     );
