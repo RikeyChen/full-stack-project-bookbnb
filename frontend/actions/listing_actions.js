@@ -3,7 +3,7 @@ import { receiveBookings, receiveIndexBookings } from './booking_actions';
 
 export const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
 export const RECEIVE_LISTING = 'RECEIVE_LISTING';
-export const RECEIVE_TRIP_LISTINGS = 'RECEIVE_TRIP_LISTINGS';
+export const RECEIVE_TRIPS_LISTINGS = 'RECEIVE_TRIP_LISTINGS';
 
 export const receiveListings = listings => ({
   type: RECEIVE_LISTINGS,
@@ -11,7 +11,7 @@ export const receiveListings = listings => ({
 });
 
 export const receiveTripsListings = listings => ({
-  type: RECEIVE_TRIP_LISTINGS,
+  type: RECEIVE_TRIPS_LISTINGS,
   listings,
 });
 
