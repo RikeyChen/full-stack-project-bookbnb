@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ListingsIndex from './listings_index';
-import { updateFilter, updateFilter2 } from '../../../actions/filter_actions';
+import { updateFilter, updateFilter2, clearFilters } from '../../../actions/filter_actions';
 
 const mSp = (state) => {
   const guestsFilter = state.ui.filters.guests;
@@ -46,6 +46,7 @@ const mSp = (state) => {
 const mDp = dispatch => ({
   updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
   updateFilter2: (filter, value) => dispatch(updateFilter2(filter, value)),
+  clearFilters: () => dispatch(clearFilters()),
 });
 
 export default connect(mSp, mDp)(ListingsIndex);

@@ -36,6 +36,7 @@ class ListingsIndexSidebar extends React.Component {
 
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside, false);
+    this.props.clearFilters();
   }
 
   handleClickOutside(e) {
