@@ -20,8 +20,9 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  # associations - need to fill out (prob not one-liners)
-  # has_many :bookings
+  has_many :bookings
+    foreign_key: :guest_id,
+    class_name: :Booking
   # has_many :reviews
   has_one_attached :image
 
