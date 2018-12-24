@@ -12,6 +12,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ListingShowContainer from './listings/listings_show/listing_show_container';
 import ListingsIndexContainer from './listings/listings_index/listings_index_container';
 import SplashContainer from './splash/splash_container';
+import TripsContainer from './trips/trips_container';
 
 const App = ({ location }) => {
   const logo = (
@@ -35,6 +36,7 @@ const App = ({ location }) => {
         <AuthRoute exact path="/" component={SplashContainer} />
         <Route exact path="/listings" component={ListingsIndexContainer} />
         <Route path="/listings/:listingId" component={ListingShowContainer} />
+        <ProtectedRoute exact path="/trips" component={TripsContainer} />
       </Switch>
     </div>
   );
