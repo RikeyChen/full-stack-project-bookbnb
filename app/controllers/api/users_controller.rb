@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def index
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     @bookings = @user.bookings
     render 'api/users/show'
   end
