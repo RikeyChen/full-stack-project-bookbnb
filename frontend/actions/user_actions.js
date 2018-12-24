@@ -1,4 +1,4 @@
-import * as UserApiUtil from '../util/user_api_util';
+import fetchUserUtil from '../util/user_api_util';
 import { receiveListings } from './listing_actions';
 import { receiveBookings } from './booking_actions';
 
@@ -10,7 +10,7 @@ export const receiveUser = user => ({
 });
 
 export const fetchUser = () => dispatch => (
-  UserApiUtil.fetchUser()
+  fetchUserUtil()
     .then(payload => (
       dispatch(receiveUser(payload.user)),
       dispatch(receiveListings(payload.listings)),
