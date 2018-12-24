@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  def show
+  def index
     @user = User.find(params[:id])
     @bookings = @user.bookings
     render 'api/users/show'
