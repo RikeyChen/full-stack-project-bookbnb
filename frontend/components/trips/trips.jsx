@@ -12,9 +12,13 @@ class Trips extends React.Component {
     return (
       <div className="trips-main">
         <h1 className="trips-welcome-message">
-          Hi,
           {' '}
-          {currentUser.first_name}
+          <span>
+            Welcome back,
+            {' '}
+            {currentUser.first_name}
+          </span>
+          <img className="trips-user-pic" src={currentUser.photo_url} alt="" />
         </h1>
         <h2>Upcoming Trips</h2>
         <hr />
