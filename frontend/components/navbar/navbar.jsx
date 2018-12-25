@@ -96,7 +96,7 @@ class NavBar extends React.Component {
     }
 
     let display;
-    if (currentUser === undefined) {
+    if (!currentUser) {
       display = (
         <div className="navbar-search-links-innerdiv">
           <nav className="navbar-search">
