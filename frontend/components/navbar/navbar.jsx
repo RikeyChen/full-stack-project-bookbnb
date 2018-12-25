@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -130,7 +131,7 @@ class NavBar extends React.Component {
           </nav>
           <nav className="navbar-links">
             <button>Become a host</button>
-            <button>Trips</button>
+            <Link to="/trips"><button>Trips</button></Link>
             <button>Help</button>
             <button onClick={() => {
               logout();
