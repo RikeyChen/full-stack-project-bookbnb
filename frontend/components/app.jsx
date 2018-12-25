@@ -34,9 +34,9 @@ const App = ({ location }) => {
       {Header}
       <Switch>
         <AuthRoute exact path="/" component={SplashContainer} />
+        <ProtectedRoute exact path="/trips" component={TripsContainer} />
         <Route exact path="/listings" component={ListingsIndexContainer} />
         <Route path="/listings/:listingId" component={ListingShowContainer} />
-        <ProtectedRoute exact path="/trips" component={TripsContainer} />
       </Switch>
     </div>
   );
