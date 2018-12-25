@@ -1,4 +1,5 @@
 import React from 'react';
+import TripsItem from './trips_item';
 
 class Trips extends React.Component {
   componentDidMount() {
@@ -7,7 +8,7 @@ class Trips extends React.Component {
 
   render() {
     if (!this.props.currentUser) return null;
-    const { currentUser } = this.props;
+    const { currentUser, listings, bookings } = this.props;
     return (
       <div>
         <h1>
@@ -16,7 +17,13 @@ class Trips extends React.Component {
           {currentUser.first_name}
         </h1>
         <h2>Upcoming Trips</h2>
-        <div />
+        <ul>
+          {bookings.map(booking => (
+            <li>
+              <TripsItem booking={booking} listing={listings[booking.listing_id]} />
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }
