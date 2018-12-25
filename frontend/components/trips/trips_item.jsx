@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TripsItem = ({ booking, listing }) => (
-  <li className="trips-item-main">
+  <Link to={`/listings/${listing.id}`} target="_blank" className="trips-item-main">
     <img className="trips-listing-pic" src={listing.listing_photo_url} alt="" />
     <img className="trips-host-pic" src={listing.host_photo_url} alt="" />
     <span>
@@ -22,7 +23,7 @@ const TripsItem = ({ booking, listing }) => (
       {' '}
       {booking.num_guests > 1 ? 'guests' : 'guest'}
     </span>
-  </li>
+  </Link>
 );
 
 export default TripsItem;
