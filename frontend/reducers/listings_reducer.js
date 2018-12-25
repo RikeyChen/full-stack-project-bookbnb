@@ -9,7 +9,9 @@ const listingsReducer = (oldState = {}, action) => {
         return Object.values(action.listings);
       } return {};
     case RECEIVE_TRIPS_LISTINGS:
-      return action.listings;
+      if (action.listings) {
+        return action.listings;
+      } return null;
     case RECEIVE_LISTING:
       const newListing = { [action.listing.id]: action.listing };
       return merge({}, oldState, newListing);
