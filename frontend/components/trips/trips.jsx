@@ -9,20 +9,18 @@ class Trips extends React.Component {
   render() {
     const { currentUser, listings, bookings } = this.props;
     if (!currentUser || !bookings.length) return null;
-    console.log(bookings);
     return (
-      <div>
-        <h1>
+      <div className="trips-main">
+        <h1 className="trips-welcome-message">
           Hi,
           {' '}
           {currentUser.first_name}
         </h1>
         <h2>Upcoming Trips</h2>
-        <ul>
+        <hr />
+        <ul className="trips-items">
           {bookings.map(booking => (
-            <li>
-              <TripsItem booking={booking} listing={listings[booking.listing_id]} />
-            </li>
+            <TripsItem booking={booking} listing={listings[booking.listing_id]} key={booking.id} />
           ))}
         </ul>
       </div>
