@@ -7,8 +7,9 @@ class Trips extends React.Component {
   }
 
   render() {
-    if (!this.props.currentUser) return null;
     const { currentUser, listings, bookings } = this.props;
+    if (!currentUser || !bookings.length) return null;
+    console.log(bookings);
     return (
       <div>
         <h1>
