@@ -11,9 +11,11 @@ const RangeWithTooltip = createSliderWithTooltip(Slider.Range);
 class ListingsIndexSidebar extends React.Component {
   constructor(props) {
     super(props);
+    this.defaultMinPrice = this.props.minPrice,
+    this.defaultMaxPrice = this.props.maxPrice,
     this.state = {
-      minPrice: this.props.minPrice,
-      maxPrice: this.props.maxPrice,
+      minPrice: this.defaultMinPrice,
+      maxPrice: this.defaultMaxPrice,
       startDate: null,
       endDate: null,
       focusedInput: null,
@@ -30,6 +32,7 @@ class ListingsIndexSidebar extends React.Component {
     this.onFocusChange = this.onFocusChange.bind(this);
     this.applyChanges = this.applyChanges.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.handleClearFilters = this.handleClearFilters.bind(this);
   }
 
   componentWillMount() {
@@ -65,6 +68,23 @@ class ListingsIndexSidebar extends React.Component {
 
   handleDateChange({ startDate, endDate }) {
     this.setState({ startDate, endDate, focusedInput: 'endDate' });
+  }
+
+  handleClearFilters(e) {
+    e.preventDefault();
+    this.props.clearFilters();
+    this.setState({
+      minPrice: this.defaultMinPrice,
+      maxPrice: this.defaultMaxPrice,
+      startDate: null,
+      endDate: null,
+      focusedInput: null,
+      openDropdown: 'hidden',
+      numGuests: 1,
+      numAdults: 1,
+      numChildren: 0,
+      numInfants: 0,
+    });
   }
 
   onFocusChange(focusedInput) {
@@ -223,13 +243,15 @@ class ListingsIndexSidebar extends React.Component {
             min={1}
             max={1000}
             onChange={this.handleSlide}
-            defaultValue={[this.state.minPrice, this.state.maxPrice]}
             value={[this.state.minPrice, this.state.maxPrice]}
             tipFormatter={value => `${value}`}
             tipProps={{ overlayClassName: 'price' }}
             step={1}
             allowCross={false}
           />
+        </div>
+        <div className="clear-filters-btn">
+          <button onClick={this.handleClearFilters}>Clear Filters</button>
         </div>
       </aside>
     );
