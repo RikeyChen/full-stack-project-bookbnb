@@ -77,8 +77,18 @@ class Trips extends React.Component {
           {userPic}
         </h1>
         <div className="trips-tabs">
-          <h2 onClick={this.handleTabClick('Upcoming Trips')}>Upcoming Trips</h2>
-          <h2 onClick={this.handleTabClick('Past Trips')}>Past Trips</h2>
+          <h2
+            onClick={this.handleTabClick('Upcoming Trips')}
+            className={currentTab === 'Upcoming Trips' ? 'active' : ''}
+          >
+            Upcoming Trips
+          </h2>
+          <h2
+            onClick={this.handleTabClick('Past Trips')}
+            className={currentTab === 'Past Trips' ? 'active' : ''}
+          >
+            Past Trips
+          </h2>
         </div>
         <hr />
         {trips}
