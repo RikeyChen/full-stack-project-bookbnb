@@ -60,13 +60,6 @@
   }
 }
 
-@media (max-width: 1318px) {
-  .listings-index-map {
-    display: none;
-    visibility: hidden;
-  }
-}
-
 @media (min-width: 1461px) {
   .listings-index-map {
     width: calc(100% - 1080px);
