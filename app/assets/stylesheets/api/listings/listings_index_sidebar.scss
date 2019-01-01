@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   border-right: 1px solid #EBEBEB;
+  background-color: #FFFFFF;
 }
 
 .sidebar-dates {
@@ -226,4 +227,21 @@
 
 .price {
   z-index: 1;
+}
+
+.clear-filters-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.clear-filters-btn > button {
+  font-size: 14px;
+  border: none;
+  color: #007B7C;
+}
+
+.clear-filters-btn > button:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
