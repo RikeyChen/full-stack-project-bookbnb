@@ -46,7 +46,7 @@ class Trips extends React.Component {
   }
 
   render() {
-    const { currentUser, listings, bookings } = this.props;
+    const { currentUser, listings } = this.props;
     const { currentTab, upcomingTrips, pastTrips } = this.state;
     const userPic = (
       currentUser.photo_url
@@ -54,17 +54,19 @@ class Trips extends React.Component {
         : null
     );
 
-    const trips = (
-      !currentUser || !bookings.length
-        ? <div>You do not have any upcoming trips</div>
-        : (
-          <ul className="trips-items">
-            {(currentTab === 'Upcoming Trips' ? upcomingTrips : pastTrips).map(booking => (
-              <TripsItem booking={booking} listing={listings[booking.listing_id]} key={booking.id} />
-            ))}
-          </ul>
-        )
-    );
+    let trips;
+    if ((!upcomingTrips.length && currentTab === 'Upcoming Trips')
+      || (!pastTrips.length && currentTab === 'Past Trips')) {
+      trips = <div>No trips found.</div>;
+    } else {
+      trips = (
+        <ul className="trips-items">
+          {(currentTab === 'Upcoming Trips' ? upcomingTrips : pastTrips).map(booking => (
+            <TripsItem booking={booking} listing={listings[booking.listing_id]} key={booking.id} />
+          ))}
+        </ul>
+      );
+    }
 
     return (
       <div className="trips-main">
