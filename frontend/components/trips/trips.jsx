@@ -8,7 +8,19 @@ class Trips extends React.Component {
 
   render() {
     const { currentUser, listings, bookings } = this.props;
-    if (!currentUser || !bookings.length) return null;
+
+    const trips = (
+      !currentUser || !bookings.length
+        ? <div>You do not have any upcoming trips</div>
+        : (
+          <ul className="trips-items">
+            {bookings.map(booking => (
+              <TripsItem booking={booking} listing={listings[booking.listing_id]} key={booking.id} />
+            ))}
+          </ul>
+        )
+    );
+
     return (
       <div className="trips-main">
         <h1 className="trips-welcome-message">
@@ -22,11 +34,7 @@ class Trips extends React.Component {
         </h1>
         <h2>Upcoming Trips</h2>
         <hr />
-        <ul className="trips-items">
-          {bookings.map(booking => (
-            <TripsItem booking={booking} listing={listings[booking.listing_id]} key={booking.id} />
-          ))}
-        </ul>
+        {trips}
       </div>
     );
   }
