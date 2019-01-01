@@ -23,10 +23,12 @@
 
   json.bookings do
     if listing.bookings.length > 0
+      unavailable_dates = []
       listing.bookings.each do |booking|
-        json.set! booking.listing_id do
-          json.extract! booking, :id, :unavailable_dates, :listing_id
-        end
+        unavailable_dates += booking.unavailable_dates
+      end
+      json.set! listing.id do
+        json.unavailable_dates unavailable_dates
       end
     end
   end
