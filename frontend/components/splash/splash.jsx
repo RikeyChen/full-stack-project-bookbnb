@@ -8,6 +8,7 @@ class SplashPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      input: '',
       startDate: null,
       endDate: null,
       focusedInput: null,
@@ -174,7 +175,7 @@ class SplashPage extends React.Component {
               <div>
                 <div className="splash-search-section">
                   <span>WHERE</span>
-                  <input type="text" id="splash-search-bar" placeholder="Anywhere" />
+                  <input type="text" id="splash-search-bar" placeholder="Anywhere" onChange={this.setInput('input')} />
                 </div>
               </div>
               <div className="splash-dates">
