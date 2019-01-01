@@ -45,18 +45,21 @@
   right: 0;
 }
 
-
 @media (min-width: 1549px) {
   .listings-index-map {
     width: 500px;
   }
 }
 
-
-
 @media (min-width: 1317px) {
   .listings-index-map {
     width: calc(100% - 1080px);
+  }
+}
+
+@media (max-width: 1318px) {
+  .listings-index-map {
+    width: 450px;
   }
 }
 
