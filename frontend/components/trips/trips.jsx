@@ -2,8 +2,8 @@ import React from 'react';
 import TripsItem from './trips_item';
 
 const parseDate = (date) => {
-  const dd = date.getDate();
-  const mm = date.getMonth() + 1;
+  const dd = (`0${date.getDate()}`).slice(-2);
+  const mm = (`0${date.getMonth() + 1}`).slice(-2);
   const yyyy = date.getFullYear();
   return `${yyyy}-${mm}-${dd}`;
 };
