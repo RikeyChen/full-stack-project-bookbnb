@@ -8,7 +8,7 @@ const mSp = (state) => {
 
   const datesFilter = state.ui.filters.dates.start_date && state.ui.filters.dates.end_date ? state.ui.filters.dates : null;
 
-  let listings = Object.values(state.entities.listings);
+  let listings = state.entities.listings ? Object.values(state.entities.listings) : [];
 
   if (guestsFilter) {
     listings = listings.filter(listing => (
