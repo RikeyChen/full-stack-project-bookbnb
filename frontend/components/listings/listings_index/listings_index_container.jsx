@@ -26,13 +26,15 @@ const mSp = (state) => {
   if (datesFilter && listings) {
     listings.forEach((listing, idx) => {
       if (state.entities.bookings[listing.id]) {
-        if (state.entities.bookings[listing.id].unavailable_dates.includes(parseDate(datesFilter.start_date)) || state.entities.bookings[listing.id].unavailable_dates.includes(parseDate(datesFilter.end_date))) {
+        if (state.entities.bookings[listing.id].unavailable_dates.some(date => ((date >= parseDate(datesFilter.start_date))
+          && (date <= parseDate(datesFilter.end_date))))) {
           delete listings[idx];
         }
       }
     });
     listings = listings.filter(el => el != null);
   }
+
   listings = listings.filter(el => el.price >= state.ui.filters.min_price && el.price <= state.ui.filters.max_price);
 
   return (
