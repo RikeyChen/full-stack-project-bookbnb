@@ -26,6 +26,11 @@
 .trips-main h2 {
   margin-left: 30px;
   font-size: 22px;
+  cursor: pointer;
+}
+
+.active {
+  border-bottom: 1px solid black;
 }
 
 .trips-items {
