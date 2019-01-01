@@ -16,8 +16,6 @@ class ListingsIndexSidebar extends React.Component {
       maxPrice: this.props.maxPrice,
       startDate: null,
       endDate: null,
-      unsavedStartDate: null,
-      unsavedEndDate: null,
       focusedInput: null,
       openDropdown: 'hidden',
       numGuests: 1,
@@ -77,10 +75,6 @@ class ListingsIndexSidebar extends React.Component {
 
   applyChanges() {
     this.setState({
-      startDate: this.state.unsavedStartDate,
-      unsavedStartDate: null,
-      endDate: this.state.unsavedEndDate,
-      unsavedEndDate: null,
       focusedInput: null,
     });
 
@@ -152,15 +146,13 @@ class ListingsIndexSidebar extends React.Component {
           <DateRangePicker
             startDateId="startDate"
             endDateId="endDate"
-            startDate={this.state.unsavedStartDate || this.state.startDate}
-            endDate={this.state.unsavedEndDate || this.state.endDate}
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
             onDatesChange={this.handleDateChange}
             focusedInput={this.state.focusedInput}
             onFocusChange={this.onFocusChange}
             hideKeyboardShortcutsPanel
             small
-            showClearDates
-            reopenPickerOnClearDates
             startDatePlaceholderText="Check in"
             endDatePlaceholderText="Check out"
             renderCalendarInfo={() => (
