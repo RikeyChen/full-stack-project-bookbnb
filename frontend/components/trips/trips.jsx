@@ -8,6 +8,11 @@ class Trips extends React.Component {
 
   render() {
     const { currentUser, listings, bookings } = this.props;
+    const userPic = (
+      currentUser.photo_url
+        ? <img className="trips-user-pic" src={currentUser.photo_url} alt="" />
+        : null
+    );
 
     const trips = (
       !currentUser || !bookings.length
@@ -30,7 +35,7 @@ class Trips extends React.Component {
             {' '}
             {currentUser.first_name}
           </span>
-          <img className="trips-user-pic" src={currentUser.photo_url} alt="" />
+          {userPic}
         </h1>
         <h2>Upcoming Trips</h2>
         <hr />
