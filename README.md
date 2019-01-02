@@ -2,7 +2,7 @@
 
 Bookbnb, an Airbnb clone, is a full-stack web application that allows its users to offer lodging to others. Users can search for listings and request to book a listing of their choosing. Each listing has a show page that displays all the details of the listing to help the user make their choice.
 
-Check out Bookbnb here: bookbnb.herokuapp.com
+Check out Bookbnb here: <a href="https://bookbnb.herokuapp.com">Bookbnb Live</a>
 
 # Technologies
 
@@ -50,3 +50,4 @@ The listings index page includes 3 filters that is connected to the redux applic
 ## Sign up and Log In Modal
 The form included a button to open the other form while keeping the same modal open.  To do this, the modal was connected to the Redux application state. When a user clicks on the sign up or log in button, the an action is dispatched which alters the component to be displayed. Additionally, specific features of the view such as the `X` and darkened background were connected to the application state which would close the modal should the user click outside the form or on the `X`.
 
+[Imgur](https://i.imgur.com/l6zRsF4.gifv)
