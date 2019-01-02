@@ -29,14 +29,20 @@ The booking form also includes a dropdown to add additional guests to the bookin
 #### Google Map
 The page also includes a Google map that is centered around the listing's neighborhood.
 
+![show_page](app/assets/images/readme/show_page.gif)
+
 #### Details and Display
 Amazon Web Services - S3 was implemented to store the images displayed on the listing show page. These images are specific to each listing. Copious styling was applied to recreate the same user interface as the actual Airbnb website: image effects on hover, listing's details, additional guests dropdown, and booking form.
+
+![show_page](app/assets/images/readme/show_page_screenshot.png)
 
 ## Listings Index Page
 
 #### Google Maps and Places: Autocomplete
 
 On the listings index page, the Google Map Places: Autocomplete API is connected to the search bar which then connects to the map. This allow users to search for listings in a specific city and the results will be displayed on the map. Users could also search a city on the home page which would redirect them to the listings page with the entered city's results. To do this, Google's geocoding feature is applied to parse the user's input into latitude and longitude coordinates. These coordinates are then pushed to the browser history in which the Google map parses and renders markers for listings inside those bounds.
+
+![index_search](app/assets/images/readme/index_search.gif)
 
 #### Filters
 
@@ -47,7 +53,9 @@ The listings index page includes 3 filters that is connected to the redux applic
 
   - Price range - Implemented with React-Slider.Range. When applied, listings that fall out of the filtered price range will not display.
 
+![index_filters](app/assets/images/readme/index_filters.gif)
+
 ## Sign up and Log In Modal
 The form included a button to open the other form while keeping the same modal open.  To do this, the modal was connected to the Redux application state. When a user clicks on the sign up or log in button, the an action is dispatched which alters the component to be displayed. Additionally, specific features of the view such as the `X` and darkened background were connected to the application state which would close the modal should the user click outside the form or on the `X`.
 
-[Imgur](https://i.imgur.com/l6zRsF4.gifv)
+![modal](app/assets/images/readme/modal.gif)
