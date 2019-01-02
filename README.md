@@ -29,7 +29,7 @@ The booking form also includes a dropdown to add additional guests to the bookin
 #### Google Map
 The page also includes a Google map that is centered around the listing's neighborhood.
 
-![show_page](app/assets/images/readme/show_page.gif)
+![show_page](app/assets/images/readme/show_page2.gif)
 
 #### Details and Display
 Amazon Web Services - S3 was implemented to store the images displayed on the listing show page. These images are specific to each listing. Copious styling was applied to recreate the same user interface as the actual Airbnb website: image effects on hover, listing's details, additional guests dropdown, and booking form.
