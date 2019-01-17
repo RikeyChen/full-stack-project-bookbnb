@@ -131,7 +131,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 3%;
+  top: 5%;
   margin: auto;
   background-color: #FFFFFF;
   border: 1px solid #888;
@@ -141,6 +141,12 @@
   padding: 32px;
   font-size: 20px;
   overflow: hidden;
+}
+
+@media (max-height: 700px) {
+  .signlog-modal-form {
+    top: 2%;
+  }
 }
 
 .signlog-modal-form input {
