@@ -104,8 +104,6 @@ class NavBar extends React.Component {
             {searchBar}
           </nav>
           <nav className={location.pathname === '/' ? 'navbar-links-splash' : 'navbar-links'}>
-            <button>Become a host</button>
-            <button>Help</button>
             <button onClick={() => {
               openModal('Sign up');
               clearSessionErrors();
@@ -130,9 +128,7 @@ class NavBar extends React.Component {
             {searchBar}
           </nav>
           <nav className="navbar-links">
-            <button>Become a host</button>
             <Link to="/trips"><button>Trips</button></Link>
-            <button>Help</button>
             <button onClick={() => {
               logout();
               clearErrors();
