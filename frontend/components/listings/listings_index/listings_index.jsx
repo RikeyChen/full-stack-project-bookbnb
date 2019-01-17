@@ -14,12 +14,31 @@ class ListingsIndex extends React.Component {
         );
       })
     );
+
+    const suggestions = (
+      homeCount === 0
+        ? (
+          <header>
+            Try one of these awesome cities:
+            <br />
+            <br />
+            <li>San Francisco</li>
+            <li>New York</li>
+            <li>Los Angeles</li>
+            <li>Houston</li>
+            <li>Seattle</li>
+          </header>
+        )
+        : null
+    );
+
     return (
       <div className="listings-index-master">
         <ListingsIndexSidebar updateFilter={this.props.updateFilter} updateFilter2={this.props.updateFilter2} maxPrice={this.props.maxPrice} clearFilters={this.props.clearFilters} minPrice={this.props.minPrice} />
         <div className="listings-index-map-container">
           <main className="listings-index-main">
             <header>{`${homeCount} homes in this area`}</header>
+            {suggestions}
             <div className="listings-index-items">
               {items}
             </div>
