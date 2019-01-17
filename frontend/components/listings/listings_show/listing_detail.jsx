@@ -151,7 +151,7 @@ class ListingDetail extends React.Component {
             </div>
           </header>
           <div className="listing-detail-description">{listing.description}</div>
-          <div className="listing-detail-info-btn">
+          {/* <div className="listing-detail-info-btn">
             Read more about the space
             <i className="arrow down" />
           </div>
@@ -159,7 +159,7 @@ class ListingDetail extends React.Component {
           <br />
           <div className="listing-detail-contact-btn">
             Contact Host
-          </div>
+          </div> */}
           <hr />
           <section className="listing-detail-amenities">
             <h1>Amenities</h1>
