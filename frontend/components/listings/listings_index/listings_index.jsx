@@ -18,7 +18,7 @@ class ListingsIndex extends React.Component {
     const suggestions = (
       homeCount === 0
         ? (
-          <header className="suggestions">
+          <header id="suggestions">
             Try one of these awesome cities:
             <br />
             <br />
