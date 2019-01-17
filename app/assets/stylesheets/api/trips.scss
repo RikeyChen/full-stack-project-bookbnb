@@ -15,6 +15,7 @@
 .trips-user-pic {
   width: 80px;
   height: 75px;
+  object-fit: cover;
   border-radius: 50%;
   margin: 0px 15px;
 }
@@ -61,6 +62,7 @@
 .trips-host-pic {
   width: 50px;
   height: 50px;
+  object-fit: cover;
   border: 1px solid lightgray;
   border-radius: 50%;
   margin-top: -25px;
