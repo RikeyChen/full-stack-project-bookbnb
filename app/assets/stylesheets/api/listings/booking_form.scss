@@ -283,3 +283,10 @@
 .booking-errors span {
   width: 15px;
 }
+
+@media (max-height: 690px) {
+  .booking-form > div:last-of-type, .booking-form > hr:last-of-type, #not-charged-text {
+    display: none;
+  }
+}
+
