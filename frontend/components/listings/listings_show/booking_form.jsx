@@ -78,6 +78,7 @@ class BookingForm extends React.Component {
           numInfants: 0,
           openDropdown: 'hidden',
         });
+        this.props.history.push('/trips');
       });
   }
 
