@@ -57,7 +57,7 @@
 
 .navbar-links-splash {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-right: 10px;
   width: 346px;
 }
@@ -85,7 +85,7 @@
 
 .navbar-links {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-right: 10px;
   width: 346px;
 }
@@ -233,4 +233,33 @@ hr {
 .demo-div {
   display: flex;
   justify-content: center;
+}
+
+.portfolio-links {
+  display: flex;
+  align-items: center;
+}
+
+.github {
+  background-image: image-url('github_logo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+}
+
+.linkedin {
+  background-image: image-url('linkedin_logo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+}
+
+#github-w {
+  background-image: image-url('github_logo_w.png');
+}
+
+#linkedin-w {
+  background-image: image-url('linkedin_logo_w.png');
 }
