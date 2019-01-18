@@ -1,9 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import 'react-dates/initialize';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
-import momentPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
 
 class BookingForm extends React.Component {
@@ -226,8 +224,6 @@ class BookingForm extends React.Component {
           startDatePlaceholderText="Check in"
           endDatePlaceholderText="Check out"
           isDayBlocked={this.isDayBlocked}
-          arrowIcon
-        // small
         />
         <span id="guests-label">Guests</span>
         <div className="booking-form-dropdown" ref={node => this.node = node}>
