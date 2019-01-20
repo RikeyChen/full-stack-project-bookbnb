@@ -113,6 +113,13 @@ class NavBar extends React.Component {
           </nav>
           <nav className={location.pathname === '/' ? 'navbar-links-splash' : 'navbar-links'}>
             <a
+              href="https://www.rikeychen.com"
+              className="portfolio-links"
+              target="blank"
+            >
+              <div className="portfolio" id="portfolio" />
+            </a>
+            <a
               href="https://github.com/RikeyChen/full-stack-project-bookbnb"
               className="portfolio-links"
               target="blank"
@@ -150,6 +157,13 @@ class NavBar extends React.Component {
             {searchBar}
           </nav>
           <nav className="navbar-links">
+            <a
+              href="https://www.rikeychen.com"
+              className="portfolio-links"
+              target="blank"
+            >
+              <div className="portfolio" id="portfolio" />
+            </a>
             <a
               href="https://github.com/RikeyChen/full-stack-project-bookbnb"
               className="portfolio-links"

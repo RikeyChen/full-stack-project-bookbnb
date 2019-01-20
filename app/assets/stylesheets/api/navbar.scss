@@ -256,6 +256,14 @@ hr {
   width: 40px;
 }
 
+.portfolio {
+  background-image: image-url('portfolio_favicon2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40px;
+  width: 52px;
+}
+
 #github-w {
   background-image: image-url('github_logo_w.png');
 }
@@ -263,3 +271,4 @@ hr {
 #linkedin-w {
   background-image: image-url('linkedin_logo_w.png');
 }
+
