@@ -96,14 +96,6 @@ class NavBar extends React.Component {
       searchBar = (<input id="searchbar" type="text" placeholder="Try San Francisco" value={this.state.input} onSubmit={this.handleSubmit} onChange={this.setInput('input')} />);
     }
 
-    const linkedInLogo = (
-      location.pathname === '/' ? 'linkedin-w' : 'linkedin'
-    );
-
-    const githubLogo = (
-      location.pathname === '/' ? 'github-w' : 'github'
-    );
-
     let display;
     if (!currentUser) {
       display = (
@@ -112,27 +104,6 @@ class NavBar extends React.Component {
             {searchBar}
           </nav>
           <nav className={location.pathname === '/' ? 'navbar-links-splash' : 'navbar-links'}>
-            <a
-              href="https://www.rikeychen.com"
-              className="portfolio-links"
-              target="blank"
-            >
-              <div className="portfolio" id="portfolio" />
-            </a>
-            <a
-              href="https://github.com/RikeyChen/full-stack-project-bookbnb"
-              className="portfolio-links"
-              target="blank"
-            >
-              <div className="github" id={githubLogo} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/rikeychen/"
-              className="portfolio-links"
-              target="blank"
-            >
-              <div className="linkedin" id={linkedInLogo} />
-            </a>
             <button onClick={() => {
               openModal('Sign up');
               clearSessionErrors();
@@ -157,27 +128,6 @@ class NavBar extends React.Component {
             {searchBar}
           </nav>
           <nav className="navbar-links">
-            <a
-              href="https://www.rikeychen.com"
-              className="portfolio-links"
-              target="blank"
-            >
-              <div className="portfolio" id="portfolio" />
-            </a>
-            <a
-              href="https://github.com/RikeyChen/full-stack-project-bookbnb"
-              className="portfolio-links"
-              target="blank"
-            >
-              <div className="github" id={githubLogo} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/rikeychen/"
-              className="portfolio-links"
-              target="blank"
-            >
-              <div className="linkedin" id={linkedInLogo} />
-            </a>
             <Link to="/trips"><button>Trips</button></Link>
             <button onClick={() => {
               logout();
