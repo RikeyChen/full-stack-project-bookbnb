@@ -12,19 +12,19 @@ class ListingsIndexSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.defaultMinPrice = this.props.minPrice,
-    this.defaultMaxPrice = this.props.maxPrice,
-    this.state = {
-      minPrice: this.defaultMinPrice,
-      maxPrice: this.defaultMaxPrice,
-      startDate: null,
-      endDate: null,
-      focusedInput: null,
-      openDropdown: 'hidden',
-      numGuests: 1,
-      numAdults: 1,
-      numChildren: 0,
-      numInfants: 0,
-    };
+      this.defaultMaxPrice = this.props.maxPrice,
+      this.state = {
+        minPrice: this.defaultMinPrice,
+        maxPrice: this.defaultMaxPrice,
+        startDate: null,
+        endDate: null,
+        focusedInput: null,
+        openDropdown: 'hidden',
+        numGuests: 1,
+        numAdults: 1,
+        numChildren: 0,
+        numInfants: 0,
+      };
     this.openDropdown = this.openDropdown.bind(this);
     this.handleApplyGuests = this.handleApplyGuests.bind(this);
     this.handleSlide = this.handleSlide.bind(this);
@@ -252,6 +252,29 @@ class ListingsIndexSidebar extends React.Component {
         </div>
         <div className="clear-filters-btn">
           <button onClick={this.handleClearFilters}>Clear Filters</button>
+        </div>
+        <div className="not-splash-portfolio">
+          <a
+            href="https://www.rikeychen.com"
+            className="portfolio-links"
+            target="blank"
+          >
+            <div className="portfolio" id="portfolio" />
+          </a>
+          <a
+            href="https://github.com/RikeyChen/full-stack-project-bookbnb"
+            className="portfolio-links"
+            target="blank"
+          >
+            <div className="github" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/rikeychen/"
+            className="portfolio-links"
+            target="blank"
+          >
+            <div className="linkedin" />
+          </a>
         </div>
       </aside>
     );
