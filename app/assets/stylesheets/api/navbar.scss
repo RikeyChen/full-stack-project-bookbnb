@@ -83,8 +83,7 @@
 .navbar-links {
   display: flex;
   justify-content: space-between;
-  margin-right: 10px;
-  width: 346px;
+  // width: 346px;
 }
 
 .navbar-links button:hover {
@@ -101,11 +100,12 @@
   width: 70px;
   font-size: 14px;
   font-weight: 500;
+  margin: 0 10px;
 }
 
-.navbar-links > button:first-child {
-  width: 150px;
-}
+// .navbar-links > button:first-child {
+//   width: 150px;
+// }
 
 .modal-child {
   width: 0;
