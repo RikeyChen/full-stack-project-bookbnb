@@ -169,92 +169,117 @@ class SplashPage extends React.Component {
     return (
       <div>
         <div id="splash-pic">
-          <div className="splash-search-container">
-            <div className="splash-search">
-              <h1>Find a place anywhere.</h1>
-              <div>
+          <div className="splash-search-main">
+            <div className="splash-search-container">
+              <div className="splash-search">
+                <h1>Find a place anywhere.</h1>
+                <div>
+                  <div className="splash-search-section">
+                    <span>WHERE</span>
+                    <input type="text" id="splash-search-bar" placeholder="Anywhere" onChange={this.setInput('input')} />
+                  </div>
+                </div>
+                <div className="splash-dates">
+                  <div className="splash-dates-text">
+                    <span>CHECK IN</span>
+                    <span>CHECK OUT</span>
+                  </div>
+                  <DateRangePicker
+                    startDateId="splashStartDate"
+                    endDateId="splashEndDate"
+                    startDate={this.state.startDate}
+                    endDate={this.state.endDate}
+                    onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
+                    focusedInput={this.state.focusedInput}
+                    onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
+                    hideKeyboardShortcutsPanel
+                    small
+                    showClearDates
+                    reopenPickerOnClearDates
+                    startDatePlaceholderText="Check in"
+                    endDatePlaceholderText="Check out"
+                  />
+                </div>
                 <div className="splash-search-section">
-                  <span>WHERE</span>
-                  <input type="text" id="splash-search-bar" placeholder="Anywhere" onChange={this.setInput('input')} />
-                </div>
-              </div>
-              <div className="splash-dates">
-                <div className="splash-dates-text">
-                  <span>CHECK IN</span>
-                  <span>CHECK OUT</span>
-                </div>
-                <DateRangePicker
-                  startDateId="splashStartDate"
-                  endDateId="splashEndDate"
-                  startDate={this.state.startDate}
-                  endDate={this.state.endDate}
-                  onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }); }}
-                  focusedInput={this.state.focusedInput}
-                  onFocusChange={(focusedInput) => { this.setState({ focusedInput }); }}
-                  hideKeyboardShortcutsPanel
-                  small
-                  showClearDates
-                  reopenPickerOnClearDates
-                  startDatePlaceholderText="Check in"
-                  endDatePlaceholderText="Check out"
-                />
-              </div>
-              <div className="splash-search-section">
-                <span>GUESTS</span>
-                <div className="splash-dropdown" ref={node => this.node = node}>
-                  <button className="splash-search-dropdown-btn" onClick={this.openDropdown}>
-                    {this.state.numGuests}
-                    {' '}
-                    {this.state.numGuests > 1 ? 'guests' : 'guest'}
-                    {this.state.numInfants > 0 ? `, ${this.state.numInfants}` : null}
-                    {' '}
-                    {this.state.numInfants > 0 ? (this.state.numInfants === 1 ? 'infant' : 'infants') : null}
-                  </button>
-                  <div
-                    className="splash-search-dropdown"
-                    id={this.state.openDropdown}
-                  >
-                    <div>
-                      <div id="splash-adults">
-                        <div>
-                          <span>Adults</span>
+                  <span>GUESTS</span>
+                  <div className="splash-dropdown" ref={node => this.node = node}>
+                    <button className="splash-search-dropdown-btn" onClick={this.openDropdown}>
+                      {this.state.numGuests}
+                      {' '}
+                      {this.state.numGuests > 1 ? 'guests' : 'guest'}
+                      {this.state.numInfants > 0 ? `, ${this.state.numInfants}` : null}
+                      {' '}
+                      {this.state.numInfants > 0 ? (this.state.numInfants === 1 ? 'infant' : 'infants') : null}
+                    </button>
+                    <div
+                      className="splash-search-dropdown"
+                      id={this.state.openDropdown}
+                    >
+                      <div>
+                        <div id="splash-adults">
+                          <div>
+                            <span>Adults</span>
+                          </div>
+                          <div className="calc">
+                            <div className={adultClassMinus} onClick={this.changeNumGuests('adult')}>-</div>
+                            <span>{this.state.numAdults}</span>
+                            <div onClick={this.changeNumGuests('adult')}>+</div>
+                          </div>
                         </div>
-                        <div className="calc">
-                          <div className={adultClassMinus} onClick={this.changeNumGuests('adult')}>-</div>
-                          <span>{this.state.numAdults}</span>
-                          <div onClick={this.changeNumGuests('adult')}>+</div>
+                        <div id="splash-children">
+                          <div className="children-text">
+                            <span>Children</span>
+                            <span>Ages 2-12</span>
+                          </div>
+                          <div className="calc">
+                            <div className={childClassMinus} onClick={this.changeNumGuests('child')}>-</div>
+                            <span>{this.state.numChildren}</span>
+                            <div onClick={this.changeNumGuests('child')}>+</div>
+                          </div>
                         </div>
-                      </div>
-                      <div id="splash-children">
-                        <div className="children-text">
-                          <span>Children</span>
-                          <span>Ages 2-12</span>
-                        </div>
-                        <div className="calc">
-                          <div className={childClassMinus} onClick={this.changeNumGuests('child')}>-</div>
-                          <span>{this.state.numChildren}</span>
-                          <div onClick={this.changeNumGuests('child')}>+</div>
-                        </div>
-                      </div>
-                      <div id="splash-infants">
-                        <div className="infants-text">
-                          <span>Infants</span>
-                          <span>Under 2</span>
-                        </div>
-                        <div className="calc">
-                          <div className={infantClassMinus} onClick={this.changeNumGuests('infant')}>-</div>
-                          <span>{this.state.numInfants}</span>
-                          <div className={infantClassPlus} onClick={this.changeNumGuests('infant')}>+</div>
+                        <div id="splash-infants">
+                          <div className="infants-text">
+                            <span>Infants</span>
+                            <span>Under 2</span>
+                          </div>
+                          <div className="calc">
+                            <div className={infantClassMinus} onClick={this.changeNumGuests('infant')}>-</div>
+                            <span>{this.state.numInfants}</span>
+                            <div className={infantClassPlus} onClick={this.changeNumGuests('infant')}>+</div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div className="splash-search-btn">
+                  <Link to="/">
+                    <button onClick={this.handleSubmit}>Search</button>
+                  </Link>
+                </div>
               </div>
-              <div className="splash-search-btn">
-                <Link to="/">
-                  <button onClick={this.handleSubmit}>Search</button>
-                </Link>
+              <div id="splash-portfolio">
+                <a
+                  href="https://www.rikeychen.com"
+                  className="portfolio-links"
+                  target="blank"
+                >
+                  <div className="portfolio" id="portfolio-w" />
+                </a>
+                <a
+                  href="https://github.com/RikeyChen/full-stack-project-bookbnb"
+                  className="portfolio-links"
+                  target="blank"
+                >
+                  <div className="github" id="github-w" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/rikeychen/"
+                  className="portfolio-links"
+                  target="blank"
+                >
+                  <div className="linkedin" id="linkedin-w" />
+                </a>
               </div>
             </div>
           </div>
