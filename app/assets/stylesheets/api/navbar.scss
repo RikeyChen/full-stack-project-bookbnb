@@ -58,8 +58,8 @@
 .navbar-links-splash {
   display: flex;
   justify-content: space-between;
-  margin-right: 10px;
-  width: 346px;
+  // margin-right: 10px;
+  // width: 346px;
 }
 
 .navbar-links-splash > button:hover {
@@ -77,10 +77,7 @@
   font-size: 14px;
   color: #FFFFFF;
   font-weight: 100;
-}
-
-.navbar-links-splash > button:first-child {
-  width: 150px;
+  margin: 0 10px;
 }
 
 .navbar-links {
