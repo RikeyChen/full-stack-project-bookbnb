@@ -30,7 +30,7 @@
 
 .listings-index-map {
   position: fixed;
-  height: 92vh;
+  height: 90%;
   top: 80px;
   right: 0;
 }
@@ -67,7 +67,8 @@
 }
 
 .listings-index-main > header {
-  margin: 20px 20px;
+  margin: 0px 20px;
+  padding: 20px 0px;
   font-weight: 900;
   font-family: 'Montserrat', sans-serif;
   font-size: 22px;
